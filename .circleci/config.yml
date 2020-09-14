@@ -1,9 +1,13 @@
 version: 2.1
+orbs:
+  node: circleci/node@4.0.0
 
 jobs:
+  test:
+    executor: node/default
 
-  install-dependencies:
     steps:
+      - checkout
       - restore_cache:
           name: Restore Yarn Package Cache
           keys:
@@ -16,44 +20,56 @@ jobs:
           key: yarn-packages-{{ checksum "yarn.lock" }}
           paths:
             - ~/.cache/yarn
-
-  test:
-    steps:
       - run:
-        command: yarn lint
-        name: Eslint
+          command: yarn lint
+          name: Eslint
       - run:
-        command: yarn test:ci --maxWorkers=2
-        name: Test
+          command: yarn test:ci --maxWorkers=2
+          name: Test
       - run:
-        command: yarn coveralls
-        name: Upload coverage report to Coveralls
+          command: yarn coveralls
+          name: Upload coverage report to Coveralls
 
   build_app:
+    executor: node/default
+
     steps:
+      - checkout
+      - restore_cache:
+          name: Restore Yarn Package Cache
+          keys:
+            - yarn-packages-{{ checksum "yarn.lock" }}
+      - run:
+          name: Install Dependencies
+          command: yarn install --frozen-lockfile
+      - save_cache:
+          name: Save Yarn Package Cache
+          key: yarn-packages-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
       - run:
           name: Build App
-          command: yarn build:staging
+          command: yarn build
 
 workflows:
   version: 2
 
-  docker:
-    - image: circleci/node:14.10.0
-      environment:
-        NODE_ENV: test
-
-  - checkout
-
   test-only:
     jobs:
-      - install-dependencies:
       - test:
+          filters:
+            branches:
+              ignore:
+                - develop
+                - master
 
   test-and-deploy:
     jobs:
-      - install-dependencies:
       - test:
+          filters:
+              branches:
+                only:
+                  - master
       - build_app:
           requires:
             - test
