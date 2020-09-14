@@ -1,0 +1,59 @@
+version: 2.1
+
+jobs:
+
+  install-dependencies:
+    steps:
+      - restore_cache:
+          name: Restore Yarn Package Cache
+          keys:
+            - yarn-packages-{{ checksum "yarn.lock" }}
+      - run:
+          name: Install Dependencies
+          command: yarn install --frozen-lockfile
+      - save_cache:
+          name: Save Yarn Package Cache
+          key: yarn-packages-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
+
+  test:
+    steps:
+      - run:
+        command: yarn lint
+        name: Eslint
+      - run:
+        command: yarn test:ci --maxWorkers=2
+        name: Test
+      - run:
+        command: yarn coveralls
+        name: Upload coverage report to Coveralls
+
+  build_app:
+    steps:
+      - run:
+          name: Build App
+          command: yarn build:staging
+
+workflows:
+  version: 2
+
+  docker:
+    - image: circleci/node:14.10.0
+      environment:
+        NODE_ENV: test
+
+  - checkout
+
+  test-only:
+    jobs:
+      - install-dependencies:
+      - test:
+
+  test-and-deploy:
+    jobs:
+      - install-dependencies:
+      - test:
+      - build_app:
+          requires:
+            - test
