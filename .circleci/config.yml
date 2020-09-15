@@ -1,6 +1,7 @@
 version: 2.1
 orbs:
   node: circleci/node@4.0.0
+  heroku: circleci/heroku@1.2.2
 
 jobs:
   test:
@@ -30,26 +31,13 @@ jobs:
           command: yarn coveralls
           name: Upload coverage report to Coveralls
 
-  build_app:
-    executor: node/default
+  deploy_to_heroku:
+    executor: heroku/default
 
     steps:
       - checkout
-      - restore_cache:
-          name: Restore Yarn Package Cache
-          keys:
-            - yarn-packages-{{ checksum "yarn.lock" }}
-      - run:
-          name: Install Dependencies
-          command: yarn install --frozen-lockfile
-      - save_cache:
-          name: Save Yarn Package Cache
-          key: yarn-packages-{{ checksum "yarn.lock" }}
-          paths:
-            - ~/.cache/yarn
-      - run:
-          name: Build App
-          command: yarn build
+      - heroku/install
+      - heroku/deploy-via-git
 
 workflows:
   version: 2
@@ -70,6 +58,6 @@ workflows:
               branches:
                 only:
                   - master
-      - build_app:
+      - deploy_to_heroku:
           requires:
             - test
