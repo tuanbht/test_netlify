@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CryptoWallet renders template correctly 1`] = `
+<div>
+  <div
+    className="title"
+  >
+    To make a payment, send 
+    crypto-short-name
+     to the address below
+  </div>
+</div>
+`;
