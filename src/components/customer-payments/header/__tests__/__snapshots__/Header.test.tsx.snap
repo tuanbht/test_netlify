@@ -1,6 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Header renders template correctly 1`] = `
+exports[`Header can back is false renders template without arrow back button 1`] = `
+<WithStyles(ForwardRef(Container))
+  className="makeStyles-root-1"
+>
+  <div
+    className="makeStyles-title-2"
+  >
+    <ForwardRef(SvgPalomaLogo) />
+    <span>
+      Paloma Payments
+    </span>
+  </div>
+</WithStyles(ForwardRef(Container))>
+`;
+
+exports[`Header can back is true renders template with arrow back button 1`] = `
 <WithStyles(ForwardRef(Container))
   className="makeStyles-root-1"
 >

@@ -3,11 +3,138 @@
 exports[`CryptoWallet renders template correctly 1`] = `
 <div>
   <div
-    className="title"
+    className="makeStyles-title-14"
   >
     To make a payment, send 
     crypto-short-name
      to the address below
   </div>
+  <WithStyles(ForwardRef(Grid))
+    className="makeStyles-walletInfo-4"
+    container={true}
+  >
+    <WithStyles(ForwardRef(Grid))
+      item={true}
+    >
+      <div
+        className="makeStyles-label-6"
+      >
+        <CryptoLogo />
+        <span
+          className="makeStyles-labelName-7"
+        >
+          crypto-full-name
+           Amount
+        </span>
+        <span
+          className="makeStyles-labelAmount-8"
+        >
+          (76.25 USD)
+        </span>
+      </div>
+      <div
+        className="makeStyles-content-9"
+      >
+        <WithStyles(ForwardRef(OutlinedInput))
+          classes={
+            Object {
+              "input": "makeStyles-contentInfoText-11",
+              "root": "makeStyles-contentInfo-10",
+            }
+          }
+          endAdornment={
+            <ForwardRef(WithStyles)
+              className="makeStyles-contentInfoCryptoName-12"
+              position="end"
+            >
+              crypto-short-name
+            </ForwardRef(WithStyles)>
+          }
+          fullWidth={true}
+          readOnly={true}
+        />
+        <WithStyles(ForwardRef(Button))
+          className="makeStyles-root-17 makeStyles-root-18 makeStyles-copyButton-13"
+        >
+          Copy
+        </WithStyles(ForwardRef(Button))>
+      </div>
+    </WithStyles(ForwardRef(Grid))>
+    <WithStyles(ForwardRef(Grid))
+      className="makeStyles-walletAddress-5"
+      item={true}
+    >
+      <div
+        className="makeStyles-label-6"
+      >
+        <CryptoLogo />
+        <span
+          className="makeStyles-labelName-7"
+        >
+          crypto-full-name
+           Address
+        </span>
+      </div>
+      <div
+        className="makeStyles-content-9"
+      >
+        <WithStyles(ForwardRef(OutlinedInput))
+          classes={
+            Object {
+              "input": "makeStyles-contentInfoText-11",
+              "root": "makeStyles-contentInfo-10",
+            }
+          }
+          fullWidth={true}
+          readOnly={true}
+        />
+        <WithStyles(ForwardRef(Button))
+          className="makeStyles-root-17 makeStyles-root-18 makeStyles-copyButton-13"
+        >
+          Copy
+        </WithStyles(ForwardRef(Button))>
+      </div>
+    </WithStyles(ForwardRef(Grid))>
+  </WithStyles(ForwardRef(Grid))>
+  <ForwardRef(Modal)
+    className="makeStyles-qrCodeModal-1"
+    onClose={[Function]}
+    open={false}
+  >
+    <WithStyles(ForwardRef(Paper))
+      className="makeStyles-qrCodeContent-2"
+      elevation={3}
+    >
+      <div
+        className="makeStyles-qrCodeLabel-3"
+      >
+        <p />
+        <p>
+          crypto-short-name
+        </p>
+      </div>
+      <QRCode
+        bgColor="#FFFFFF"
+        fgColor="#000000"
+        includeMargin={false}
+        level="L"
+        renderAs="canvas"
+        size={128}
+        value="bitcoin:undefined?amount=undefined"
+      />
+    </WithStyles(ForwardRef(Paper))>
+  </ForwardRef(Modal)>
+  <WithStyles(ForwardRef(Button))
+    className="makeStyles-qrCodeButton-15"
+    onClick={[Function]}
+  >
+    QR Code
+  </WithStyles(ForwardRef(Button))>
+  <WithStyles(ForwardRef(Button))
+    className="makeStyles-paidButton-16"
+    onClick={[Function]}
+  >
+    Mark as Paid
+  </WithStyles(ForwardRef(Button))>
 </div>
 `;
