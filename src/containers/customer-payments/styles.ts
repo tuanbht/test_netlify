@@ -16,6 +16,7 @@ export default makeStyles({
     lineHeight: '18px',
     textAlign: 'center',
     marginTop: 42,
+    marginBottom: 42,
     cursor: 'pointer',
     '&:hover': {
       color: Color.brickRed,
