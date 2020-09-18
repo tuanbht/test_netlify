@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Stepper renders template correctly 1`] = `
+<div
+  className="makeStyles-root-1"
+>
+  <WithStyles(ForwardRef(Grid))
+    container={true}
+    justify="space-between"
+  >
+    <WithStyles(ForwardRef(Grid))
+      item={true}
+      key="step-1"
+    >
+      <span
+        className="makeStyles-label-2 makeStyles-activeLabel-3"
+      >
+        step-1
+      </span>
+    </WithStyles(ForwardRef(Grid))>
+    <WithStyles(ForwardRef(Grid))
+      item={true}
+      key="step-2"
+    >
+      <span
+        className="makeStyles-label-2"
+      >
+        step-2
+      </span>
+    </WithStyles(ForwardRef(Grid))>
+    <WithStyles(ForwardRef(Grid))
+      item={true}
+      key="step-3"
+    >
+      <span
+        className="makeStyles-label-2"
+      >
+        step-3
+      </span>
+    </WithStyles(ForwardRef(Grid))>
+  </WithStyles(ForwardRef(Grid))>
+  <WithStyles(WithStyles(ForwardRef(LinearProgress)))
+    className="makeStyles-linear-4"
+    value={33.333333333333336}
+    variant="determinate"
+  />
+  <div
+    className="makeStyles-activeStep-5"
+  >
+    <div>
+      Children
+    </div>
+  </div>
+</div>
+`;

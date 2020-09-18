@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header renders template correctly 1`] = `
+<WithStyles(ForwardRef(Container))
+  className="makeStyles-root-1"
+>
+  <ArrowBackIcon
+    className="makeStyles-goBack-3"
+    onClick={[MockFunction]}
+  />
+  <div
+    className="makeStyles-title-2"
+  >
+    <ForwardRef(SvgPalomaLogo) />
+    <span>
+      Paloma Payments
+    </span>
+  </div>
+</WithStyles(ForwardRef(Container))>
+`;

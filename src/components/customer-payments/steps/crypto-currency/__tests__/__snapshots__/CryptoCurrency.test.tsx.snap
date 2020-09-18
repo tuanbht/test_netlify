@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CryptoCurrency renders template correctly 1`] = `
+<div>
+  <WithStyles(ForwardRef(Grid))
+    container={true}
+    justify="space-between"
+  >
+    <WithStyles(ForwardRef(Grid))
+      item={true}
+    >
+      <div
+        className="makeStyles-merchantName-1"
+      >
+        Ohana
+      </div>
+      <div
+        className="makeStyles-orderName-2"
+      >
+        Order #8867
+      </div>
+    </WithStyles(ForwardRef(Grid))>
+    <WithStyles(ForwardRef(Grid))
+      item={true}
+    >
+      <span
+        className="makeStyles-amount-3"
+      >
+        $76.25 USD
+      </span>
+    </WithStyles(ForwardRef(Grid))>
+  </WithStyles(ForwardRef(Grid))>
+  <WithStyles(ForwardRef(Divider))
+    className="makeStyles-divider-4"
+  />
+  <div
+    className="makeStyles-selectCrypto-5"
+  >
+    <div
+      className="makeStyles-selectTitle-6"
+    >
+      Select a Cryptocurrency
+    </div>
+    <WithStyles(ForwardRef(Button))
+      className="makeStyles-root-8 makeStyles-root-9"
+      disabled={true}
+    >
+      <ForwardRef(SvgIconBtc)
+        className="makeStyles-iconCrypto-7"
+      />
+      Bitcoin
+    </WithStyles(ForwardRef(Button))>
+    <WithStyles(ForwardRef(Button))
+      className="makeStyles-root-8 makeStyles-root-10"
+      onClick={[Function]}
+    >
+      <ForwardRef(SvgIconEth)
+        className="makeStyles-iconCrypto-7"
+      />
+      Ethereum
+    </WithStyles(ForwardRef(Button))>
+    <WithStyles(ForwardRef(Button))
+      className="makeStyles-root-8 makeStyles-root-11"
+      disabled={true}
+    >
+      <ForwardRef(SvgIconUsdt)
+        className="makeStyles-iconCrypto-7"
+      />
+      USD Tether
+    </WithStyles(ForwardRef(Button))>
+  </div>
+</div>
+`;
