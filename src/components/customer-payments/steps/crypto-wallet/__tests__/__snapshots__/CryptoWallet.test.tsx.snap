@@ -54,7 +54,9 @@ exports[`CryptoWallet renders template correctly 1`] = `
           readOnly={true}
         />
         <WithStyles(ForwardRef(Button))
-          className="makeStyles-root-17 makeStyles-root-18 makeStyles-copyButton-13"
+          className="makeStyles-root-17 makeStyles-root-19 makeStyles-copyButton-13"
+          id="copy-amount"
+          onClick={[Function]}
         >
           Copy
         </WithStyles(ForwardRef(Button))>
@@ -89,7 +91,9 @@ exports[`CryptoWallet renders template correctly 1`] = `
           readOnly={true}
         />
         <WithStyles(ForwardRef(Button))
-          className="makeStyles-root-17 makeStyles-root-18 makeStyles-copyButton-13"
+          className="makeStyles-root-17 makeStyles-root-19 makeStyles-copyButton-13"
+          id="copy-wallet"
+          onClick={[Function]}
         >
           Copy
         </WithStyles(ForwardRef(Button))>
