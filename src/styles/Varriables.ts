@@ -9,4 +9,6 @@ export const Color = {
   cornflowerBlue: '#627EEA',
   jungleGreen: '#26A17B',
   alto: '#D9D9D9',
+  shuttleGray: '#5F6C7B',
+  sliver: '#CCC7C7',
 };

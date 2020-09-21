@@ -21,6 +21,8 @@ export default makeStyles({
   },
   divider: {
     marginTop: 33,
+    marginLeft: -10,
+    marginRight: -10,
     height: 3,
     backgroundColor: Color.wildSand,
   },

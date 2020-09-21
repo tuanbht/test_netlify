@@ -24,6 +24,7 @@ export default makeStyles({
   },
   activeStep: {
     marginTop: 55,
+    padding: '0 10px',
   },
 });
 

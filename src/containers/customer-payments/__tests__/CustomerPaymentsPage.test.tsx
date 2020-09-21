@@ -4,6 +4,7 @@ import CustomerPayments from '../index';
 import { Header, Steps } from '../../../components/customer-payments';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import { CRYPTO_CURRENCIES } from '../../../constants/CustomerPayments';
+import { Button } from '@material-ui/core';
 
 describe('CustomerPaymentsPage', () => {
   let container: ReactWrapper;
@@ -32,6 +33,26 @@ describe('CustomerPaymentsPage', () => {
 
       it('leads to crypto currency step', () => {
         expect(container.find(Steps.CryptoCurrency).getDOMNode()).toBeVisible();
+      });
+    });
+
+    describe('click mark as paid', () => {
+      beforeEach(() => {
+        container.find(Button).find({ children: 'Mark as Paid' }).first().simulate('click');
+      });
+
+      it('leads to crypto currency step', () => {
+        expect(container.find(Steps.Processing).getDOMNode()).toBeVisible();
+      });
+
+      describe('go back after marked as paid', () => {
+        beforeEach(() => {
+          container.find(Header).find(ArrowBackIcon).simulate('click');
+        });
+
+        it('leads to crypto wallet step', () => {
+          expect(container.find(Steps.CryptoWallet).getDOMNode()).toBeVisible();
+        });
       });
     });
   });

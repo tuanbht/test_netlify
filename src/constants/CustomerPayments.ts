@@ -14,29 +14,35 @@ export interface CryptoCurrencies {
   shortName: string;
   fullName: string;
   logo: React.FC<React.SVGProps<SVGSVGElement>>;
+  walletAddress: string;
+  amount: number;
+
+  setWalletAddress(walletAddress: string): void;
+  setAmount(amount: number): void;
 }
 
 export class CryptoCurrencies implements CryptoCurrencies {
-  constructor() {
-    this.fullName = '';
-    this.shortName = '';
+  static initWithData(
+    shortName: string,
+    fullName: string,
+    logo: React.FC<React.SVGProps<SVGSVGElement>>,
+  ): CryptoCurrencies {
+    const crypto = new CryptoCurrencies();
+    crypto.shortName = shortName;
+    crypto.fullName = fullName;
+    crypto.logo = logo;
+    return crypto;
+  }
+  setWalletAddress(walletAddress: string): void {
+    this.walletAddress = walletAddress;
+  }
+  setAmount(amount: number): void {
+    this.amount = amount;
   }
 }
 
 export const CRYPTO_CURRENCIES = {
-  BITCOIN: {
-    shortName: 'BTC',
-    fullName: 'Bitcoin',
-    logo: IconBTC,
-  } as CryptoCurrencies,
-  ETHEREUM: {
-    shortName: 'ETH',
-    fullName: 'Ethereum',
-    logo: IconETH,
-  } as CryptoCurrencies,
-  USDT: {
-    shortName: 'USDT',
-    fullName: 'USD Tether',
-    logo: IconUSDT,
-  } as CryptoCurrencies,
+  BITCOIN: CryptoCurrencies.initWithData('BTC', 'Bitcoin', IconBTC),
+  ETHEREUM: CryptoCurrencies.initWithData('ETH', 'Ethereum', IconETH),
+  USDT: CryptoCurrencies.initWithData('USDT', 'USD Tether', IconUSDT),
 };

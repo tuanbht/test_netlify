@@ -1,9 +1,40 @@
-import { shallow } from 'enzyme';
+import { shallow, ShallowWrapper } from 'enzyme';
 import React from 'react';
 import Header from '../index';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
 describe('Header', () => {
-  it('renders template correctly', () => {
-    expect(shallow(<Header canBack={true} goBack={jest.fn()} />)).toMatchSnapshot();
+  const goBack = jest.fn();
+  const buildContainer = (canBack: boolean): ShallowWrapper => shallow(<Header canBack={canBack} goBack={goBack} />);
+  let container: ShallowWrapper;
+
+  describe('can back is false', () => {
+    beforeEach(() => {
+      container = buildContainer(false);
+    });
+
+    it('renders template without arrow back button', () => {
+      expect(container).toMatchSnapshot();
+    });
+  });
+
+  describe('can back is true', () => {
+    beforeEach(() => {
+      container = buildContainer(true);
+    });
+
+    it('renders template with arrow back button', () => {
+      expect(container).toMatchSnapshot();
+    });
+
+    describe('click go back button', () => {
+      beforeEach(() => {
+        container.find(ArrowBackIcon).simulate('click');
+      });
+
+      it('should call go back function', () => {
+        expect(goBack).toBeCalled();
+      });
+    });
   });
 });
