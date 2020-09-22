@@ -5,7 +5,7 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
 describe('Header', () => {
   const goBack = jest.fn();
-  const buildContainer = (canBack: boolean): ShallowWrapper => shallow(<Header canBack={canBack} goBack={goBack} />);
+  const buildContainer = (showBack: boolean): ShallowWrapper => shallow(<Header showBack={showBack} goBack={goBack} />);
   let container: ShallowWrapper;
 
   describe('can back is false', () => {
