@@ -80,6 +80,16 @@ describe('CryptoWallet', () => {
         expect(setTimeout).toBeCalled();
         expect((copyButton().props() as { children: string }).children).toBe('Copy');
       });
+
+      describe('click on copied button', () => {
+        beforeEach(() => {
+          copyButton().simulate('click');
+        });
+
+        it('should not change any thing', () => {
+          expect((copyButton().props() as { children: string }).children).toBe('Copied');
+        });
+      });
     });
 
     describe('copy wallet address value', () => {
