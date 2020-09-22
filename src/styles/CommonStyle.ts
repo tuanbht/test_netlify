@@ -19,4 +19,8 @@ export const ButtonStyle = makeStyles({
       color: (props: { color: string }) => props.color,
     },
   },
+  focused: {
+    backgroundColor: 'white !important',
+    color: (props: { color: string }) => props.color + ' !important',
+  },
 });

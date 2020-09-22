@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { object, func } from 'prop-types';
 import { CryptoCurrencies } from '../../../../constants/CustomerPayments';
 import CryptoWalletStyles from './styles';
@@ -7,6 +7,7 @@ import { ButtonStyle } from '../../../../styles/CommonStyle';
 import { Color } from '../../../../styles/Varriables';
 import classnames from 'classnames';
 import QrCode from 'qrcode.react';
+import copyText from 'copy-to-clipboard';
 
 const CryptoWallet = (props: { crypto: CryptoCurrencies; nextStep: () => void }): React.ReactElement => {
   const { crypto, nextStep } = props;
@@ -15,10 +16,32 @@ const CryptoWallet = (props: { crypto: CryptoCurrencies; nextStep: () => void })
   const qrCode = `bitcoin:${crypto.walletAddress}?amount=${crypto.amount}`;
 
   const [openQrCode, setOpenQrCode] = useState(false);
+  const [isCopiedAmount, setIsCopiedAmount] = useState(false);
+  const [isCopiedWallet, setIsCopiedWallet] = useState(false);
 
   const markAsPaid = (): void => {
     nextStep();
   };
+
+  const copyToClipboard = (type: string, value: string | number) => {
+    copyText(String(value));
+
+    if (type === 'amount' && !isCopiedAmount) {
+      setIsCopiedAmount(true);
+      setIsCopiedWallet(false);
+    } else if (type === 'wallet' && !isCopiedWallet) {
+      setIsCopiedWallet(true);
+      setIsCopiedAmount(false);
+    }
+  };
+
+  useEffect(() => {
+    const updateLabel = setTimeout(() => {
+      setIsCopiedWallet(false);
+      setIsCopiedAmount(false);
+    }, 5000);
+    return () => clearTimeout(updateLabel);
+  }, [isCopiedAmount, isCopiedWallet]);
 
   return (
     <div>
@@ -45,7 +68,13 @@ const CryptoWallet = (props: { crypto: CryptoCurrencies; nextStep: () => void })
               fullWidth
               readOnly
             />
-            <Button className={classnames(buttonStyle.root, styles.copyButton)}>Copy</Button>
+            <Button
+              id="copy-amount"
+              className={classnames(buttonStyle.root, styles.copyButton, isCopiedAmount && buttonStyle.focused)}
+              onClick={() => copyToClipboard('amount', crypto.amount)}
+            >
+              {isCopiedAmount ? 'Copied' : 'Copy'}
+            </Button>
           </div>
         </Grid>
 
@@ -64,7 +93,13 @@ const CryptoWallet = (props: { crypto: CryptoCurrencies; nextStep: () => void })
               fullWidth
               readOnly
             />
-            <Button className={classnames(buttonStyle.root, styles.copyButton)}>Copy</Button>
+            <Button
+              id="copy-wallet"
+              className={classnames(buttonStyle.root, styles.copyButton, isCopiedWallet && buttonStyle.focused)}
+              onClick={() => copyToClipboard('wallet', crypto.walletAddress)}
+            >
+              {isCopiedWallet ? 'Copied' : 'Copy'}
+            </Button>
           </div>
         </Grid>
       </Grid>

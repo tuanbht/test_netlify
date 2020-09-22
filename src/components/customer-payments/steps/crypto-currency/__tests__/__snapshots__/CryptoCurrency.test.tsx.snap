@@ -42,7 +42,7 @@ exports[`CryptoCurrency renders template correctly 1`] = `
       Select a Cryptocurrency
     </div>
     <WithStyles(ForwardRef(Button))
-      className="makeStyles-root-8 makeStyles-root-9"
+      className="makeStyles-root-8 makeStyles-root-10"
       disabled={true}
     >
       <ForwardRef(SvgIconBtc)
@@ -51,7 +51,7 @@ exports[`CryptoCurrency renders template correctly 1`] = `
       Bitcoin
     </WithStyles(ForwardRef(Button))>
     <WithStyles(ForwardRef(Button))
-      className="makeStyles-root-8 makeStyles-root-10"
+      className="makeStyles-root-8 makeStyles-root-12"
       onClick={[Function]}
     >
       <ForwardRef(SvgIconEth)
@@ -60,7 +60,7 @@ exports[`CryptoCurrency renders template correctly 1`] = `
       Ethereum
     </WithStyles(ForwardRef(Button))>
     <WithStyles(ForwardRef(Button))
-      className="makeStyles-root-8 makeStyles-root-11"
+      className="makeStyles-root-8 makeStyles-root-14"
       disabled={true}
     >
       <ForwardRef(SvgIconUsdt)
