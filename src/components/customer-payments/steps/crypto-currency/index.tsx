@@ -29,15 +29,18 @@ const CryptoCurrency = (props: { selectedCrypto: (crypto: CryptoCurrencies) => v
       <Divider className={styles.divider} />
       <div className={styles.selectCrypto}>
         <div className={styles.selectTitle}>Select a Cryptocurrency</div>
-        <Button className={ButtonStyle({ color: Color.treePoppy }).root} disabled>
+        <Button classes={ButtonStyle({ color: Color.treePoppy, uppercase: true })} disabled>
           <IconBTC className={styles.iconCrypto} />
           {BITCOIN.fullName}
         </Button>
-        <Button className={ButtonStyle({ color: Color.cornflowerBlue }).root} onClick={() => selectedCrypto(ETHEREUM)}>
+        <Button
+          classes={ButtonStyle({ color: Color.cornflowerBlue, uppercase: true })}
+          onClick={() => selectedCrypto(ETHEREUM)}
+        >
           <IconETH className={styles.iconCrypto} />
           {ETHEREUM.fullName}
         </Button>
-        <Button className={ButtonStyle({ color: Color.jungleGreen }).root} disabled>
+        <Button classes={ButtonStyle({ color: Color.jungleGreen, uppercase: true })} disabled>
           <IconUSDT className={styles.iconCrypto} />
           {USDT.fullName}
         </Button>

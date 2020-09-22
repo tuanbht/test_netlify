@@ -9,7 +9,9 @@ jest.mock('copy-to-clipboard');
 
 describe('CryptoWallet', () => {
   const CryptoLogo = () => React.createElement('svg');
-  const crypto = CryptoCurrencies.initWithData('crypto-short-name', 'crypto-full-name', CryptoLogo);
+  const crypto = CryptoCurrencies.initWithData('crypto-prefix', 'crypto-short-name', 'crypto-full-name', CryptoLogo);
+  crypto.setWalletAddress('wallet-address');
+  crypto.setAmount(0);
   const nextStep = jest.fn();
   let container: ReactWrapper | ShallowWrapper;
 
@@ -69,7 +71,7 @@ describe('CryptoWallet', () => {
       });
 
       it('changes text of button to copied', () => {
-        expect((copyButton().props() as { children: string }).children).toBe('Copied');
+        expect((copyButton().props() as { children: string }).children).toBe('Copied!');
       });
 
       it('will change to copy after 5 seconds', () => {
@@ -87,7 +89,7 @@ describe('CryptoWallet', () => {
         });
 
         it('should not change any thing', () => {
-          expect((copyButton().props() as { children: string }).children).toBe('Copied');
+          expect((copyButton().props() as { children: string }).children).toBe('Copied!');
         });
       });
     });
@@ -100,7 +102,7 @@ describe('CryptoWallet', () => {
       });
 
       it('changes text of button to copied', () => {
-        expect((copyButton().props() as { children: string }).children).toBe('Copied');
+        expect((copyButton().props() as { children: string }).children).toBe('Copied!');
       });
 
       it('will change to copy after 5 seconds', () => {

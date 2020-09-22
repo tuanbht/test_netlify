@@ -52,6 +52,7 @@ exports[`CryptoWallet renders template correctly 1`] = `
           }
           fullWidth={true}
           readOnly={true}
+          value={0}
         />
         <WithStyles(ForwardRef(Button))
           className="makeStyles-root-17 makeStyles-root-19 makeStyles-copyButton-13"
@@ -89,6 +90,7 @@ exports[`CryptoWallet renders template correctly 1`] = `
           }
           fullWidth={true}
           readOnly={true}
+          value="wallet-address"
         />
         <WithStyles(ForwardRef(Button))
           className="makeStyles-root-17 makeStyles-root-19 makeStyles-copyButton-13"
@@ -112,7 +114,9 @@ exports[`CryptoWallet renders template correctly 1`] = `
       <div
         className="makeStyles-qrCodeLabel-3"
       >
-        <p />
+        <p>
+          0
+        </p>
         <p>
           crypto-short-name
         </p>
@@ -124,7 +128,7 @@ exports[`CryptoWallet renders template correctly 1`] = `
         level="L"
         renderAs="canvas"
         size={128}
-        value="bitcoin:undefined?amount=undefined"
+        value="crypto-prefix:wallet-address?amount=0"
       />
     </WithStyles(ForwardRef(Paper))>
   </ForwardRef(Modal)>

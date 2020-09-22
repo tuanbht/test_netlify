@@ -10,6 +10,7 @@ const qrCodeModal = {
   },
   qrCodeContent: {
     padding: 50,
+    outline: 'unset',
   },
   qrCodeLabel: {
     display: 'flex',
@@ -49,8 +50,9 @@ const walletInformation = {
     display: 'flex',
   },
   contentInfo: {
-    borderRadius: '5px 0 0 5px',
-
+    '&.MuiOutlinedInput-root': {
+      borderRadius: '5px 0 0 5px',
+    },
     '& .MuiOutlinedInput-notchedOutline': {
       borderRightWidth: 0,
       borderColor: Color.tarawera,

@@ -13,7 +13,7 @@ const CryptoWallet = (props: { crypto: CryptoCurrencies; nextStep: () => void })
   const { crypto, nextStep } = props;
   const styles = CryptoWalletStyles();
   const buttonStyle = ButtonStyle({ color: Color.tarawera });
-  const qrCode = `bitcoin:${crypto.walletAddress}?amount=${crypto.amount}`;
+  const qrCode = `${crypto.prefix}:${crypto.walletAddress}?amount=${crypto.amount}`;
 
   const [openQrCode, setOpenQrCode] = useState(false);
   const [isCopiedAmount, setIsCopiedAmount] = useState(false);
@@ -70,10 +70,10 @@ const CryptoWallet = (props: { crypto: CryptoCurrencies; nextStep: () => void })
             />
             <Button
               id="copy-amount"
-              className={classnames(buttonStyle.root, styles.copyButton, isCopiedAmount && buttonStyle.focused)}
+              className={classnames(buttonStyle.root, styles.copyButton, isCopiedAmount && buttonStyle.focusVisible)}
               onClick={() => copyToClipboard('amount', crypto.amount)}
             >
-              {isCopiedAmount ? 'Copied' : 'Copy'}
+              {isCopiedAmount ? 'Copied!' : 'Copy'}
             </Button>
           </div>
         </Grid>
@@ -95,10 +95,10 @@ const CryptoWallet = (props: { crypto: CryptoCurrencies; nextStep: () => void })
             />
             <Button
               id="copy-wallet"
-              className={classnames(buttonStyle.root, styles.copyButton, isCopiedWallet && buttonStyle.focused)}
+              className={classnames(buttonStyle.root, styles.copyButton, isCopiedWallet && buttonStyle.focusVisible)}
               onClick={() => copyToClipboard('wallet', crypto.walletAddress)}
             >
-              {isCopiedWallet ? 'Copied' : 'Copy'}
+              {isCopiedWallet ? 'Copied!' : 'Copy'}
             </Button>
           </div>
         </Grid>

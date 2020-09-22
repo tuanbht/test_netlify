@@ -42,7 +42,12 @@ exports[`CryptoCurrency renders template correctly 1`] = `
       Select a Cryptocurrency
     </div>
     <WithStyles(ForwardRef(Button))
-      className="makeStyles-root-8 makeStyles-root-10"
+      classes={
+        Object {
+          "focusVisible": "makeStyles-focusVisible-9 makeStyles-focusVisible-11",
+          "root": "makeStyles-root-8 makeStyles-root-10",
+        }
+      }
       disabled={true}
     >
       <ForwardRef(SvgIconBtc)
@@ -51,7 +56,12 @@ exports[`CryptoCurrency renders template correctly 1`] = `
       Bitcoin
     </WithStyles(ForwardRef(Button))>
     <WithStyles(ForwardRef(Button))
-      className="makeStyles-root-8 makeStyles-root-12"
+      classes={
+        Object {
+          "focusVisible": "makeStyles-focusVisible-9 makeStyles-focusVisible-13",
+          "root": "makeStyles-root-8 makeStyles-root-12",
+        }
+      }
       onClick={[Function]}
     >
       <ForwardRef(SvgIconEth)
@@ -60,7 +70,12 @@ exports[`CryptoCurrency renders template correctly 1`] = `
       Ethereum
     </WithStyles(ForwardRef(Button))>
     <WithStyles(ForwardRef(Button))
-      className="makeStyles-root-8 makeStyles-root-14"
+      classes={
+        Object {
+          "focusVisible": "makeStyles-focusVisible-9 makeStyles-focusVisible-15",
+          "root": "makeStyles-root-8 makeStyles-root-14",
+        }
+      }
       disabled={true}
     >
       <ForwardRef(SvgIconUsdt)

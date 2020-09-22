@@ -11,6 +11,7 @@ export const STEPS = {
 };
 
 export interface CryptoCurrencies {
+  prefix: string;
   shortName: string;
   fullName: string;
   logo: React.FC<React.SVGProps<SVGSVGElement>>;
@@ -23,11 +24,13 @@ export interface CryptoCurrencies {
 
 export class CryptoCurrencies implements CryptoCurrencies {
   static initWithData(
+    prefix: string,
     shortName: string,
     fullName: string,
     logo: React.FC<React.SVGProps<SVGSVGElement>>,
   ): CryptoCurrencies {
     const crypto = new CryptoCurrencies();
+    crypto.prefix = prefix;
     crypto.shortName = shortName;
     crypto.fullName = fullName;
     crypto.logo = logo;
@@ -42,7 +45,7 @@ export class CryptoCurrencies implements CryptoCurrencies {
 }
 
 export const CRYPTO_CURRENCIES = {
-  BITCOIN: CryptoCurrencies.initWithData('BTC', 'Bitcoin', IconBTC),
-  ETHEREUM: CryptoCurrencies.initWithData('ETH', 'Ethereum', IconETH),
-  USDT: CryptoCurrencies.initWithData('USDT', 'USD Tether', IconUSDT),
+  BITCOIN: CryptoCurrencies.initWithData('bitcoin', 'BTC', 'Bitcoin', IconBTC),
+  ETHEREUM: CryptoCurrencies.initWithData('ethereum', 'ETH', 'Ethereum', IconETH),
+  USDT: CryptoCurrencies.initWithData('usdt', 'USDT', 'USD Tether', IconUSDT),
 };
