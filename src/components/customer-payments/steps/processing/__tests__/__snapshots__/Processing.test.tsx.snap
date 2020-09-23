@@ -1,0 +1,140 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Processing renders template correctly 1`] = `
+<WithStyles(ForwardRef(Grid))
+  container={true}
+>
+  <WithStyles(ForwardRef(Grid))
+    className="makeStyles-titleContainer-6"
+    item={true}
+  >
+    <div
+      className="makeStyles-title-7"
+    >
+      Order #11345
+    </div>
+    <div
+      className="makeStyles-subtitle-8"
+    >
+      Track your progress below!
+    </div>
+  </WithStyles(ForwardRef(Grid))>
+  <WithStyles(ForwardRef(Grid))
+    className="makeStyles-processingContainer-9"
+    item={true}
+  >
+    <WithStyles(ForwardRef(Stepper))
+      activeStep={3}
+      className="makeStyles-stepperContainer-1"
+      connector={<ForwardRef(WithStyles) />}
+      orientation="vertical"
+    >
+      <WithStyles(ForwardRef(Step))
+        className="makeStyles-stepContainer-2"
+        key="Crypto Request received by Ohana"
+      >
+        <WithStyles(ForwardRef(StepLabel))
+          StepIconComponent={[Function]}
+          classes={
+            Object {
+              "label": "makeStyles-stepLabel-3",
+            }
+          }
+        >
+          Crypto Request received by Ohana
+        </WithStyles(ForwardRef(StepLabel))>
+      </WithStyles(ForwardRef(Step))>
+      <WithStyles(ForwardRef(Step))
+        className="makeStyles-stepContainer-2"
+        key="Crypto Payment link sent"
+      >
+        <WithStyles(ForwardRef(StepLabel))
+          StepIconComponent={[Function]}
+          classes={
+            Object {
+              "label": "makeStyles-stepLabel-3",
+            }
+          }
+        >
+          Crypto Payment link sent
+        </WithStyles(ForwardRef(StepLabel))>
+      </WithStyles(ForwardRef(Step))>
+      <WithStyles(ForwardRef(Step))
+        className="makeStyles-stepContainer-2"
+        key="Customer Payment Confirmed"
+      >
+        <WithStyles(ForwardRef(StepLabel))
+          StepIconComponent={[Function]}
+          classes={
+            Object {
+              "label": "makeStyles-stepLabel-3",
+            }
+          }
+        >
+          Customer Payment Confirmed
+          <span
+            className="makeStyles-stepLabelTimer-4"
+          >
+             (
+            4:20 pm
+            )
+          </span>
+        </WithStyles(ForwardRef(StepLabel))>
+      </WithStyles(ForwardRef(Step))>
+      <WithStyles(ForwardRef(Step))
+        className="makeStyles-stepContainer-2"
+        key="Payment processing on blockchain"
+      >
+        <WithStyles(ForwardRef(StepLabel))
+          StepIconComponent={[Function]}
+          classes={
+            Object {
+              "label": "makeStyles-stepLabel-3",
+            }
+          }
+        >
+          Payment processing on blockchain
+          <a
+            className="makeStyles-stepLabelLink-5"
+            href="https://staging-paloma-crypto-payment.herokuapp.com/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            (view on Block Explorer)
+          </a>
+        </WithStyles(ForwardRef(StepLabel))>
+      </WithStyles(ForwardRef(Step))>
+      <WithStyles(ForwardRef(Step))
+        className="makeStyles-stepContainer-2"
+        key="Payment Confirmed!"
+      >
+        <WithStyles(ForwardRef(StepLabel))
+          StepIconComponent={[Function]}
+          classes={
+            Object {
+              "label": "makeStyles-stepLabel-3",
+            }
+          }
+        >
+          Payment Confirmed!
+        </WithStyles(ForwardRef(StepLabel))>
+      </WithStyles(ForwardRef(Step))>
+      <WithStyles(ForwardRef(Step))
+        className="makeStyles-stepContainer-2"
+        key="Order out for delivery"
+      >
+        <WithStyles(ForwardRef(StepLabel))
+          StepIconComponent={[Function]}
+          classes={
+            Object {
+              "label": "makeStyles-stepLabel-3",
+            }
+          }
+        >
+          Order out for delivery
+        </WithStyles(ForwardRef(StepLabel))>
+      </WithStyles(ForwardRef(Step))>
+    </WithStyles(ForwardRef(Stepper))>
+  </WithStyles(ForwardRef(Grid))>
+</WithStyles(ForwardRef(Grid))>
+`;

@@ -45,14 +45,12 @@ describe('CustomerPaymentsPage', () => {
         expect(container.find(Steps.Processing).getDOMNode()).toBeVisible();
       });
 
-      describe('go back after marked as paid', () => {
-        beforeEach(() => {
-          container.find(Header).find(ArrowBackIcon).simulate('click');
-        });
+      it('hides back button', () => {
+        expect(container.find(Header).find(ArrowBackIcon)).toHaveLength(0);
+      });
 
-        it('leads to crypto wallet step', () => {
-          expect(container.find(Steps.CryptoWallet).getDOMNode()).toBeVisible();
-        });
+      it('hides cancel order button', () => {
+        expect(container.find({ children: 'Cancel Order' })).toHaveLength(0);
       });
     });
   });

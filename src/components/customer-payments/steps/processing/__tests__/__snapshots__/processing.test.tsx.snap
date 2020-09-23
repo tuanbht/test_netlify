@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`CryptoWallet renders template correctly 1`] = `
-<div>
-  Processing Step
-</div>
-`;
