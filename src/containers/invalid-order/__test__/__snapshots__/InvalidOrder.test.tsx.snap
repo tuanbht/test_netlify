@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InvalidOrder renders template correctly 1`] = `
+<div
+  className="makeStyles-root-1"
+>
+  <Header
+    showBack={false}
+  />
+  <div
+    className="makeStyles-content-2"
+  >
+    <div
+      className="makeStyles-title-3"
+    >
+      invalid-order-title
+    </div>
+    <div
+      className="makeStyles-subtitle-4"
+    >
+      invalid-order-subtitle
+    </div>
+  </div>
+</div>
+`;

@@ -4,7 +4,7 @@ import { ReactComponent as PalomaLogo } from '../../../assets/images/icons/palom
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import { Container } from '@material-ui/core';
 
-const Header = (props: { goBack: () => void; showBack: boolean }): React.ReactElement => {
+const Header = (props: { goBack?: () => void; showBack: boolean }): React.ReactElement => {
   const { goBack, showBack } = props;
   const headerStyle = HeaderStyle();
 

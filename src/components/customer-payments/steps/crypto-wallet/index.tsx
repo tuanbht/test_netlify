@@ -61,7 +61,7 @@ const CryptoWallet = (props: { crypto: CryptoCurrencies; nextStep: () => void })
               }}
               value={crypto.amount}
               endAdornment={
-                <InputAdornment className={styles.contentInfoCryptoName} position="end">
+                <InputAdornment className={styles.contentInfoCryptoName} position='end'>
                   {crypto.shortName}
                 </InputAdornment>
               }
@@ -69,7 +69,7 @@ const CryptoWallet = (props: { crypto: CryptoCurrencies; nextStep: () => void })
               readOnly
             />
             <Button
-              id="copy-amount"
+              id='copy-amount'
               className={classnames(buttonStyle.root, styles.copyButton, isCopiedAmount && buttonStyle.focusVisible)}
               onClick={() => copyToClipboard('amount', crypto.amount)}
             >
@@ -94,7 +94,7 @@ const CryptoWallet = (props: { crypto: CryptoCurrencies; nextStep: () => void })
               readOnly
             />
             <Button
-              id="copy-wallet"
+              id='copy-wallet'
               className={classnames(buttonStyle.root, styles.copyButton, isCopiedWallet && buttonStyle.focusVisible)}
               onClick={() => copyToClipboard('wallet', crypto.walletAddress)}
             >

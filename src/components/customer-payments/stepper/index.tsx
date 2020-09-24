@@ -20,7 +20,7 @@ const Stepper = (props: StepperComponent): React.ReactElement => {
 
   return (
     <div className={stepperStyles.root}>
-      <Grid container justify="space-between">
+      <Grid container justify='space-between'>
         {stepper.map((step: string, index: number) => (
           <Grid key={step} item>
             <span className={classnames(stepperStyles.label, activeStep === index && stepperStyles.activeLabel)}>
@@ -29,7 +29,7 @@ const Stepper = (props: StepperComponent): React.ReactElement => {
           </Grid>
         ))}
       </Grid>
-      <BorderLinearProgress variant="determinate" value={currentProcess} className={stepperStyles.linear} />
+      <BorderLinearProgress variant='determinate' value={currentProcess} className={stepperStyles.linear} />
       <div className={stepperStyles.activeStep}>{activeStepContent}</div>
     </div>
   );

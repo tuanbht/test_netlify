@@ -9,6 +9,7 @@ import { buildProcessingSteps } from '../../../../constants/CustomerPayments';
 const Processing = (): React.ReactElement => {
   const styles = ProcessingStyles();
   const CustomStepConnector = linearConnector(StepConnector);
+  //TODO : Will update real data from api in the next PR
   const steps = buildProcessingSteps('2020-09-22T16:20', 'https://staging-paloma-crypto-payment.herokuapp.com/');
 
   const renderStepIcon = (props: StepIconProps): React.ReactElement => {
@@ -26,7 +27,7 @@ const Processing = (): React.ReactElement => {
       <Grid item className={styles.processingContainer}>
         <Stepper
           activeStep={3}
-          orientation="vertical"
+          orientation='vertical'
           className={styles.stepperContainer}
           connector={<CustomStepConnector />}
         >
@@ -44,8 +45,8 @@ const Processing = (): React.ReactElement => {
                   <a
                     className={styles.stepLabelLink}
                     href={step.hyperLink.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    target='_blank'
+                    rel='noopener noreferrer'
                   >
                     {step.hyperLink.label}
                   </a>
