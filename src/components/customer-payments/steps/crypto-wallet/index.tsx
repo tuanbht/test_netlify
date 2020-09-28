@@ -8,6 +8,9 @@ import { Color } from '../../../../styles/Varriables';
 import classnames from 'classnames';
 import QrCode from 'qrcode.react';
 import copyText from 'copy-to-clipboard';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootStateReducer } from '../../../../reducers';
+import OrderActions from '../../../../actions/OrderActions';
 
 const CryptoWallet = (props: { crypto: CryptoCurrencies; nextStep: () => void }): React.ReactElement => {
   const { crypto, nextStep } = props;
@@ -18,8 +21,13 @@ const CryptoWallet = (props: { crypto: CryptoCurrencies; nextStep: () => void })
   const [openQrCode, setOpenQrCode] = useState(false);
   const [isCopiedAmount, setIsCopiedAmount] = useState(false);
   const [isCopiedWallet, setIsCopiedWallet] = useState(false);
+  const orderDetails = useSelector((state: RootStateReducer) => state.OrderDetails);
+
+  const dispatch = useDispatch();
 
   const markAsPaid = (): void => {
+    const updateMarkAsPaid = async () => await dispatch(OrderActions.markAsPaidOrderAction());
+    updateMarkAsPaid().then(() => dispatch(OrderActions.getOrderDetailsAction()));
     nextStep();
   };
 
@@ -51,7 +59,7 @@ const CryptoWallet = (props: { crypto: CryptoCurrencies; nextStep: () => void })
           <div className={styles.label}>
             <crypto.logo />
             <span className={styles.labelName}>{crypto.fullName} Amount</span>
-            <span className={styles.labelAmount}>(76.25 USD)</span>
+            <span className={styles.labelAmount}>({orderDetails.price} USD)</span>
           </div>
           <div className={styles.content}>
             <OutlinedInput
@@ -106,8 +114,8 @@ const CryptoWallet = (props: { crypto: CryptoCurrencies; nextStep: () => void })
       <Modal open={openQrCode} onClose={() => setOpenQrCode(false)} className={styles.qrCodeModal}>
         <Paper elevation={3} className={styles.qrCodeContent}>
           <div className={styles.qrCodeLabel}>
-            <p>{crypto.amount}</p>
-            <p>{crypto.shortName}</p>
+            <p className='amount'>{crypto.amount}</p>
+            <p className='short-name'>{crypto.shortName}</p>
           </div>
           <QrCode value={qrCode} />
         </Paper>

@@ -18,6 +18,12 @@ const qrCodeModal = {
     fontSize: 18,
     lineHeight: '22px',
     color: Color.shuttleGray,
+
+    '& .amount': {
+      width: 70,
+      textOverflow: 'ellipsis',
+      overflow: 'hidden',
+    },
   },
 };
 

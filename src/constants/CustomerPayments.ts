@@ -4,32 +4,50 @@ import { ReactComponent as IconETH } from '../assets/images/icons/icon-eth.svg';
 import { ReactComponent as IconUSDT } from '../assets/images/icons/icon-usdt.svg';
 import moment from 'moment';
 
+export const RETRIEVE_ORDER_DETAILS_INTERVAL = 10000; //ms
+
 export const STEPS = {
+  UNDEFINED: -1,
   CRYPTO: 0,
   WALLET: 1,
   PROCESSING: 2,
   COMPLETE: 3,
 };
 
+export const ORDER_STATUS = {
+  undefined: 'undefined',
+  initialized: 'initialized',
+  inProgress: 'in_progress',
+  completed: 'completed',
+  delivered: 'delivered',
+  cancelled: 'cancelled',
+  expired: 'expired',
+};
+
 export const buildProcessingSteps = (
-  confirmedTime: moment.MomentInput,
-  linkToBlockchain: string,
-): Array<{ title: string; timer?: string; hyperLink?: { label: string; link: string } }> => [
+  storeName: string,
+  markAsPaidTime: moment.MomentInput,
+): Array<{
+  title: string;
+  timer?: string;
+  hyperLink?: { label: string; link: string };
+}> => [
   {
-    title: 'Crypto Request received by Ohana',
+    title: 'Crypto Request received by ' + storeName,
   },
   {
     title: 'Crypto Payment link sent',
   },
   {
     title: 'Customer Payment Confirmed',
-    timer: moment(confirmedTime).format('LT').toLocaleLowerCase(),
+    timer: moment(markAsPaidTime).format('LT').toLocaleLowerCase(),
   },
   {
     title: 'Payment processing on blockchain',
     hyperLink: {
       label: '(view on Block Explorer)',
-      link: linkToBlockchain,
+      // TODO: This link will be replaced with real data from api when it's available
+      link: 'https://etherscan.io/',
     },
   },
   {
@@ -39,6 +57,30 @@ export const buildProcessingSteps = (
     title: 'Order out for delivery',
   },
 ];
+
+export interface OrderDetails {
+  status: string;
+  orderNumber: number;
+  price: number;
+  storeName: string;
+  storePhoneNumber: string;
+  markAsPaid: boolean;
+  markAsPaidTime: moment.MomentInput;
+  isEmpty(): boolean;
+}
+
+export class OrderDetails {
+  constructor() {
+    this.status = ORDER_STATUS.undefined;
+    this.storeName = '';
+    this.storePhoneNumber = '';
+    this.orderNumber = 0;
+    this.markAsPaid = false;
+    this.markAsPaidTime = moment();
+  }
+
+  isEmpty = (): boolean => this.orderNumber === 0 && this.status === ORDER_STATUS.undefined;
+}
 
 export interface CryptoCurrencies {
   prefix: string;
@@ -64,6 +106,8 @@ export class CryptoCurrencies implements CryptoCurrencies {
     crypto.shortName = shortName;
     crypto.fullName = fullName;
     crypto.logo = logo;
+    crypto.amount = 0;
+    crypto.walletAddress = '';
     return crypto;
   }
   setWalletAddress(walletAddress: string): void {

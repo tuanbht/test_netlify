@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Complete renders template correctly 1`] = `
+<div>
+  <div
+    className="makeStyles-root-1"
+  >
+    <div
+      className="makeStyles-orderLayout-2"
+    >
+      <div>
+        <div
+          className="makeStyles-merchantName-3"
+        >
+          Ohana
+        </div>
+        <div
+          className="makeStyles-orderName-4"
+        >
+          Order #8867
+        </div>
+      </div>
+      <div
+        className="makeStyles-amount-5"
+      >
+        $76.25 USD
+      </div>
+    </div>
+    <div
+      className="makeStyles-messageLayout-6"
+    >
+      <div
+        className="makeStyles-titleMessage-7"
+      >
+        Order #11345
+      </div>
+      <div
+        className="makeStyles-subMessage1-8"
+      >
+        Your order has been confirmed and is out for delivery!
+      </div>
+      <div
+        className="makeStyles-subMessage2-9"
+      >
+        If you have an issues, please contact Ohana at (510) 925-1266.
+      </div>
+    </div>
+  </div>
+</div>
+`;

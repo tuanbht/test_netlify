@@ -5,10 +5,12 @@ import { Button } from '@material-ui/core';
 import { ButtonStyle } from '../../styles/CommonStyle';
 import { Color } from '../../styles/Varriables';
 import { ORDER_CANCELLED_PATH } from '../../constants/RouterPaths';
-import OrderApi from '../../apis/OrderApi';
+import { useDispatch } from 'react-redux';
+import OrderActions from '../../actions/OrderActions';
 
 const CancelOrder = (): React.ReactElement => {
   const styles = Styles();
+  const dispatch = useDispatch();
 
   return (
     <div className={styles.root}>
@@ -19,7 +21,10 @@ const CancelOrder = (): React.ReactElement => {
           the order with cash.
         </div>
         <Link to={ORDER_CANCELLED_PATH} className={styles.cancelButton}>
-          <Button classes={ButtonStyle({ color: Color.froly })} onClick={() => OrderApi.cancelOrder()}>
+          <Button
+            classes={ButtonStyle({ color: Color.froly })}
+            onClick={() => dispatch(OrderActions.cancelOrderAction())}
+          >
             Quit Crypto Payment
           </Button>
         </Link>

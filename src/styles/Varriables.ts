@@ -12,4 +12,6 @@ export const Color = {
   shuttleGray: '#5F6C7B',
   sliver: '#CCC7C7',
   dodgerBlue: '#3DA9FC',
+  lochinvar: '#2A9379',
+  lochinvarA32: 'rgba(42, 147, 121, 0.32)',
 };

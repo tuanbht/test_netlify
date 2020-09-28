@@ -1,6 +1,7 @@
 import Axios from 'axios';
 import { API_URL } from '../constants/ApiPaths';
-import DataStorage from '../configurations/DataStorage';
+import { NOT_FOUND_PATH } from '../constants/RouterPaths';
+import { store } from './ReduxStore';
 
 const axiosClient = Axios.create({
   baseURL: API_URL,
@@ -11,9 +12,9 @@ const axiosClient = Axios.create({
 });
 
 axiosClient.interceptors.request.use((config) => {
-  const token = DataStorage.getToken();
+  const token = store.getState().Credential.token;
   if (token) config.headers['Payment-Token'] = token;
-  else window.location.assign('/');
+  else window.location.assign(NOT_FOUND_PATH);
   return config;
 });
 
