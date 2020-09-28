@@ -3,14 +3,23 @@ import React, { useEffect, useState } from 'react';
 import { Header, Stepper, Steps } from '../../components/customer-payments';
 import Styles from './styles';
 import { CRYPTO_CURRENCIES, CryptoCurrencies, STEPS } from '../../constants/CustomerPayments';
+import CancelOrder from '../../components/cancel-order';
+import DataStorage from '../../configurations/DataStorage';
 
-const CustomerPayments = (): React.ReactElement => {
+const CustomerPayments = (props: { match: { params: { id: number; token: string } } }): React.ReactElement => {
   const steps = ['Crypto', 'Price/Wallet', 'Processing', 'Complete'];
   const styles = Styles();
+  const { id, token } = props.match.params;
 
   const [step, setStep] = useState(STEPS.CRYPTO);
   const [crypto, setCrypto] = useState(new CryptoCurrencies());
   const [showCancel, setShowCancel] = useState(true);
+  const [isCancelled, setIsCancelled] = useState(false);
+
+  useEffect(() => {
+    DataStorage.setOrderId(id);
+    DataStorage.setToken(token);
+  }, [id, token]);
 
   useEffect(() => {
     CRYPTO_CURRENCIES.ETHEREUM.setAmount(0.0065);
@@ -41,13 +50,28 @@ const CustomerPayments = (): React.ReactElement => {
 
   return (
     <div className={styles.root}>
-      <Header goBack={() => setStep(STEPS.CRYPTO)} showBack={step === STEPS.WALLET} />
-      <Container>
-        <Stepper stepper={steps} activeStep={step}>
-          {activeStep()}
-        </Stepper>
-      </Container>
-      {showCancel && <div className={styles.cancelOrder}>Cancel Order</div>}
+      <Header goBack={() => setStep(STEPS.CRYPTO)} showBack={!isCancelled && step === STEPS.WALLET} />
+      {isCancelled ? (
+        <>
+          <CancelOrder />
+          <div className={styles.cancelOrder} onClick={() => setIsCancelled(false)}>
+            Return to payment
+          </div>
+        </>
+      ) : (
+        <>
+          <Container>
+            <Stepper stepper={steps} activeStep={step}>
+              {activeStep()}
+            </Stepper>
+          </Container>
+          {showCancel && (
+            <div className={styles.cancelOrder} onClick={() => setIsCancelled(true)}>
+              Cancel Order
+            </div>
+          )}
+        </>
+      )}
     </div>
   );
 };

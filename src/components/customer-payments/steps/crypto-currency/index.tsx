@@ -17,7 +17,7 @@ const CryptoCurrency = (props: { selectedCrypto: (crypto: CryptoCurrencies) => v
 
   return (
     <div>
-      <Grid container justify="space-between">
+      <Grid container justify='space-between'>
         <Grid item>
           <div className={styles.merchantName}>Ohana</div>
           <div className={styles.orderName}>Order #8867</div>

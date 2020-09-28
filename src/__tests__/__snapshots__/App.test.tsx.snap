@@ -311,17 +311,7 @@ exports[`App renders template correctly 1`] = `
 >
   <WithStyles(CssBaseline) />
   <BrowserRouter>
-    <Switch>
-      <Route
-        component={[Function]}
-        exact={true}
-        path="/:id/:token"
-      />
-      <Route
-        component={[Function]}
-        path="/"
-      />
-    </Switch>
+    <Router />
   </BrowserRouter>
 </ThemeProvider>
 `;

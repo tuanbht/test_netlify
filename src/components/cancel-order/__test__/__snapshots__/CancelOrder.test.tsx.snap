@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CancelOrder renders template correctly 1`] = `
+<div
+  className="makeStyles-root-1"
+>
+  <div
+    className="makeStyles-content-2"
+  >
+    <div
+      className="makeStyles-title-3"
+    >
+      Quit the payment system?
+    </div>
+    <div
+      className="makeStyles-subtitle-4"
+    >
+      If you quit now, your crypto payment will be cancelled and you’ll have to contact your merchant to complete the order with cash.
+    </div>
+    <Link
+      className="makeStyles-cancelButton-5"
+      to="/order-cancelled"
+    >
+      <WithStyles(ForwardRef(Button))
+        classes={
+          Object {
+            "focusVisible": "makeStyles-focusVisible-7 makeStyles-focusVisible-9",
+            "root": "makeStyles-root-6 makeStyles-root-8",
+          }
+        }
+        onClick={[Function]}
+      >
+        Quit Crypto Payment
+      </WithStyles(ForwardRef(Button))>
+    </Link>
+  </div>
+</div>
+`;
