@@ -1,16 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ProcessingStyles, { linearConnector } from './styles';
 import { Grid, Step, StepConnector, StepIconProps, StepLabel, Stepper } from '@material-ui/core';
 import { ReactComponent as IconChecked } from '../../../../assets/images/icons/icon-checked.svg';
 import { ReactComponent as IconDefault } from '../../../../assets/images/icons/icon-default.svg';
 import { ReactComponent as IconActive } from '../../../../assets/images/icons/icon-loading.svg';
-import { buildProcessingSteps } from '../../../../constants/CustomerPayments';
+import {
+  buildProcessingSteps,
+  ORDER_STATUS,
+  RETRIEVE_ORDER_DETAILS_INTERVAL,
+} from '../../../../constants/CustomerPayments';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootStateReducer } from '../../../../reducers';
+import OrderActions from '../../../../actions/OrderActions';
 
 const Processing = (): React.ReactElement => {
   const styles = ProcessingStyles();
   const CustomStepConnector = linearConnector(StepConnector);
-  //TODO : Will update real data from api in the next PR
-  const steps = buildProcessingSteps('2020-09-22T16:20', 'https://staging-paloma-crypto-payment.herokuapp.com/');
+  const dispatch = useDispatch();
+
+  const orderDetails = useSelector((state: RootStateReducer) => state.OrderDetails);
+  const { orderId } = useSelector((state: RootStateReducer) => state.Credential);
 
   const renderStepIcon = (props: StepIconProps): React.ReactElement => {
     const { active, completed } = props;
@@ -18,20 +27,41 @@ const Processing = (): React.ReactElement => {
     return <div>{active ? <IconActive /> : completed ? <IconChecked /> : <IconDefault />}</div>;
   };
 
+  useEffect(() => {
+    const intervalUpdateStatus = setInterval(() => {
+      dispatch(OrderActions.getOrderDetailsAction(orderId));
+    }, RETRIEVE_ORDER_DETAILS_INTERVAL);
+
+    return () => clearInterval(intervalUpdateStatus);
+  }, [orderId, dispatch]);
+
+  const getActiveStep = (): number => {
+    switch (orderDetails.status) {
+      case ORDER_STATUS.inProgress:
+        return 3;
+      case ORDER_STATUS.completed:
+        return 4;
+      case ORDER_STATUS.delivered:
+        return 5;
+      default:
+        return 2;
+    }
+  };
+
   return (
     <Grid container>
       <Grid item className={styles.titleContainer}>
-        <div className={styles.title}>Order #11345</div>
+        <div className={styles.title}>Order #{orderDetails.orderNumber}</div>
         <div className={styles.subtitle}>Track your progress below!</div>
       </Grid>
       <Grid item className={styles.processingContainer}>
         <Stepper
-          activeStep={3}
+          activeStep={getActiveStep()}
           orientation='vertical'
           className={styles.stepperContainer}
           connector={<CustomStepConnector />}
         >
-          {steps.map((step) => (
+          {buildProcessingSteps(orderDetails.storeName, orderDetails.markAsPaidTime).map((step) => (
             <Step key={step.title} className={styles.stepContainer}>
               <StepLabel
                 StepIconComponent={renderStepIcon}

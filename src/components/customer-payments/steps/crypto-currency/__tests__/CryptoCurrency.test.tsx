@@ -1,31 +1,49 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount, ReactWrapper } from 'enzyme';
 import CryptoCurrency from '../index';
-import { CRYPTO_CURRENCIES } from '../../../../../constants/CustomerPayments';
+import { CRYPTO_CURRENCIES, OrderDetails } from '../../../../../constants/CustomerPayments';
+import { testStore } from '../../../../../configurations/ConfigureTestStore';
+import { Provider } from 'react-redux';
+import faker from 'faker';
 
 describe('CryptoCurrency', () => {
   const selectedCrypto = jest.fn();
-  const container = shallow(<CryptoCurrency selectedCrypto={selectedCrypto} />);
+  const store = testStore({
+    OrderDetails: new OrderDetails(),
+  });
   const { BITCOIN, ETHEREUM, USDT } = CRYPTO_CURRENCIES;
-  it('renders template correctly', () => {
-    expect(container).toMatchSnapshot();
+  let container: ReactWrapper;
+
+  beforeEach(() => {
+    BITCOIN.setAmount(faker.random.number());
+    BITCOIN.setWalletAddress(faker.random.uuid());
+    ETHEREUM.setAmount(faker.random.number());
+    ETHEREUM.setWalletAddress(faker.random.uuid());
+    USDT.setAmount(faker.random.number());
+    USDT.setWalletAddress(faker.random.uuid());
+
+    container = mount(
+      <Provider store={store}>
+        <CryptoCurrency selectedCrypto={selectedCrypto} />
+      </Provider>,
+    );
   });
 
   describe('select a crypto currency', () => {
     describe('select BITCOIN crypto', () => {
       beforeEach(() => {
-        const button = container.find({ children: [container.find(BITCOIN.logo), BITCOIN.fullName] });
+        const button = container.find({ children: [container.find(BITCOIN.logo), BITCOIN.fullName] }).first();
         button.simulate('click');
       });
 
-      it('should not be called with crypto BITCOIN', () => {
-        expect(selectedCrypto).not.toBeCalledWith(CRYPTO_CURRENCIES.BITCOIN);
+      it('should be called with crypto BITCOIN', () => {
+        expect(selectedCrypto).toBeCalledWith(CRYPTO_CURRENCIES.BITCOIN);
       });
     });
 
     describe('select ETHEREUM crypto', () => {
       beforeEach(() => {
-        const button = container.find({ children: [container.find(ETHEREUM.logo), ETHEREUM.fullName] });
+        const button = container.find({ children: [container.find(ETHEREUM.logo), ETHEREUM.fullName] }).first();
         button.simulate('click');
       });
 
@@ -36,12 +54,12 @@ describe('CryptoCurrency', () => {
 
     describe('select USD TETHER crypto', () => {
       beforeEach(() => {
-        const button = container.find({ children: [container.find(USDT.logo), USDT.fullName] });
+        const button = container.find({ children: [container.find(USDT.logo), USDT.fullName] }).first();
         button.simulate('click');
       });
 
-      it('should not be called with crypto USD TETHER', () => {
-        expect(selectedCrypto).not.toBeCalledWith(CRYPTO_CURRENCIES.USDT);
+      it('should be called with crypto USD TETHER', () => {
+        expect(selectedCrypto).toBeCalledWith(CRYPTO_CURRENCIES.USDT);
       });
     });
   });

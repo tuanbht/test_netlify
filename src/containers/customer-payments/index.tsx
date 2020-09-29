@@ -2,35 +2,47 @@ import { Container } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 import { Header, Stepper, Steps } from '../../components/customer-payments';
 import Styles from './styles';
-import { CRYPTO_CURRENCIES, CryptoCurrencies, STEPS } from '../../constants/CustomerPayments';
+import { CryptoCurrencies, ORDER_STATUS, STEPS } from '../../constants/CustomerPayments';
 import CancelOrder from '../../components/cancel-order';
-import DataStorage from '../../configurations/DataStorage';
+import { useDispatch, useSelector } from 'react-redux';
+import OrderActions from '../../actions/OrderActions';
+import CredentialActions from '../../actions/CredentialActions';
+import { RootStateReducer } from '../../reducers';
 
-const CustomerPayments = (props: { match: { params: { id: number; token: string } } }): React.ReactElement => {
+const CustomerPayments = (props: { match: { params: { orderId: number; token: string } } }): React.ReactElement => {
   const steps = ['Crypto', 'Price/Wallet', 'Processing', 'Complete'];
   const styles = Styles();
-  const { id, token } = props.match.params;
+  const { orderId, token } = props.match.params;
+  const dispatch = useDispatch();
 
-  const [step, setStep] = useState(STEPS.CRYPTO);
+  const [step, setStep] = useState(STEPS.UNDEFINED);
   const [crypto, setCrypto] = useState(new CryptoCurrencies());
-  const [showCancel, setShowCancel] = useState(true);
   const [isCancelled, setIsCancelled] = useState(false);
 
-  useEffect(() => {
-    DataStorage.setOrderId(id);
-    DataStorage.setToken(token);
-  }, [id, token]);
+  const orderDetails = useSelector((state: RootStateReducer) => state.OrderDetails);
 
   useEffect(() => {
-    CRYPTO_CURRENCIES.ETHEREUM.setAmount(0.0065);
-    CRYPTO_CURRENCIES.ETHEREUM.setWalletAddress('0x89205A3A3b2A69De6Dbf7f01ED13B2108B2c43e7');
-  });
+    dispatch(CredentialActions.saveCredentialAction(token, orderId));
+    dispatch(OrderActions.getOrderDetailsAction(orderId));
+  }, [orderId, token, dispatch]);
 
   useEffect(() => {
-    if (step === STEPS.PROCESSING) {
-      setShowCancel(false);
+    switch (orderDetails.status) {
+      case ORDER_STATUS.undefined:
+        setStep(STEPS.UNDEFINED);
+        break;
+      case ORDER_STATUS.inProgress:
+      case ORDER_STATUS.completed:
+        setStep(STEPS.PROCESSING);
+        break;
+      case ORDER_STATUS.delivered:
+        setStep(STEPS.COMPLETE);
+        break;
+      default:
+        setStep(orderDetails.markAsPaid ? STEPS.PROCESSING : STEPS.CRYPTO);
+        break;
     }
-  }, [step]);
+  }, [orderDetails]);
 
   const selectedCrypto = (crypto: CryptoCurrencies) => {
     setStep(STEPS.WALLET);
@@ -43,12 +55,16 @@ const CustomerPayments = (props: { match: { params: { id: number; token: string 
         return <Steps.CryptoWallet crypto={crypto} nextStep={() => setStep(STEPS.PROCESSING)} />;
       case STEPS.PROCESSING:
         return <Steps.Processing />;
+      case STEPS.COMPLETE:
+        return <Steps.Complete />;
       default:
         return <Steps.CryptoCurrency selectedCrypto={selectedCrypto} />;
     }
   };
 
-  return (
+  return orderDetails.isEmpty() ? (
+    <></>
+  ) : (
     <div className={styles.root}>
       <Header goBack={() => setStep(STEPS.CRYPTO)} showBack={!isCancelled && step === STEPS.WALLET} />
       {isCancelled ? (
@@ -62,10 +78,10 @@ const CustomerPayments = (props: { match: { params: { id: number; token: string 
         <>
           <Container>
             <Stepper stepper={steps} activeStep={step}>
-              {activeStep()}
+              {step !== STEPS.UNDEFINED ? activeStep() : <></>}
             </Stepper>
           </Container>
-          {showCancel && (
+          {step < STEPS.PROCESSING && (
             <div className={styles.cancelOrder} onClick={() => setIsCancelled(true)}>
               Cancel Order
             </div>

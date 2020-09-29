@@ -1,0 +1,179 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OrderDetails GET_ORDER_DETAILS_SUCCESS does not have store details and crypto payment details returns orderDetails without store details and crypto payment details 1`] = `
+OrderDetails {
+  "isEmpty": [Function],
+  "markAsPaid": false,
+  "markAsPaidTime": "",
+  "orderNumber": "NjKvLP1o",
+  "price": "67.77",
+  "status": "initialized",
+  "storeName": "",
+  "storePhoneNumber": "",
+}
+`;
+
+exports[`OrderDetails GET_ORDER_DETAILS_SUCCESS does not have store details and crypto payment details returns orderDetails without store details and crypto payment details 2`] = `
+Object {
+  "BITCOIN": CryptoCurrencies {
+    "amount": 0,
+    "fullName": "Bitcoin",
+    "logo": Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "render": [Function],
+    },
+    "prefix": "bitcoin",
+    "shortName": "BTC",
+    "walletAddress": "",
+  },
+  "ETHEREUM": CryptoCurrencies {
+    "amount": 0,
+    "fullName": "Ethereum",
+    "logo": Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "render": [Function],
+    },
+    "prefix": "ethereum",
+    "shortName": "ETH",
+    "walletAddress": "",
+  },
+  "USDT": CryptoCurrencies {
+    "amount": 0,
+    "fullName": "USD Tether",
+    "logo": Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "render": [Function],
+    },
+    "prefix": "usdt",
+    "shortName": "USDT",
+    "walletAddress": "",
+  },
+}
+`;
+
+exports[`OrderDetails GET_ORDER_DETAILS_SUCCESS has crypto BTC details returns crypto BTC details 1`] = `
+Object {
+  "BITCOIN": CryptoCurrencies {
+    "amount": "0.755828606587089",
+    "fullName": "Bitcoin",
+    "logo": Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "render": [Function],
+    },
+    "prefix": "bitcoin",
+    "shortName": "BTC",
+    "walletAddress": "1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa",
+  },
+  "ETHEREUM": CryptoCurrencies {
+    "amount": "0.47646764203043",
+    "fullName": "Ethereum",
+    "logo": Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "render": [Function],
+    },
+    "prefix": "ethereum",
+    "shortName": "ETH",
+    "walletAddress": "0x3f5CE5FBFe3E9af3971dD833D26bA9b5C936f0bE",
+  },
+  "USDT": CryptoCurrencies {
+    "amount": 0,
+    "fullName": "USD Tether",
+    "logo": Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "render": [Function],
+    },
+    "prefix": "usdt",
+    "shortName": "USDT",
+    "walletAddress": "",
+  },
+}
+`;
+
+exports[`OrderDetails GET_ORDER_DETAILS_SUCCESS has crypto ETH details returns crypto ETH details 1`] = `
+Object {
+  "BITCOIN": CryptoCurrencies {
+    "amount": 0,
+    "fullName": "Bitcoin",
+    "logo": Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "render": [Function],
+    },
+    "prefix": "bitcoin",
+    "shortName": "BTC",
+    "walletAddress": "",
+  },
+  "ETHEREUM": CryptoCurrencies {
+    "amount": "0.47646764203043",
+    "fullName": "Ethereum",
+    "logo": Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "render": [Function],
+    },
+    "prefix": "ethereum",
+    "shortName": "ETH",
+    "walletAddress": "0x3f5CE5FBFe3E9af3971dD833D26bA9b5C936f0bE",
+  },
+  "USDT": CryptoCurrencies {
+    "amount": 0,
+    "fullName": "USD Tether",
+    "logo": Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "render": [Function],
+    },
+    "prefix": "usdt",
+    "shortName": "USDT",
+    "walletAddress": "",
+  },
+}
+`;
+
+exports[`OrderDetails GET_ORDER_DETAILS_SUCCESS has crypto USDT details returns crypto USDT details 1`] = `
+Object {
+  "BITCOIN": CryptoCurrencies {
+    "amount": "0.755828606587089",
+    "fullName": "Bitcoin",
+    "logo": Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "render": [Function],
+    },
+    "prefix": "bitcoin",
+    "shortName": "BTC",
+    "walletAddress": "1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa",
+  },
+  "ETHEREUM": CryptoCurrencies {
+    "amount": "0.47646764203043",
+    "fullName": "Ethereum",
+    "logo": Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "render": [Function],
+    },
+    "prefix": "ethereum",
+    "shortName": "ETH",
+    "walletAddress": "0x3f5CE5FBFe3E9af3971dD833D26bA9b5C936f0bE",
+  },
+  "USDT": CryptoCurrencies {
+    "amount": "0.755828606587089",
+    "fullName": "USD Tether",
+    "logo": Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "render": [Function],
+    },
+    "prefix": "usdt",
+    "shortName": "USDT",
+    "walletAddress": "1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa",
+  },
+}
+`;
+
+exports[`OrderDetails GET_ORDER_DETAILS_SUCCESS has store details returns orderDetails with store details 1`] = `
+OrderDetails {
+  "isEmpty": [Function],
+  "markAsPaid": false,
+  "markAsPaidTime": "",
+  "orderNumber": "NjKvLP1o",
+  "price": "67.77",
+  "status": "undefined",
+  "storeName": "Marilu Harvey MD",
+  "storePhoneNumber": "993.885.9672",
+}
+`;

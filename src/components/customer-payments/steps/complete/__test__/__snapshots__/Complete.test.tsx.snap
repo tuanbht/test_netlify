@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Complete renders template correctly 1`] = `
+<Provider
+  store={
+    Object {
+      "dispatch": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+      Symbol(observable): [Function],
+    }
+  }
+>
+  <Complete>
+    <div>
+      <div
+        className="makeStyles-root-1"
+      >
+        <div
+          className="makeStyles-orderLayout-2"
+        >
+          <div>
+            <div
+              className="makeStyles-merchantName-3"
+            >
+              store-name
+            </div>
+            <div
+              className="makeStyles-orderName-4"
+            >
+              Order #
+              1
+            </div>
+          </div>
+          <div
+            className="makeStyles-amount-5"
+          >
+            $
+            1
+          </div>
+        </div>
+        <div
+          className="makeStyles-messageLayout-6"
+        >
+          <div
+            className="makeStyles-titleMessage-7"
+          >
+            Order #
+            1
+          </div>
+          <div
+            className="makeStyles-subMessage1-8"
+          >
+            Your order has been confirmed and is out for delivery!
+          </div>
+          <div
+            className="makeStyles-subMessage2-9"
+          >
+            If you have an issues, please contact 
+            store-name
+             at 
+            store-phone-number
+            .
+          </div>
+        </div>
+      </div>
+    </div>
+  </Complete>
+</Provider>
+`;

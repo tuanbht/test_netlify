@@ -1,9 +1,11 @@
-import { mount, ReactWrapper, shallow, ShallowWrapper } from 'enzyme';
+import { mount, ReactWrapper } from 'enzyme';
 import React from 'react';
 import CryptoWallet from '../index';
 import { CryptoCurrencies } from '../../../../../constants/CustomerPayments';
 import { Button, Modal } from '@material-ui/core';
 import { act } from 'react-dom/test-utils';
+import { Provider } from 'react-redux';
+import { testStore } from '../../../../../configurations/ConfigureTestStore';
 
 jest.mock('copy-to-clipboard');
 
@@ -13,13 +15,17 @@ describe('CryptoWallet', () => {
   crypto.setWalletAddress('wallet-address');
   crypto.setAmount(0);
   const nextStep = jest.fn();
-  let container: ReactWrapper | ShallowWrapper;
+  let container: ReactWrapper;
 
   beforeEach(() => {
     jest.spyOn(global, 'setTimeout');
-    jest.useFakeTimers();
+    HTMLCanvasElement.prototype.getContext = jest.fn();
 
-    container = shallow(<CryptoWallet crypto={crypto} nextStep={nextStep} />);
+    container = mount(
+      <Provider store={testStore()}>
+        <CryptoWallet crypto={crypto} nextStep={nextStep} />
+      </Provider>,
+    );
   });
 
   it('renders template correctly', () => {
@@ -28,7 +34,7 @@ describe('CryptoWallet', () => {
 
   describe('click qr code button', () => {
     beforeEach(() => {
-      container.find(Button).find({ children: 'QR Code' }).simulate('click');
+      container.find(Button).find({ children: 'QR Code' }).first().simulate('click');
     });
 
     it('should open qr code modal', () => {
@@ -38,19 +44,22 @@ describe('CryptoWallet', () => {
 
   describe('click outside of qr code modal', () => {
     beforeEach(() => {
-      container.find(Button).find({ children: 'QR Code' }).simulate('click');
+      container.find(Button).find({ children: 'QR Code' }).first().simulate('click');
       expect(container.find(Modal).props().open).toBe(true);
-      container.find(Modal).props().onClose?.({}, 'backdropClick');
+      act(() => {
+        container.find(Modal).props().onClose?.({}, 'backdropClick');
+      });
     });
 
-    it('should close qr code modal', () => {
+    it('should close qr code modal', async () => {
+      container.update();
       expect(container.find(Modal).props().open).toBe(false);
     });
   });
 
   describe('click mark as paid button', () => {
     beforeEach(() => {
-      container.find(Button).find({ children: 'Mark as Paid' }).simulate('click');
+      container.find(Button).find({ children: 'Mark as Paid' }).first().simulate('click');
     });
 
     it('should call next step', () => {
@@ -59,18 +68,16 @@ describe('CryptoWallet', () => {
   });
 
   describe('copy to clipboard', () => {
-    beforeEach(() => {
-      container = mount(<CryptoWallet crypto={crypto} nextStep={nextStep} />);
-    });
-
     describe('copy amount value', () => {
       const copyButton = (): ReactWrapper => (container as ReactWrapper).find(Button).find('#copy-amount').first();
 
       beforeEach(() => {
+        jest.useFakeTimers();
         copyButton().simulate('click');
       });
 
       it('changes text of button to copied', () => {
+        container.update();
         expect((copyButton().props() as { children: string }).children).toBe('Copied!');
       });
 
@@ -78,8 +85,8 @@ describe('CryptoWallet', () => {
         act(() => {
           jest.runAllTimers();
         });
-        container.update();
         expect(setTimeout).toBeCalled();
+        container.update();
         expect((copyButton().props() as { children: string }).children).toBe('Copy');
       });
 
@@ -98,6 +105,7 @@ describe('CryptoWallet', () => {
       const copyButton = (): ReactWrapper => (container as ReactWrapper).find(Button).find('#copy-wallet').first();
 
       beforeEach(() => {
+        jest.useFakeTimers();
         copyButton().simulate('click');
       });
 
