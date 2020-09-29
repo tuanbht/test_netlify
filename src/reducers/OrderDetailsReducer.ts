@@ -13,11 +13,11 @@ const OrderDetails = createReducer(new OrderDetailsModel(), {
 
     if (orderDetails.status === ORDER_STATUS.cancelled) {
       window.location.assign(ORDER_CANCELLED_PATH);
-      return;
+      return state;
     }
     if (orderDetails.status === ORDER_STATUS.expired) {
       window.location.assign(ORDER_EXPIRED_PATH);
-      return;
+      return state;
     }
 
     orderDetails.orderNumber = get(data.data.attributes, 'external-order-id', 0);
@@ -31,9 +31,18 @@ const OrderDetails = createReducer(new OrderDetailsModel(), {
       orderDetails.storePhoneNumber = get(storeDetails.attributes, 'phone-number', '');
     }
 
-    const cryptoETH = find(data.included, { type: 'payments', attributes: { 'payment-type': 'ETH' } });
-    const cryptoBTC = find(data.included, { type: 'payments', attributes: { 'payment-type': 'BTC' } });
-    const cryptoUSDT = find(data.included, { type: 'payments', attributes: { 'payment-type': 'USDT' } });
+    const cryptoETH = find(data.included, {
+      type: 'payments',
+      attributes: { 'payment-type': CRYPTO_CURRENCIES.ETHEREUM.shortName },
+    });
+    const cryptoBTC = find(data.included, {
+      type: 'payments',
+      attributes: { 'payment-type': CRYPTO_CURRENCIES.BITCOIN.shortName },
+    });
+    const cryptoUSDT = find(data.included, {
+      type: 'payments',
+      attributes: { 'payment-type': CRYPTO_CURRENCIES.USDT.shortName },
+    });
 
     if (cryptoETH) {
       CRYPTO_CURRENCIES.ETHEREUM.setAmount(get(cryptoETH.attributes, 'amount', 0));
@@ -48,7 +57,6 @@ const OrderDetails = createReducer(new OrderDetailsModel(), {
       CRYPTO_CURRENCIES.USDT.setWalletAddress(get(cryptoUSDT.attributes, 'destination-wallet', ''));
     }
 
-    console.log(CRYPTO_CURRENCIES);
     return orderDetails;
   },
   [ActionFailure(GET_ORDER_DETAILS)]: (state) => {

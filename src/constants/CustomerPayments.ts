@@ -4,7 +4,7 @@ import { ReactComponent as IconETH } from '../assets/images/icons/icon-eth.svg';
 import { ReactComponent as IconUSDT } from '../assets/images/icons/icon-usdt.svg';
 import moment from 'moment';
 
-export const RETRIEVE_ORDER_DETAILS_INTERVAL = 10000; //ms
+export const RETRIEVE_ORDER_DETAILS_INTERVAL = 5000; //ms
 
 export const STEPS = {
   UNDEFINED: -1,
@@ -66,7 +66,7 @@ export interface OrderDetails {
   storePhoneNumber: string;
   markAsPaid: boolean;
   markAsPaidTime: moment.MomentInput;
-  isEmpty(): boolean;
+  isEmpty: () => boolean;
 }
 
 export class OrderDetails {

@@ -22,12 +22,13 @@ const CryptoWallet = (props: { crypto: CryptoCurrencies; nextStep: () => void })
   const [isCopiedAmount, setIsCopiedAmount] = useState(false);
   const [isCopiedWallet, setIsCopiedWallet] = useState(false);
   const orderDetails = useSelector((state: RootStateReducer) => state.OrderDetails);
+  const { orderId } = useSelector((state: RootStateReducer) => state.Credential);
 
   const dispatch = useDispatch();
 
   const markAsPaid = (): void => {
-    const updateMarkAsPaid = async () => await dispatch(OrderActions.markAsPaidOrderAction());
-    updateMarkAsPaid().then(() => dispatch(OrderActions.getOrderDetailsAction()));
+    const updateMarkAsPaid = async () => await dispatch(OrderActions.markAsPaidOrderAction(orderId));
+    updateMarkAsPaid().then(() => dispatch(OrderActions.getOrderDetailsAction(orderId)));
     nextStep();
   };
 

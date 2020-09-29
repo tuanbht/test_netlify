@@ -5,12 +5,15 @@ import { Button } from '@material-ui/core';
 import { ButtonStyle } from '../../styles/CommonStyle';
 import { Color } from '../../styles/Varriables';
 import { ORDER_CANCELLED_PATH } from '../../constants/RouterPaths';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import OrderActions from '../../actions/OrderActions';
+import { RootStateReducer } from '../../reducers';
 
 const CancelOrder = (): React.ReactElement => {
   const styles = Styles();
   const dispatch = useDispatch();
+
+  const { orderId } = useSelector((state: RootStateReducer) => state.Credential);
 
   return (
     <div className={styles.root}>
@@ -23,7 +26,7 @@ const CancelOrder = (): React.ReactElement => {
         <Link to={ORDER_CANCELLED_PATH} className={styles.cancelButton}>
           <Button
             classes={ButtonStyle({ color: Color.froly })}
-            onClick={() => dispatch(OrderActions.cancelOrderAction())}
+            onClick={() => dispatch(OrderActions.cancelOrderAction(orderId))}
           >
             Quit Crypto Payment
           </Button>

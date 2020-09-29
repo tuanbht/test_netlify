@@ -23,7 +23,7 @@ const CustomerPayments = (props: { match: { params: { orderId: number; token: st
 
   useEffect(() => {
     dispatch(CredentialActions.saveCredentialAction(token, orderId));
-    dispatch(OrderActions.getOrderDetailsAction());
+    dispatch(OrderActions.getOrderDetailsAction(orderId));
   }, [orderId, token, dispatch]);
 
   useEffect(() => {
@@ -62,8 +62,6 @@ const CustomerPayments = (props: { match: { params: { orderId: number; token: st
     }
   };
 
-  console.log(orderDetails.isEmpty());
-  console.log(step);
   return orderDetails.isEmpty() ? (
     <></>
   ) : (

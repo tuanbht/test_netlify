@@ -19,6 +19,7 @@ const Processing = (): React.ReactElement => {
   const dispatch = useDispatch();
 
   const orderDetails = useSelector((state: RootStateReducer) => state.OrderDetails);
+  const { orderId } = useSelector((state: RootStateReducer) => state.Credential);
 
   const renderStepIcon = (props: StepIconProps): React.ReactElement => {
     const { active, completed } = props;
@@ -28,11 +29,11 @@ const Processing = (): React.ReactElement => {
 
   useEffect(() => {
     const intervalUpdateStatus = setInterval(() => {
-      dispatch(OrderActions.getOrderDetailsAction());
+      dispatch(OrderActions.getOrderDetailsAction(orderId));
     }, RETRIEVE_ORDER_DETAILS_INTERVAL);
 
     return () => clearInterval(intervalUpdateStatus);
-  }, [dispatch]);
+  }, [orderId, dispatch]);
 
   const getActiveStep = (): number => {
     switch (orderDetails.status) {

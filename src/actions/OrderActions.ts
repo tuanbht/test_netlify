@@ -3,22 +3,21 @@ import { replace } from 'lodash';
 import { Action } from 'redux';
 import { CANCEL_ORDER, GET_ORDER_DETAILS, MARK_AS_PAID_ORDER } from '../constants/ReduxActions';
 import { get, put } from './AxiosRequestActions';
-import { store } from '../configurations/ReduxStore';
 
-const buildUrl = (url: string) => {
-  return replace(url, ':id', String(store.getState().Credential.orderId));
+const buildUrl = (url: string, orderId: number) => {
+  return replace(url, ':id', String(orderId));
 };
 
-const getOrderDetailsAction = (): Action => {
-  return get(GET_ORDER_DETAILS, buildUrl(ORDER_DETAILS_PATH));
+const getOrderDetailsAction = (orderId: number): Action => {
+  return get(GET_ORDER_DETAILS, buildUrl(ORDER_DETAILS_PATH, orderId));
 };
 
-const cancelOrderAction = (): Action => {
-  return put(CANCEL_ORDER, buildUrl(CANCEL_ORDER_PATH));
+const cancelOrderAction = (orderId: number): Action => {
+  return put(CANCEL_ORDER, buildUrl(CANCEL_ORDER_PATH, orderId));
 };
 
-const markAsPaidOrderAction = (): Action => {
-  return put(MARK_AS_PAID_ORDER, buildUrl(MARK_AS_PAID_PATH));
+const markAsPaidOrderAction = (orderId: number): Action => {
+  return put(MARK_AS_PAID_ORDER, buildUrl(MARK_AS_PAID_PATH, orderId));
 };
 
 export default {

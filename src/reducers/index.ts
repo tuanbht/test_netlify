@@ -6,7 +6,7 @@ import Credential from './CredentialReducer';
 export interface RootStateReducer {
   OrderDetails: OrderDetailsModel;
   Credential: {
-    id: number;
+    orderId: number;
     token: string;
   };
 }
