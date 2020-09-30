@@ -28,7 +28,7 @@ export default makeStyles({
     lineHeight: '22px',
     marginTop: 15,
     marginBottom: 200,
-    textAlign: 'center',
+    textAlign: 'left',
   },
   cancelButton: {
     textDecoration: 'none',

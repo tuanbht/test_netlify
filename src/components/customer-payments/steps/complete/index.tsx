@@ -2,6 +2,7 @@ import React from 'react';
 import Styles from './styles';
 import { useSelector } from 'react-redux';
 import { RootStateReducer } from '../../../../reducers';
+import { ReactComponent as Checked } from '../../../../assets/images/icons/icon-checked.svg';
 
 const Complete = (): React.ReactElement => {
   const styles = Styles();
@@ -19,7 +20,10 @@ const Complete = (): React.ReactElement => {
           <div className={styles.amount}>${orderDetails.price}</div>
         </div>
         <div className={styles.messageLayout}>
-          <div className={styles.titleMessage}>Order #{orderDetails.orderNumber}</div>
+          <div className={styles.titleMessage}>
+            <Checked className={styles.iconChecked} />
+            <span>Order #{orderDetails.orderNumber}</span>
+          </div>
           <div className={styles.subMessage1}>Your order has been confirmed and is out for delivery!</div>
           <div className={styles.subMessage2}>
             If you have an issues, please contact {orderDetails.storeName} at {orderDetails.storePhoneNumber}.

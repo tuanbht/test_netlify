@@ -28,6 +28,6 @@ export default makeStyles({
     lineHeight: '22px',
     marginTop: 15,
     marginBottom: 330,
-    textAlign: 'center',
+    textAlign: 'left',
   },
 });

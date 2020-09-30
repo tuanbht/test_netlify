@@ -18,6 +18,8 @@ export default makeStyles({
   },
   activeLabel: {
     ...RobotoBoldFont,
+    fontSize: 14,
+    lineHeight: '19px',
   },
   linear: {
     marginTop: 13,
