@@ -5,7 +5,9 @@ import { Color } from '../../../../styles/Varriables';
 
 const stepper = {
   stepperContainer: {
-    padding: 'unset',
+    '&.MuiStepper-root': {
+      padding: 'unset',
+    },
   },
   stepContainer: {
     zIndex: 2,

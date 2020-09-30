@@ -2,9 +2,11 @@ import { makeStyles } from '@material-ui/styles';
 
 export default makeStyles({
   root: {
-    marginBottom: 10,
-    display: 'flex',
-    position: 'relative',
+    '&.MuiContainer-root': {
+      marginBottom: 10,
+      display: 'flex',
+      position: 'relative',
+    },
   },
   title: {
     fontSize: 20,
