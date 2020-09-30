@@ -3,14 +3,15 @@ import { RobotoMediumFont } from './FontFamily';
 
 interface ButtonProps {
   color: string;
-  uppercase?: boolean;
+  isMobile?: boolean;
+  isUppercase?: boolean;
 }
 export const ButtonStyle = makeStyles({
   root: {
     ...RobotoMediumFont,
     padding: 12,
     color: 'white',
-    textTransform: (props: ButtonProps) => (props.uppercase ? 'uppercase' : 'unset'),
+    textTransform: (props: ButtonProps) => (props.isUppercase ? 'uppercase' : 'unset'),
     lineHeight: '24px',
     width: '100%',
     borderRadius: 10,
@@ -19,8 +20,8 @@ export const ButtonStyle = makeStyles({
     backgroundColor: (props: ButtonProps) => props.color,
 
     '&:hover': {
-      backgroundColor: 'white',
-      color: (props: ButtonProps) => props.color,
+      backgroundColor: (props: ButtonProps) => (!props.isMobile ? 'white' : props.color),
+      color: (props: ButtonProps) => (props.isMobile ? 'white' : props.color),
     },
   },
   focusVisible: {

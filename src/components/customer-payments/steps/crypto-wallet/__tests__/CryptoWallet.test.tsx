@@ -6,8 +6,17 @@ import { Button, Modal } from '@material-ui/core';
 import { act } from 'react-dom/test-utils';
 import { Provider } from 'react-redux';
 import { testStore } from '../../../../../configurations/ConfigureTestStore';
+import mediaQuery from 'css-mediaquery';
 
 jest.mock('copy-to-clipboard');
+
+const createMatchMedia = (width: number) => {
+  return (query: string) => ({
+    matches: mediaQuery.match(query, { width }),
+    addListener: jest.fn(),
+    removeListener: jest.fn(),
+  });
+};
 
 describe('CryptoWallet', () => {
   const CryptoLogo = () => React.createElement('svg');
@@ -30,6 +39,24 @@ describe('CryptoWallet', () => {
 
   it('renders template correctly', () => {
     expect(container).toMatchSnapshot();
+  });
+
+  describe('display on mobile', () => {
+    beforeEach(() => {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      window.matchMedia = createMatchMedia(480);
+
+      container = mount(
+        <Provider store={testStore()}>
+          <CryptoWallet crypto={crypto} nextStep={nextStep} />
+        </Provider>,
+      );
+    });
+
+    it('renders template correctly', () => {
+      expect(container).toMatchSnapshot();
+    });
   });
 
   describe('click qr code button', () => {
