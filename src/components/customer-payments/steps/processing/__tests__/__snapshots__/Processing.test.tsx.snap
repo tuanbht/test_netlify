@@ -380,13 +380,13 @@ exports[`Processing renders template correctly 1`] = `
                 className="MuiGrid-root makeStyles-processingContainer-9 MuiGrid-item"
               >
                 <WithStyles(ForwardRef(Stepper))
-                  activeStep={2}
+                  activeStep={3}
                   className="makeStyles-stepperContainer-1"
                   connector={<ForwardRef(WithStyles) />}
                   orientation="vertical"
                 >
                   <ForwardRef(Stepper)
-                    activeStep={2}
+                    activeStep={3}
                     className="makeStyles-stepperContainer-1"
                     classes={
                       Object {
@@ -839,6 +839,237 @@ exports[`Processing renders template correctly 1`] = `
                             </ForwardRef(Step)>
                           </WithStyles(ForwardRef(Step))>
                           <WithStyles(ForwardRef(Step))
+                            active={false}
+                            alternativeLabel={false}
+                            className="makeStyles-stepContainer-2"
+                            completed={true}
+                            connector={
+                              <ForwardRef(WithStyles)
+                                orientation="vertical"
+                              />
+                            }
+                            disabled={false}
+                            index={2}
+                            key=".$Customer Payment Confirmed"
+                            last={false}
+                            orientation="vertical"
+                          >
+                            <ForwardRef(Step)
+                              active={false}
+                              alternativeLabel={false}
+                              className="makeStyles-stepContainer-2"
+                              classes={
+                                Object {
+                                  "alternativeLabel": "MuiStep-alternativeLabel",
+                                  "completed": "MuiStep-completed",
+                                  "horizontal": "MuiStep-horizontal",
+                                  "root": "MuiStep-root",
+                                  "vertical": "MuiStep-vertical",
+                                }
+                              }
+                              completed={true}
+                              connector={
+                                <ForwardRef(WithStyles)
+                                  orientation="vertical"
+                                />
+                              }
+                              disabled={false}
+                              index={2}
+                              last={false}
+                              orientation="vertical"
+                            >
+                              <WithStyles(WithStyles(ForwardRef(StepConnector)))
+                                active={false}
+                                alternativeLabel={false}
+                                completed={true}
+                                disabled={false}
+                                index={2}
+                                orientation="vertical"
+                              >
+                                <WithStyles(ForwardRef(StepConnector))
+                                  active={false}
+                                  alternativeLabel={false}
+                                  classes={
+                                    Object {
+                                      "line": "WithStyles(ForwardRef(StepConnector))-line-10",
+                                      "vertical": "WithStyles(ForwardRef(StepConnector))-vertical-11",
+                                    }
+                                  }
+                                  completed={true}
+                                  disabled={false}
+                                  index={2}
+                                  orientation="vertical"
+                                >
+                                  <ForwardRef(StepConnector)
+                                    active={false}
+                                    alternativeLabel={false}
+                                    classes={
+                                      Object {
+                                        "active": "MuiStepConnector-active",
+                                        "alternativeLabel": "MuiStepConnector-alternativeLabel",
+                                        "completed": "MuiStepConnector-completed",
+                                        "disabled": "Mui-disabled",
+                                        "horizontal": "MuiStepConnector-horizontal",
+                                        "line": "MuiStepConnector-line WithStyles(ForwardRef(StepConnector))-line-10",
+                                        "lineHorizontal": "MuiStepConnector-lineHorizontal",
+                                        "lineVertical": "MuiStepConnector-lineVertical",
+                                        "root": "MuiStepConnector-root",
+                                        "vertical": "MuiStepConnector-vertical WithStyles(ForwardRef(StepConnector))-vertical-11",
+                                      }
+                                    }
+                                    completed={true}
+                                    disabled={false}
+                                    index={2}
+                                    orientation="vertical"
+                                  >
+                                    <div
+                                      className="MuiStepConnector-root MuiStepConnector-vertical WithStyles(ForwardRef(StepConnector))-vertical-11 MuiStepConnector-completed"
+                                    >
+                                      <span
+                                        className="MuiStepConnector-line WithStyles(ForwardRef(StepConnector))-line-10 MuiStepConnector-lineVertical"
+                                      />
+                                    </div>
+                                  </ForwardRef(StepConnector)>
+                                </WithStyles(ForwardRef(StepConnector))>
+                              </WithStyles(WithStyles(ForwardRef(StepConnector)))>
+                              <div
+                                className="MuiStep-root MuiStep-vertical makeStyles-stepContainer-2 MuiStep-completed"
+                              >
+                                <WithStyles(ForwardRef(StepLabel))
+                                  StepIconComponent={[Function]}
+                                  active={false}
+                                  alternativeLabel={false}
+                                  classes={
+                                    Object {
+                                      "label": "makeStyles-stepLabel-3",
+                                    }
+                                  }
+                                  completed={true}
+                                  disabled={false}
+                                  expanded={false}
+                                  icon={3}
+                                  key=".0"
+                                  last={false}
+                                  orientation="vertical"
+                                >
+                                  <ForwardRef(StepLabel)
+                                    StepIconComponent={[Function]}
+                                    active={false}
+                                    alternativeLabel={false}
+                                    classes={
+                                      Object {
+                                        "active": "MuiStepLabel-active",
+                                        "alternativeLabel": "MuiStepLabel-alternativeLabel",
+                                        "completed": "MuiStepLabel-completed",
+                                        "disabled": "Mui-disabled",
+                                        "error": "Mui-error",
+                                        "horizontal": "MuiStepLabel-horizontal",
+                                        "iconContainer": "MuiStepLabel-iconContainer",
+                                        "label": "MuiStepLabel-label makeStyles-stepLabel-3",
+                                        "labelContainer": "MuiStepLabel-labelContainer",
+                                        "root": "MuiStepLabel-root",
+                                        "vertical": "MuiStepLabel-vertical",
+                                      }
+                                    }
+                                    completed={true}
+                                    disabled={false}
+                                    expanded={false}
+                                    icon={3}
+                                    last={false}
+                                    orientation="vertical"
+                                  >
+                                    <span
+                                      className="MuiStepLabel-root MuiStepLabel-vertical"
+                                    >
+                                      <span
+                                        className="MuiStepLabel-iconContainer"
+                                      >
+                                        <renderStepIcon
+                                          active={false}
+                                          completed={true}
+                                          error={false}
+                                          icon={3}
+                                        >
+                                          <div>
+                                            <ForwardRef(SvgIconChecked)>
+                                              <svg>
+                                                icon-checked.svg
+                                              </svg>
+                                            </ForwardRef(SvgIconChecked)>
+                                          </div>
+                                        </renderStepIcon>
+                                      </span>
+                                      <span
+                                        className="MuiStepLabel-labelContainer"
+                                      >
+                                        <WithStyles(ForwardRef(Typography))
+                                          className="MuiStepLabel-label makeStyles-stepLabel-3 MuiStepLabel-completed"
+                                          component="span"
+                                          display="block"
+                                          variant="body2"
+                                        >
+                                          <ForwardRef(Typography)
+                                            className="MuiStepLabel-label makeStyles-stepLabel-3 MuiStepLabel-completed"
+                                            classes={
+                                              Object {
+                                                "alignCenter": "MuiTypography-alignCenter",
+                                                "alignJustify": "MuiTypography-alignJustify",
+                                                "alignLeft": "MuiTypography-alignLeft",
+                                                "alignRight": "MuiTypography-alignRight",
+                                                "body1": "MuiTypography-body1",
+                                                "body2": "MuiTypography-body2",
+                                                "button": "MuiTypography-button",
+                                                "caption": "MuiTypography-caption",
+                                                "colorError": "MuiTypography-colorError",
+                                                "colorInherit": "MuiTypography-colorInherit",
+                                                "colorPrimary": "MuiTypography-colorPrimary",
+                                                "colorSecondary": "MuiTypography-colorSecondary",
+                                                "colorTextPrimary": "MuiTypography-colorTextPrimary",
+                                                "colorTextSecondary": "MuiTypography-colorTextSecondary",
+                                                "displayBlock": "MuiTypography-displayBlock",
+                                                "displayInline": "MuiTypography-displayInline",
+                                                "gutterBottom": "MuiTypography-gutterBottom",
+                                                "h1": "MuiTypography-h1",
+                                                "h2": "MuiTypography-h2",
+                                                "h3": "MuiTypography-h3",
+                                                "h4": "MuiTypography-h4",
+                                                "h5": "MuiTypography-h5",
+                                                "h6": "MuiTypography-h6",
+                                                "noWrap": "MuiTypography-noWrap",
+                                                "overline": "MuiTypography-overline",
+                                                "paragraph": "MuiTypography-paragraph",
+                                                "root": "MuiTypography-root",
+                                                "srOnly": "MuiTypography-srOnly",
+                                                "subtitle1": "MuiTypography-subtitle1",
+                                                "subtitle2": "MuiTypography-subtitle2",
+                                              }
+                                            }
+                                            component="span"
+                                            display="block"
+                                            variant="body2"
+                                          >
+                                            <span
+                                              className="MuiTypography-root MuiStepLabel-label makeStyles-stepLabel-3 MuiStepLabel-completed MuiTypography-body2 MuiTypography-displayBlock"
+                                            >
+                                              Customer Payment Confirmed
+                                              <span
+                                                className="makeStyles-stepLabelTimer-4"
+                                              >
+                                                 (
+                                                10:00 am
+                                                )
+                                              </span>
+                                            </span>
+                                          </ForwardRef(Typography)>
+                                        </WithStyles(ForwardRef(Typography))>
+                                      </span>
+                                    </span>
+                                  </ForwardRef(StepLabel)>
+                                </WithStyles(ForwardRef(StepLabel))>
+                              </div>
+                            </ForwardRef(Step)>
+                          </WithStyles(ForwardRef(Step))>
+                          <WithStyles(ForwardRef(Step))
                             active={true}
                             alternativeLabel={false}
                             className="makeStyles-stepContainer-2"
@@ -849,8 +1080,8 @@ exports[`Processing renders template correctly 1`] = `
                               />
                             }
                             disabled={false}
-                            index={2}
-                            key=".$Customer Payment Confirmed"
+                            index={3}
+                            key=".$Payment processing on blockchain"
                             last={false}
                             orientation="vertical"
                           >
@@ -874,7 +1105,7 @@ exports[`Processing renders template correctly 1`] = `
                                 />
                               }
                               disabled={false}
-                              index={2}
+                              index={3}
                               last={false}
                               orientation="vertical"
                             >
@@ -883,7 +1114,7 @@ exports[`Processing renders template correctly 1`] = `
                                 alternativeLabel={false}
                                 completed={false}
                                 disabled={false}
-                                index={2}
+                                index={3}
                                 orientation="vertical"
                               >
                                 <WithStyles(ForwardRef(StepConnector))
@@ -897,7 +1128,7 @@ exports[`Processing renders template correctly 1`] = `
                                   }
                                   completed={false}
                                   disabled={false}
-                                  index={2}
+                                  index={3}
                                   orientation="vertical"
                                 >
                                   <ForwardRef(StepConnector)
@@ -919,7 +1150,7 @@ exports[`Processing renders template correctly 1`] = `
                                     }
                                     completed={false}
                                     disabled={false}
-                                    index={2}
+                                    index={3}
                                     orientation="vertical"
                                   >
                                     <div
@@ -947,7 +1178,7 @@ exports[`Processing renders template correctly 1`] = `
                                   completed={false}
                                   disabled={false}
                                   expanded={false}
-                                  icon={3}
+                                  icon={4}
                                   key=".0"
                                   last={false}
                                   orientation="vertical"
@@ -974,7 +1205,7 @@ exports[`Processing renders template correctly 1`] = `
                                     completed={false}
                                     disabled={false}
                                     expanded={false}
-                                    icon={3}
+                                    icon={4}
                                     last={false}
                                     orientation="vertical"
                                   >
@@ -988,7 +1219,7 @@ exports[`Processing renders template correctly 1`] = `
                                           active={true}
                                           completed={false}
                                           error={false}
-                                          icon={3}
+                                          icon={4}
                                         >
                                           <div>
                                             <ForwardRef(SvgIconLoading)>
@@ -1050,237 +1281,6 @@ exports[`Processing renders template correctly 1`] = `
                                           >
                                             <span
                                               className="MuiTypography-root MuiStepLabel-label makeStyles-stepLabel-3 MuiStepLabel-active MuiTypography-body2 MuiTypography-displayBlock"
-                                            >
-                                              Customer Payment Confirmed
-                                              <span
-                                                className="makeStyles-stepLabelTimer-4"
-                                              >
-                                                 (
-                                                10:00 am
-                                                )
-                                              </span>
-                                            </span>
-                                          </ForwardRef(Typography)>
-                                        </WithStyles(ForwardRef(Typography))>
-                                      </span>
-                                    </span>
-                                  </ForwardRef(StepLabel)>
-                                </WithStyles(ForwardRef(StepLabel))>
-                              </div>
-                            </ForwardRef(Step)>
-                          </WithStyles(ForwardRef(Step))>
-                          <WithStyles(ForwardRef(Step))
-                            active={false}
-                            alternativeLabel={false}
-                            className="makeStyles-stepContainer-2"
-                            completed={false}
-                            connector={
-                              <ForwardRef(WithStyles)
-                                orientation="vertical"
-                              />
-                            }
-                            disabled={true}
-                            index={3}
-                            key=".$Payment processing on blockchain"
-                            last={false}
-                            orientation="vertical"
-                          >
-                            <ForwardRef(Step)
-                              active={false}
-                              alternativeLabel={false}
-                              className="makeStyles-stepContainer-2"
-                              classes={
-                                Object {
-                                  "alternativeLabel": "MuiStep-alternativeLabel",
-                                  "completed": "MuiStep-completed",
-                                  "horizontal": "MuiStep-horizontal",
-                                  "root": "MuiStep-root",
-                                  "vertical": "MuiStep-vertical",
-                                }
-                              }
-                              completed={false}
-                              connector={
-                                <ForwardRef(WithStyles)
-                                  orientation="vertical"
-                                />
-                              }
-                              disabled={true}
-                              index={3}
-                              last={false}
-                              orientation="vertical"
-                            >
-                              <WithStyles(WithStyles(ForwardRef(StepConnector)))
-                                active={false}
-                                alternativeLabel={false}
-                                completed={false}
-                                disabled={true}
-                                index={3}
-                                orientation="vertical"
-                              >
-                                <WithStyles(ForwardRef(StepConnector))
-                                  active={false}
-                                  alternativeLabel={false}
-                                  classes={
-                                    Object {
-                                      "line": "WithStyles(ForwardRef(StepConnector))-line-10",
-                                      "vertical": "WithStyles(ForwardRef(StepConnector))-vertical-11",
-                                    }
-                                  }
-                                  completed={false}
-                                  disabled={true}
-                                  index={3}
-                                  orientation="vertical"
-                                >
-                                  <ForwardRef(StepConnector)
-                                    active={false}
-                                    alternativeLabel={false}
-                                    classes={
-                                      Object {
-                                        "active": "MuiStepConnector-active",
-                                        "alternativeLabel": "MuiStepConnector-alternativeLabel",
-                                        "completed": "MuiStepConnector-completed",
-                                        "disabled": "Mui-disabled",
-                                        "horizontal": "MuiStepConnector-horizontal",
-                                        "line": "MuiStepConnector-line WithStyles(ForwardRef(StepConnector))-line-10",
-                                        "lineHorizontal": "MuiStepConnector-lineHorizontal",
-                                        "lineVertical": "MuiStepConnector-lineVertical",
-                                        "root": "MuiStepConnector-root",
-                                        "vertical": "MuiStepConnector-vertical WithStyles(ForwardRef(StepConnector))-vertical-11",
-                                      }
-                                    }
-                                    completed={false}
-                                    disabled={true}
-                                    index={3}
-                                    orientation="vertical"
-                                  >
-                                    <div
-                                      className="MuiStepConnector-root MuiStepConnector-vertical WithStyles(ForwardRef(StepConnector))-vertical-11 Mui-disabled"
-                                    >
-                                      <span
-                                        className="MuiStepConnector-line WithStyles(ForwardRef(StepConnector))-line-10 MuiStepConnector-lineVertical"
-                                      />
-                                    </div>
-                                  </ForwardRef(StepConnector)>
-                                </WithStyles(ForwardRef(StepConnector))>
-                              </WithStyles(WithStyles(ForwardRef(StepConnector)))>
-                              <div
-                                className="MuiStep-root MuiStep-vertical makeStyles-stepContainer-2"
-                              >
-                                <WithStyles(ForwardRef(StepLabel))
-                                  StepIconComponent={[Function]}
-                                  active={false}
-                                  alternativeLabel={false}
-                                  classes={
-                                    Object {
-                                      "label": "makeStyles-stepLabel-3",
-                                    }
-                                  }
-                                  completed={false}
-                                  disabled={true}
-                                  expanded={false}
-                                  icon={4}
-                                  key=".0"
-                                  last={false}
-                                  orientation="vertical"
-                                >
-                                  <ForwardRef(StepLabel)
-                                    StepIconComponent={[Function]}
-                                    active={false}
-                                    alternativeLabel={false}
-                                    classes={
-                                      Object {
-                                        "active": "MuiStepLabel-active",
-                                        "alternativeLabel": "MuiStepLabel-alternativeLabel",
-                                        "completed": "MuiStepLabel-completed",
-                                        "disabled": "Mui-disabled",
-                                        "error": "Mui-error",
-                                        "horizontal": "MuiStepLabel-horizontal",
-                                        "iconContainer": "MuiStepLabel-iconContainer",
-                                        "label": "MuiStepLabel-label makeStyles-stepLabel-3",
-                                        "labelContainer": "MuiStepLabel-labelContainer",
-                                        "root": "MuiStepLabel-root",
-                                        "vertical": "MuiStepLabel-vertical",
-                                      }
-                                    }
-                                    completed={false}
-                                    disabled={true}
-                                    expanded={false}
-                                    icon={4}
-                                    last={false}
-                                    orientation="vertical"
-                                  >
-                                    <span
-                                      className="MuiStepLabel-root MuiStepLabel-vertical Mui-disabled"
-                                    >
-                                      <span
-                                        className="MuiStepLabel-iconContainer"
-                                      >
-                                        <renderStepIcon
-                                          active={false}
-                                          completed={false}
-                                          error={false}
-                                          icon={4}
-                                        >
-                                          <div>
-                                            <ForwardRef(SvgIconDefault)>
-                                              <svg>
-                                                icon-default.svg
-                                              </svg>
-                                            </ForwardRef(SvgIconDefault)>
-                                          </div>
-                                        </renderStepIcon>
-                                      </span>
-                                      <span
-                                        className="MuiStepLabel-labelContainer"
-                                      >
-                                        <WithStyles(ForwardRef(Typography))
-                                          className="MuiStepLabel-label makeStyles-stepLabel-3"
-                                          component="span"
-                                          display="block"
-                                          variant="body2"
-                                        >
-                                          <ForwardRef(Typography)
-                                            className="MuiStepLabel-label makeStyles-stepLabel-3"
-                                            classes={
-                                              Object {
-                                                "alignCenter": "MuiTypography-alignCenter",
-                                                "alignJustify": "MuiTypography-alignJustify",
-                                                "alignLeft": "MuiTypography-alignLeft",
-                                                "alignRight": "MuiTypography-alignRight",
-                                                "body1": "MuiTypography-body1",
-                                                "body2": "MuiTypography-body2",
-                                                "button": "MuiTypography-button",
-                                                "caption": "MuiTypography-caption",
-                                                "colorError": "MuiTypography-colorError",
-                                                "colorInherit": "MuiTypography-colorInherit",
-                                                "colorPrimary": "MuiTypography-colorPrimary",
-                                                "colorSecondary": "MuiTypography-colorSecondary",
-                                                "colorTextPrimary": "MuiTypography-colorTextPrimary",
-                                                "colorTextSecondary": "MuiTypography-colorTextSecondary",
-                                                "displayBlock": "MuiTypography-displayBlock",
-                                                "displayInline": "MuiTypography-displayInline",
-                                                "gutterBottom": "MuiTypography-gutterBottom",
-                                                "h1": "MuiTypography-h1",
-                                                "h2": "MuiTypography-h2",
-                                                "h3": "MuiTypography-h3",
-                                                "h4": "MuiTypography-h4",
-                                                "h5": "MuiTypography-h5",
-                                                "h6": "MuiTypography-h6",
-                                                "noWrap": "MuiTypography-noWrap",
-                                                "overline": "MuiTypography-overline",
-                                                "paragraph": "MuiTypography-paragraph",
-                                                "root": "MuiTypography-root",
-                                                "srOnly": "MuiTypography-srOnly",
-                                                "subtitle1": "MuiTypography-subtitle1",
-                                                "subtitle2": "MuiTypography-subtitle2",
-                                              }
-                                            }
-                                            component="span"
-                                            display="block"
-                                            variant="body2"
-                                          >
-                                            <span
-                                              className="MuiTypography-root MuiStepLabel-label makeStyles-stepLabel-3 MuiTypography-body2 MuiTypography-displayBlock"
                                             >
                                               Payment processing on blockchain
                                               <a

@@ -46,16 +46,27 @@ exports[`Complete renders template correctly 1`] = `
           <div
             className="makeStyles-titleMessage-7"
           >
-            Order #
-            1
+            <ForwardRef(SvgIconChecked)
+              className="makeStyles-iconChecked-8"
+            >
+              <svg
+                className="makeStyles-iconChecked-8"
+              >
+                icon-checked.svg
+              </svg>
+            </ForwardRef(SvgIconChecked)>
+            <span>
+              Order #
+              1
+            </span>
           </div>
           <div
-            className="makeStyles-subMessage1-8"
+            className="makeStyles-subMessage1-9"
           >
             Your order has been confirmed and is out for delivery!
           </div>
           <div
-            className="makeStyles-subMessage2-9"
+            className="makeStyles-subMessage2-10"
           >
             If you have an issues, please contact 
             store-name

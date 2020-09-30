@@ -38,13 +38,13 @@ const Processing = (): React.ReactElement => {
   const getActiveStep = (): number => {
     switch (orderDetails.status) {
       case ORDER_STATUS.inProgress:
-        return 3;
-      case ORDER_STATUS.completed:
         return 4;
-      case ORDER_STATUS.delivered:
+      case ORDER_STATUS.completed:
         return 5;
+      case ORDER_STATUS.delivered:
+        return 6;
       default:
-        return 2;
+        return 3;
     }
   };
 

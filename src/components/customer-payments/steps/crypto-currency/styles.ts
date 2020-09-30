@@ -18,6 +18,7 @@ export default makeStyles({
     fontSize: 24,
     lineHeight: '32px',
     textTransform: 'uppercase',
+    wordBreak: 'break-word',
   },
   divider: {
     marginTop: 33,

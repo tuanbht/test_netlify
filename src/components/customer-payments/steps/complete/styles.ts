@@ -40,6 +40,18 @@ export default makeStyles({
     lineHeight: '32px',
     marginTop: 73,
     color: Color.lochinvar,
+    display: 'flex',
+    alignItems: 'center',
+  },
+  iconChecked: {
+    width: 27,
+    height: 27,
+    marginRight: 11,
+
+    '& .icon-checked-a': {
+      fill: Color.lochinvar,
+      stroke: Color.lochinvar,
+    },
   },
   subMessage1: {
     fontSize: 18,

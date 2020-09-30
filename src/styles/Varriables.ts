@@ -14,4 +14,5 @@ export const Color = {
   dodgerBlue: '#3DA9FC',
   lochinvar: '#2A9379',
   lochinvarA32: 'rgba(42, 147, 121, 0.32)',
+  carnation: '#EF4565',
 };

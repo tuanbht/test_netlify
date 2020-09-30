@@ -9,8 +9,9 @@ const qrCodeModal = {
     alignItems: 'center',
   },
   qrCodeContent: {
-    padding: 50,
-    outline: 'unset',
+    outline: '2px solid ' + Color.froly,
+    borderRadius: 'unset',
+    padding: '12px 70px 70px',
   },
   qrCodeLabel: {
     display: 'flex',
@@ -49,6 +50,7 @@ const walletInformation = {
     marginLeft: 10,
   },
   labelAmount: {
+    'word-break': 'break-word',
     marginLeft: 25,
     color: Color.shuttleGray,
   },

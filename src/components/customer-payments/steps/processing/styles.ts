@@ -11,6 +11,13 @@ const stepper = {
   },
   stepContainer: {
     zIndex: 2,
+
+    '& .MuiStepLabel-iconContainer': {
+      paddingRight: 30,
+    },
+    '& .MuiStepLabel-labelContainer': {
+      minHeight: 30,
+    },
   },
   stepLabel: {
     fontSize: 18,
@@ -22,7 +29,7 @@ const stepper = {
     },
   },
   stepLabelTimer: {
-    color: Color.froly,
+    color: Color.carnation,
   },
   stepLabelLink: {
     display: 'block',
