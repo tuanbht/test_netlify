@@ -7,6 +7,7 @@ export default makeStyles({
     backgroundColor: Color.wildSand,
     paddingTop: 35,
     minHeight: '100vh',
+    marginBottom: 42,
   },
   cancelOrder: {
     ...RobotoBoldFont,
