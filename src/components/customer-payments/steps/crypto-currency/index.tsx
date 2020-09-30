@@ -34,7 +34,7 @@ const CryptoCurrency = (props: { selectedCrypto: (crypto: CryptoCurrencies) => v
       <div className={styles.selectCrypto}>
         <div className={styles.selectTitle}>Select a Cryptocurrency</div>
         <Button
-          classes={ButtonStyle({ color: Color.treePoppy, uppercase: true })}
+          classes={ButtonStyle({ color: Color.treePoppy, isUppercase: true })}
           onClick={() => selectedCrypto(BITCOIN)}
           disabled={BITCOIN.amount === 0}
         >
@@ -42,7 +42,7 @@ const CryptoCurrency = (props: { selectedCrypto: (crypto: CryptoCurrencies) => v
           {BITCOIN.fullName}
         </Button>
         <Button
-          classes={ButtonStyle({ color: Color.cornflowerBlue, uppercase: true })}
+          classes={ButtonStyle({ color: Color.cornflowerBlue, isUppercase: true })}
           onClick={() => selectedCrypto(ETHEREUM)}
           disabled={ETHEREUM.amount === 0}
         >
@@ -50,7 +50,7 @@ const CryptoCurrency = (props: { selectedCrypto: (crypto: CryptoCurrencies) => v
           {ETHEREUM.fullName}
         </Button>
         <Button
-          classes={ButtonStyle({ color: Color.jungleGreen, uppercase: true })}
+          classes={ButtonStyle({ color: Color.jungleGreen, isUppercase: true })}
           onClick={() => selectedCrypto(USDT)}
           disabled={USDT.amount === 0}
         >

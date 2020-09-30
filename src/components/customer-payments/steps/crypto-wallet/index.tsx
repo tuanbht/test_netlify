@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { object, func } from 'prop-types';
 import { CryptoCurrencies } from '../../../../constants/CustomerPayments';
 import CryptoWalletStyles from './styles';
-import { Button, Grid, InputAdornment, Modal, OutlinedInput, Paper } from '@material-ui/core';
+import { Button, Grid, InputAdornment, Modal, OutlinedInput, Paper, useMediaQuery, useTheme } from '@material-ui/core';
 import { ButtonStyle } from '../../../../styles/CommonStyle';
 import { Color } from '../../../../styles/Varriables';
 import classnames from 'classnames';
@@ -15,7 +15,9 @@ import OrderActions from '../../../../actions/OrderActions';
 const CryptoWallet = (props: { crypto: CryptoCurrencies; nextStep: () => void }): React.ReactElement => {
   const { crypto, nextStep } = props;
   const styles = CryptoWalletStyles();
-  const buttonStyle = ButtonStyle({ color: Color.tarawera });
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('xs'));
+  const buttonStyle = ButtonStyle({ color: Color.tarawera, isMobile });
   const qrCode = `${crypto.prefix}:${crypto.walletAddress}?amount=${crypto.amount}`;
 
   const [openQrCode, setOpenQrCode] = useState(false);
