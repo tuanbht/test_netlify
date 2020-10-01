@@ -38,6 +38,7 @@ exports[`Complete renders template correctly 1`] = `
           >
             $
             1
+             USD
           </div>
         </div>
         <div

@@ -282,7 +282,7 @@ exports[`CryptoWallet display on mobile renders template correctly 1`] = `
                     <span
                       className="makeStyles-labelAmount-8"
                     >
-                      (
+                      ($
                        USD)
                     </span>
                   </div>
@@ -1646,7 +1646,7 @@ exports[`CryptoWallet renders template correctly 1`] = `
                     <span
                       className="makeStyles-labelAmount-8"
                     >
-                      (
+                      ($
                        USD)
                     </span>
                   </div>
