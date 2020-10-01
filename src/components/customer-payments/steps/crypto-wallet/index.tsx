@@ -62,7 +62,7 @@ const CryptoWallet = (props: { crypto: CryptoCurrencies; nextStep: () => void })
           <div className={styles.label}>
             <crypto.logo />
             <span className={styles.labelName}>{crypto.fullName} Amount</span>
-            <span className={styles.labelAmount}>({orderDetails.price} USD)</span>
+            <span className={styles.labelAmount}>(${orderDetails.price} USD)</span>
           </div>
           <div className={styles.content}>
             <OutlinedInput

@@ -17,7 +17,7 @@ const Complete = (): React.ReactElement => {
             <div className={styles.merchantName}>{orderDetails.storeName}</div>
             <div className={styles.orderName}>Order #{orderDetails.orderNumber}</div>
           </div>
-          <div className={styles.amount}>${orderDetails.price}</div>
+          <div className={styles.amount}>${orderDetails.price} USD</div>
         </div>
         <div className={styles.messageLayout}>
           <div className={styles.titleMessage}>

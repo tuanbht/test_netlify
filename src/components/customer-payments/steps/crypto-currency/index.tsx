@@ -27,7 +27,7 @@ const CryptoCurrency = (props: { selectedCrypto: (crypto: CryptoCurrencies) => v
           <div className={styles.orderName}>Order #{orderDetails.orderNumber}</div>
         </Grid>
         <Grid item>
-          <span className={styles.amount}>${orderDetails.price}</span>
+          <span className={styles.amount}>${orderDetails.price} USD</span>
         </Grid>
       </Grid>
       <Divider className={styles.divider} />
