@@ -8,7 +8,7 @@ export const HardCodedOrderDetails = {
   storeName: 'store-name',
   storePhoneNumber: 'store-phone-number',
   markAsPaid: true,
-  markAsPaidTime: '2020-09-29T10:00:00Z',
+  markAsPaidTime: 1601607445,
 } as OrderDetails;
 
 export const OrderDetailsEntity = {
@@ -18,7 +18,7 @@ export const OrderDetailsEntity = {
   storeName: faker.company.companyName(),
   storePhoneNumber: faker.phone.phoneNumber(),
   markAsPaid: true,
-  markAsPaidTime: faker.time.recent(),
+  markAsPaidTime: new Date().getTime() / 1000,
 } as OrderDetails;
 
 export const buildOrderDetailsResponse = (props: {
@@ -38,7 +38,7 @@ export const buildOrderDetailsResponse = (props: {
       name: 'Peggy Nikolaus',
       status: props.status,
       'marked-as-paid': props.markAsPaid,
-      'marked-as-paid-at': props.markAsPaid && '2020-09-29T10:00:00Z',
+      'marked-as-paid-at': props.markAsPaid && 1601607445,
     },
     relationships: {
       store: {

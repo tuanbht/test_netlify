@@ -26,7 +26,7 @@ export const ORDER_STATUS = {
 
 export const buildProcessingSteps = (
   storeName: string,
-  markAsPaidTime: moment.MomentInput,
+  markAsPaidTime: number,
 ): Array<{
   title: string;
   timer?: string;
@@ -40,7 +40,11 @@ export const buildProcessingSteps = (
   },
   {
     title: 'Customer Payment Confirmed',
-    timer: markAsPaidTime ? moment(markAsPaidTime).format('LT').toLocaleLowerCase() : '',
+    timer: markAsPaidTime
+      ? moment(markAsPaidTime * 1000)
+          .format('LT')
+          .toLocaleLowerCase()
+      : '',
   },
   {
     title: 'Payment processing on blockchain',
@@ -65,7 +69,7 @@ export interface OrderDetails {
   storeName: string;
   storePhoneNumber: string;
   markAsPaid: boolean;
-  markAsPaidTime: moment.MomentInput;
+  markAsPaidTime: number;
   isEmpty: () => boolean;
 }
 
@@ -76,7 +80,7 @@ export class OrderDetails {
     this.storePhoneNumber = '';
     this.orderNumber = 0;
     this.markAsPaid = false;
-    this.markAsPaidTime = moment();
+    this.markAsPaidTime = 0;
   }
 
   isEmpty = (): boolean => this.orderNumber === 0 && this.status === ORDER_STATUS.undefined;
