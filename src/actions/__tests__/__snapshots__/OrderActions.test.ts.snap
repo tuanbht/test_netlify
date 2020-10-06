@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OrderActions cancelOrderAction returns cancel order action 1`] = `
+Object {
+  "payload": Object {
+    "request": Object {
+      "data": Object {},
+      "method": "patch",
+      "url": "/orders/1/payment/cancel",
+    },
+  },
+  "type": "CANCEL_ORDER",
+}
+`;
+
+exports[`OrderActions getOrderDetailsAction returns get order details action 1`] = `
+Object {
+  "payload": Object {
+    "request": Object {
+      "method": "get",
+      "params": Object {},
+      "url": "/orders/1/payment",
+    },
+  },
+  "type": "GET_ORDER_DETAILS",
+}
+`;
+
+exports[`OrderActions markAsPaidOrderAction returns mark as paid order action 1`] = `
+Object {
+  "payload": Object {
+    "request": Object {
+      "data": Object {},
+      "method": "patch",
+      "url": "/orders/1/payment/mark_as_paid",
+    },
+  },
+  "type": "MARK_AS_PAID_ORDER",
+}
+`;

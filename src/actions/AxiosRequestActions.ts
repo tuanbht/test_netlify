@@ -12,11 +12,11 @@ export const get = (action: string, url: string, params = {}, configs = {}): Act
     },
   }))();
 
-export const put = (action: string, url: string, data = {}, configs = {}): Action =>
+export const patch = (action: string, url: string, data = {}, configs = {}): Action =>
   createAction(action, () => ({
     payload: {
       request: {
-        method: 'put',
+        method: 'patch',
         url,
         data,
         ...configs,
