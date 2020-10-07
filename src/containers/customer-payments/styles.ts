@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/styles';
-import { Color } from '../../styles/Varriables';
-import { RobotoBoldFont } from '../../styles/FontFamily';
+import { Color } from 'styles/Varriables';
+import { RobotoBoldFont } from 'styles/FontFamily';
 
 export default makeStyles({
   root: {

@@ -1,4 +1,4 @@
-import { ORDER_STATUS, OrderDetails } from '../constants/CustomerPayments';
+import { ORDER_STATUS, OrderDetails } from 'constants/CustomerPayments';
 import faker from 'faker';
 import moment from 'moment';
 

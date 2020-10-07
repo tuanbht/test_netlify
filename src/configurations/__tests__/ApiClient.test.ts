@@ -1,9 +1,9 @@
+import faker from 'faker';
+import { OrderDetails } from 'constants/CustomerPayments';
+import { NOT_FOUND_PATH } from 'constants/RouterPaths';
 import axiosClient from '../ApiClient';
 import { store } from '../ReduxStore';
-import faker from 'faker';
-import { OrderDetails } from '../../constants/CustomerPayments';
 import { mockAxios } from '../ConfigureTestStore';
-import { NOT_FOUND_PATH } from '../../constants/RouterPaths';
 
 describe('ApiClient', () => {
   const token = faker.random.uuid();

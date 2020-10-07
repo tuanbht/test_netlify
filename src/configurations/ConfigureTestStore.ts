@@ -1,7 +1,7 @@
 import { configureStore, EnhancedStore } from '@reduxjs/toolkit';
 import MockAdapter from 'axios-mock-adapter';
 import axiosMiddleware from 'redux-axios-middleware';
-import RootReducer from '../reducers';
+import RootReducer from 'reducers';
 import axiosClient from './ApiClient';
 
 export const testStore = (initialState = {}): EnhancedStore =>

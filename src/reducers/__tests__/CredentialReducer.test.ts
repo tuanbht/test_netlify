@@ -1,4 +1,4 @@
-import { SAVE_CREDENTIAL } from '../../constants/ReduxActions';
+import { SAVE_CREDENTIAL } from 'constants/ReduxActions';
 import CredentialReducer from '../CredentialReducer';
 import { AnyAction } from '@reduxjs/toolkit';
 import faker from 'faker';
@@ -18,7 +18,7 @@ describe('CredentialReducer', () => {
     });
 
     it('returns orderId and token', () => {
-      expect(CredentialReducer({ orderId: null, token: null }, action)).toEqual({ token, orderId });
+      expect(CredentialReducer({ orderId: 0, token: '' }, action)).toEqual({ token, orderId });
     });
   });
 });

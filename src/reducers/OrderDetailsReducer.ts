@@ -1,7 +1,7 @@
 import { createReducer } from '@reduxjs/toolkit';
-import { CRYPTO_CURRENCIES, ORDER_STATUS, OrderDetails as OrderDetailsModel } from '../constants/CustomerPayments';
-import { ActionFailure, ActionSuccessfully, GET_ORDER_DETAILS } from '../constants/ReduxActions';
-import { NOT_FOUND_PATH, ORDER_CANCELLED_PATH, ORDER_EXPIRED_PATH } from '../constants/RouterPaths';
+import { CRYPTO_CURRENCIES, ORDER_STATUS, OrderDetails as OrderDetailsModel } from 'constants/CustomerPayments';
+import { ActionFailure, ActionSuccessfully, GET_ORDER_DETAILS } from 'constants/ReduxActions';
+import { NOT_FOUND_PATH, ORDER_CANCELLED_PATH, ORDER_EXPIRED_PATH } from 'constants/RouterPaths';
 import { find, get } from 'lodash';
 import moment from 'moment';
 

@@ -1,13 +1,12 @@
 import { Button, Divider, Grid } from '@material-ui/core';
 import React from 'react';
 import CryptoCurrencyStyle from './styles';
-import { ButtonStyle } from '../../../../styles/CommonStyle';
-
-import { Color } from '../../../../styles/Varriables';
+import { ButtonStyle } from 'styles/CommonStyle';
+import { Color } from 'styles/Varriables';
 import { func } from 'prop-types';
-import { CRYPTO_CURRENCIES, CryptoCurrencies } from '../../../../constants/CustomerPayments';
+import { CRYPTO_CURRENCIES, CryptoCurrencies } from 'constants/CustomerPayments';
 import { useSelector } from 'react-redux';
-import { RootStateReducer } from '../../../../reducers';
+import { RootStateReducer } from 'reducers';
 
 const CryptoCurrency = (props: { selectedCrypto: (crypto: CryptoCurrencies) => void }): React.ReactElement => {
   const { selectedCrypto } = props;

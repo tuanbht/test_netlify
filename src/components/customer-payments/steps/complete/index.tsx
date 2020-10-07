@@ -1,8 +1,8 @@
 import React from 'react';
 import Styles from './styles';
 import { useSelector } from 'react-redux';
-import { RootStateReducer } from '../../../../reducers';
-import { ReactComponent as Checked } from '../../../../assets/images/icons/icon-checked.svg';
+import { RootStateReducer } from 'reducers';
+import { ReactComponent as Checked } from 'assets/images/icons/icon-checked.svg';
 
 const Complete = (): React.ReactElement => {
   const styles = Styles();

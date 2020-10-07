@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { object, func } from 'prop-types';
-import { CryptoCurrencies } from '../../../../constants/CustomerPayments';
+import { CryptoCurrencies } from 'constants/CustomerPayments';
 import CryptoWalletStyles from './styles';
 import { Button, Grid, InputAdornment, Modal, OutlinedInput, Paper, useMediaQuery, useTheme } from '@material-ui/core';
-import { ButtonStyle } from '../../../../styles/CommonStyle';
-import { Color } from '../../../../styles/Varriables';
+import { ButtonStyle } from 'styles/CommonStyle';
+import { Color } from 'styles/Varriables';
 import classnames from 'classnames';
 import QrCode from 'qrcode.react';
 import copyText from 'copy-to-clipboard';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootStateReducer } from '../../../../reducers';
-import OrderActions from '../../../../actions/OrderActions';
+import { RootStateReducer } from 'reducers';
+import OrderActions from 'actions/OrderActions';
 
 const CryptoWallet = (props: { crypto: CryptoCurrencies; nextStep: () => void }): React.ReactElement => {
   const { crypto, nextStep } = props;

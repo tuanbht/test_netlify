@@ -1,11 +1,11 @@
 import { mount, ReactWrapper } from 'enzyme';
 import React from 'react';
 import CryptoWallet from '../index';
-import { CryptoCurrencies } from '../../../../../constants/CustomerPayments';
+import { CryptoCurrencies } from 'constants/CustomerPayments';
 import { Button, Modal } from '@material-ui/core';
 import { act } from 'react-dom/test-utils';
 import { Provider } from 'react-redux';
-import { testStore } from '../../../../../configurations/ConfigureTestStore';
+import { testStore } from 'configurations/ConfigureTestStore';
 import mediaQuery from 'css-mediaquery';
 
 jest.mock('copy-to-clipboard');

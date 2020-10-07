@@ -2,12 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Styles from './styles';
 import { Button } from '@material-ui/core';
-import { ButtonStyle } from '../../styles/CommonStyle';
-import { Color } from '../../styles/Varriables';
-import { ORDER_CANCELLED_PATH } from '../../constants/RouterPaths';
+import { ButtonStyle } from 'styles/CommonStyle';
+import { Color } from 'styles/Varriables';
+import { ORDER_CANCELLED_PATH } from 'constants/RouterPaths';
 import { useDispatch, useSelector } from 'react-redux';
-import OrderActions from '../../actions/OrderActions';
-import { RootStateReducer } from '../../reducers';
+import OrderActions from 'actions/OrderActions';
+import { RootStateReducer } from 'reducers';
 
 const CancelOrder = (): React.ReactElement => {
   const styles = Styles();

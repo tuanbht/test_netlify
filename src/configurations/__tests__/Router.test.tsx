@@ -1,19 +1,13 @@
+import React from 'react';
 import { mount, ReactWrapper } from 'enzyme';
 import { MemoryRouter } from 'react-router-dom';
-import React from 'react';
-import Router from '../Router';
-import {
-  NOT_FOUND_PATH,
-  ORDER_CANCELLED_PATH,
-  ORDER_EXPIRED_PATH,
-  ORDER_PATH,
-  ROOT_PATH,
-} from '../../constants/RouterPaths';
-import { ORDER_CANCELLED_CONTENT, ORDER_EXPIRED_CONTENT, ROOT_PAGE_CONTENT } from '../../constants/NotificationContent';
-import { CustomerPayments, NotFound, NotificationPage } from '../../containers';
 import faker from 'faker';
 import { Provider } from 'react-redux';
+import { NOT_FOUND_PATH, ORDER_CANCELLED_PATH, ORDER_EXPIRED_PATH, ORDER_PATH, ROOT_PATH } from 'constants/RouterPaths';
+import { ORDER_CANCELLED_CONTENT, ORDER_EXPIRED_CONTENT, ROOT_PAGE_CONTENT } from 'constants/NotificationContent';
+import { CustomerPayments, NotFound, NotificationPage } from 'containers';
 import { testStore } from '../ConfigureTestStore';
+import Router from '../Router';
 
 describe('Router', () => {
   const renderPage = (entriesPath: string): ReactWrapper => {

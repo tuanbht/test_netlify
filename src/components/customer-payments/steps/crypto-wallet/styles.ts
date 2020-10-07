@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/styles';
-import { RobotoBoldFont, RobotoMediumFont } from '../../../../styles/FontFamily';
-import { Color } from '../../../../styles/Varriables';
+import { RobotoBoldFont, RobotoMediumFont } from 'styles/FontFamily';
+import { Color } from 'styles/Varriables';
 
 const qrCodeModal = {
   qrCodeModal: {
