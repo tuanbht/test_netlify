@@ -1,13 +1,13 @@
 import { Container } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
-import { Header, Stepper, Steps } from '../../components/customer-payments';
+import { Header, Stepper, Steps } from 'components/customer-payments';
 import Styles from './styles';
-import { CryptoCurrencies, ORDER_STATUS, STEPS } from '../../constants/CustomerPayments';
-import CancelOrder from '../../components/cancel-order';
+import { CryptoCurrencies, ORDER_STATUS, STEPS } from 'constants/CustomerPayments';
+import CancelOrder from 'components/cancel-order';
 import { useDispatch, useSelector } from 'react-redux';
-import OrderActions from '../../actions/OrderActions';
-import CredentialActions from '../../actions/CredentialActions';
-import { RootStateReducer } from '../../reducers';
+import OrderActions from 'actions/OrderActions';
+import CredentialActions from 'actions/CredentialActions';
+import { RootStateReducer } from 'reducers';
 
 const CustomerPayments = (props: { match: { params: { orderId: number; token: string } } }): React.ReactElement => {
   const steps = ['Crypto', 'Price/Wallet', 'Processing', 'Complete'];

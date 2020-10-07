@@ -1,5 +1,5 @@
-import { ORDER_STATUS, OrderDetails } from '../constants/CustomerPayments';
-import faker from 'faker';
+import { OrderDetails } from 'constants/CustomerPayments';
+import moment from 'moment';
 
 export const HardCodedOrderDetails = {
   status: 'order-status',
@@ -11,16 +11,6 @@ export const HardCodedOrderDetails = {
   markAsPaidTime: 1601607445,
 } as OrderDetails;
 
-export const OrderDetailsEntity = {
-  status: ORDER_STATUS.initialized,
-  orderNumber: faker.random.number(),
-  price: faker.random.number(),
-  storeName: faker.company.companyName(),
-  storePhoneNumber: faker.phone.phoneNumber(),
-  markAsPaid: true,
-  markAsPaidTime: new Date().getTime() / 1000,
-} as OrderDetails;
-
 export const buildOrderDetailsResponse = (props: {
   status?: string;
   hasStoreDetails?: boolean;
@@ -28,6 +18,7 @@ export const buildOrderDetailsResponse = (props: {
   hasCryptoBTC?: boolean;
   hasCryptoUSDT?: boolean;
   markAsPaid?: boolean;
+  isExpired?: boolean;
 }): any => ({
   data: {
     type: 'orders',
@@ -37,6 +28,7 @@ export const buildOrderDetailsResponse = (props: {
       'phone-number': '1-924-340-4717',
       name: 'Peggy Nikolaus',
       status: props.status,
+      'expire-at': !props.isExpired && moment().add(30, 'minutes'),
       'marked-as-paid': props.markAsPaid,
       'marked-as-paid-at': props.markAsPaid && 1601607445,
     },

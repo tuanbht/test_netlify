@@ -1,9 +1,9 @@
-import { ActionSuccessfully, GET_ORDER_DETAILS } from '../../constants/ReduxActions';
+import { ActionSuccessfully, GET_ORDER_DETAILS } from 'constants/ReduxActions';
 import { AnyAction } from '@reduxjs/toolkit';
-import { CRYPTO_CURRENCIES, ORDER_STATUS, OrderDetails } from '../../constants/CustomerPayments';
+import { CRYPTO_CURRENCIES, ORDER_STATUS, OrderDetails } from 'constants/CustomerPayments';
 import OrderDetailsReducer from '../OrderDetailsReducer';
-import { ORDER_CANCELLED_PATH, ORDER_EXPIRED_PATH } from '../../constants/RouterPaths';
-import { buildOrderDetailsResponse } from '../../factories/OrderDetails';
+import { ORDER_CANCELLED_PATH, ORDER_EXPIRED_PATH } from 'constants/RouterPaths';
+import { buildOrderDetailsResponse } from 'factories/OrderDetails';
 
 describe('OrderDetails', () => {
   beforeEach(() => {
@@ -42,6 +42,29 @@ describe('OrderDetails', () => {
 
       it('redirects to expired page', () => {
         expect(window.location.assign).toBeCalledWith(ORDER_EXPIRED_PATH);
+      });
+    });
+
+    describe('order has expired time', () => {
+      beforeEach(() => {
+        jest.useFakeTimers();
+      });
+
+      describe('expired time is valid', () => {
+        beforeEach(() => {
+          action = {
+            type: ActionSuccessfully(GET_ORDER_DETAILS),
+            payload: {
+              data: buildOrderDetailsResponse({ isExpired: false }),
+            },
+          };
+          OrderDetailsReducer(new OrderDetails(), action);
+        });
+
+        it('redirects to expired page when expired time come', () => {
+          jest.runAllTimers();
+          expect(window.location.assign).toBeCalledWith(ORDER_EXPIRED_PATH);
+        });
       });
     });
 

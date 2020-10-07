@@ -1,10 +1,10 @@
 import { mount, ReactWrapper } from 'enzyme';
 import React from 'react';
 import Processing from '../index';
-import { testStore } from '../../../../../configurations/ConfigureTestStore';
-import { HardCodedOrderDetails } from '../../../../../factories/OrderDetails';
+import { testStore } from 'configurations/ConfigureTestStore';
+import { HardCodedOrderDetails } from 'factories/OrderDetails';
 import { Provider } from 'react-redux';
-import OrderActions from '../../../../../actions/OrderActions';
+import OrderActions from 'actions/OrderActions';
 import faker from 'faker';
 
 describe('Processing', () => {
@@ -19,6 +19,7 @@ describe('Processing', () => {
 
   beforeEach(() => {
     jest.spyOn(store, 'dispatch');
+    jest.spyOn(window.location, 'assign').mockImplementation(jest.fn());
     jest.useFakeTimers();
 
     container = mount(

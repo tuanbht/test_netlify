@@ -1,7 +1,7 @@
 import { withStyles } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
-import { RobotoMediumFont } from '../../../../styles/FontFamily';
-import { Color } from '../../../../styles/Varriables';
+import { RobotoMediumFont } from 'styles/FontFamily';
+import { Color } from 'styles/Varriables';
 
 const stepper = {
   stepperContainer: {
@@ -30,6 +30,7 @@ const stepper = {
   },
   stepLabelTimer: {
     color: Color.carnation,
+    display: 'block',
   },
   stepLabelLink: {
     display: 'block',

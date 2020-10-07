@@ -90,8 +90,7 @@
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.{ts,tsx}",
-      "!src/index.tsx",
-      "!src/serviceWorker.ts"
+      "!src/index.tsx"
     ],
     "snapshotSerializers": [
       "enzyme-to-json/serializer"

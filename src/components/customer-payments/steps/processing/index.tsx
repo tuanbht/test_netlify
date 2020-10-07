@@ -1,17 +1,13 @@
 import React, { useEffect } from 'react';
 import ProcessingStyles, { linearConnector } from './styles';
 import { Grid, Step, StepConnector, StepIconProps, StepLabel, Stepper } from '@material-ui/core';
-import { ReactComponent as IconChecked } from '../../../../assets/images/icons/icon-checked.svg';
-import { ReactComponent as IconDefault } from '../../../../assets/images/icons/icon-default.svg';
-import { ReactComponent as IconActive } from '../../../../assets/images/icons/icon-loading.svg';
-import {
-  buildProcessingSteps,
-  ORDER_STATUS,
-  RETRIEVE_ORDER_DETAILS_INTERVAL,
-} from '../../../../constants/CustomerPayments';
+import { ReactComponent as IconChecked } from 'assets/images/icons/icon-checked.svg';
+import { ReactComponent as IconDefault } from 'assets/images/icons/icon-default.svg';
+import { ReactComponent as IconActive } from 'assets/images/icons/icon-loading.svg';
+import { buildProcessingSteps, ORDER_STATUS, RETRIEVE_ORDER_DETAILS_INTERVAL } from 'constants/CustomerPayments';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootStateReducer } from '../../../../reducers';
-import OrderActions from '../../../../actions/OrderActions';
+import { RootStateReducer } from 'reducers';
+import OrderActions from 'actions/OrderActions';
 
 const Processing = (): React.ReactElement => {
   const styles = ProcessingStyles();
@@ -70,7 +66,8 @@ const Processing = (): React.ReactElement => {
                 }}
               >
                 {step.title}
-                {step.timer && <span className={styles.stepLabelTimer}>&nbsp;({step.timer})</span>}
+                &nbsp;
+                {step.timer && <span className={styles.stepLabelTimer}>({step.timer})</span>}
                 {step.hyperLink && (
                   <a
                     className={styles.stepLabelLink}

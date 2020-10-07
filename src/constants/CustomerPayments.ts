@@ -1,7 +1,7 @@
 import React from 'react';
-import { ReactComponent as IconBTC } from '../assets/images/icons/icon-btc.svg';
-import { ReactComponent as IconETH } from '../assets/images/icons/icon-eth.svg';
-import { ReactComponent as IconUSDT } from '../assets/images/icons/icon-usdt.svg';
+import { ReactComponent as IconBTC } from 'assets/images/icons/icon-btc.svg';
+import { ReactComponent as IconETH } from 'assets/images/icons/icon-eth.svg';
+import { ReactComponent as IconUSDT } from 'assets/images/icons/icon-usdt.svg';
 import moment from 'moment';
 
 export const RETRIEVE_ORDER_DETAILS_INTERVAL = 5000; //ms
@@ -40,11 +40,7 @@ export const buildProcessingSteps = (
   },
   {
     title: 'Customer Payment Confirmed',
-    timer: markAsPaidTime
-      ? moment(markAsPaidTime * 1000)
-          .format('LT')
-          .toLocaleLowerCase()
-      : '',
+    timer: markAsPaidTime ? moment(markAsPaidTime * 1000).format('MMM Do YYYY, h:mm a') : '',
   },
   {
     title: 'Payment processing on blockchain',

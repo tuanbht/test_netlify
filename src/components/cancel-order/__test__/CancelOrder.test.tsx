@@ -3,25 +3,27 @@ import { mount, ReactWrapper } from 'enzyme';
 import React from 'react';
 import CancelOrder from '../index';
 import { MemoryRouter } from 'react-router-dom';
-import { testStore } from '../../../configurations/ConfigureTestStore';
+import { testStore } from 'configurations/ConfigureTestStore';
 import { Provider } from 'react-redux';
-import OrderActions from '../../../actions/OrderActions';
+import OrderActions from 'actions/OrderActions';
 import faker from 'faker';
 
 describe('CancelOrder', () => {
   const orderId = faker.random.number();
   const token = faker.random.uuid();
 
-  const store = testStore({
+  const initStore = {
     Credential: {
       token,
       orderId,
     },
-  });
+  };
+  const store = testStore(initStore);
   let container: ReactWrapper;
 
-  beforeEach(() => {
+  beforeAll(() => {
     jest.spyOn(store, 'dispatch');
+    jest.spyOn(window.location, 'assign').mockImplementation(jest.fn());
 
     container = mount(
       <Provider store={store}>

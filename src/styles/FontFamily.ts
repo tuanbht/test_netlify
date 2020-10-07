@@ -1,7 +1,7 @@
-import RobotoLight from '../assets/fonts/Roboto-Light.ttf';
-import RobotoMedium from '../assets/fonts/Roboto-Medium.ttf';
-import RobotoRegular from '../assets/fonts/Roboto-Regular.ttf';
-import RobotoBold from '../assets/fonts/Roboto-Bold.ttf';
+import RobotoLight from 'assets/fonts/Roboto-Light.ttf';
+import RobotoMedium from 'assets/fonts/Roboto-Medium.ttf';
+import RobotoRegular from 'assets/fonts/Roboto-Regular.ttf';
+import RobotoBold from 'assets/fonts/Roboto-Bold.ttf';
 
 export const RobotoRegularFont = {
   fontFamily: 'Roboto',

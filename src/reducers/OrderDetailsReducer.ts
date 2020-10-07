@@ -1,8 +1,9 @@
 import { createReducer } from '@reduxjs/toolkit';
-import { CRYPTO_CURRENCIES, ORDER_STATUS, OrderDetails as OrderDetailsModel } from '../constants/CustomerPayments';
-import { ActionFailure, ActionSuccessfully, GET_ORDER_DETAILS } from '../constants/ReduxActions';
-import { NOT_FOUND_PATH, ORDER_CANCELLED_PATH, ORDER_EXPIRED_PATH } from '../constants/RouterPaths';
+import { CRYPTO_CURRENCIES, ORDER_STATUS, OrderDetails as OrderDetailsModel } from 'constants/CustomerPayments';
+import { ActionFailure, ActionSuccessfully, GET_ORDER_DETAILS } from 'constants/ReduxActions';
+import { NOT_FOUND_PATH, ORDER_CANCELLED_PATH, ORDER_EXPIRED_PATH } from 'constants/RouterPaths';
 import { find, get } from 'lodash';
+import moment from 'moment';
 
 const OrderDetails = createReducer(new OrderDetailsModel(), {
   [ActionSuccessfully(GET_ORDER_DETAILS)]: (state, action) => {
@@ -18,6 +19,16 @@ const OrderDetails = createReducer(new OrderDetailsModel(), {
     if (orderDetails.status === ORDER_STATUS.expired) {
       window.location.assign(ORDER_EXPIRED_PATH);
       return state;
+    }
+
+    const expiredTime = data.data.attributes['expire-at'] * 1000;
+    const remainTime = moment(expiredTime).diff(moment.now());
+
+    if (remainTime > 0) {
+      setTimeout(() => {
+        window.location.assign(ORDER_EXPIRED_PATH);
+        return state;
+      }, remainTime);
     }
 
     orderDetails.orderNumber = get(data.data.attributes, 'external-order-id', 0);
