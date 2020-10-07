@@ -45,6 +45,29 @@ describe('OrderDetails', () => {
       });
     });
 
+    describe('order has expired time', () => {
+      beforeEach(() => {
+        jest.useFakeTimers();
+      });
+
+      describe('expired time is valid', () => {
+        beforeEach(() => {
+          action = {
+            type: ActionSuccessfully(GET_ORDER_DETAILS),
+            payload: {
+              data: buildOrderDetailsResponse({ isExpired: false }),
+            },
+          };
+          OrderDetailsReducer(new OrderDetails(), action);
+        });
+
+        it('redirects to expired page when expired time come', () => {
+          jest.runAllTimers();
+          expect(window.location.assign).toBeCalledWith(ORDER_EXPIRED_PATH);
+        });
+      });
+    });
+
     describe('does not have store details and crypto payment details', () => {
       beforeEach(() => {
         action = {

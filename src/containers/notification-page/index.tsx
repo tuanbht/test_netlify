@@ -1,8 +1,8 @@
 import React from 'react';
-import Styles from '../invalid-order/styles';
+import Styles from './/styles';
 import { Header } from '../../components/customer-payments';
 
-const InvalidOrder = (props: { content: { title: string; subtitle: string } }): React.ReactElement => {
+const NotificationPage = (props: { content: { title: string; subtitle: string } }): React.ReactElement => {
   const styles = Styles();
   const { content } = props;
 
@@ -17,4 +17,4 @@ const InvalidOrder = (props: { content: { title: string; subtitle: string } }): 
   );
 };
 
-export default InvalidOrder;
+export default NotificationPage;

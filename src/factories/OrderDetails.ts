@@ -1,5 +1,6 @@
 import { ORDER_STATUS, OrderDetails } from '../constants/CustomerPayments';
 import faker from 'faker';
+import moment from 'moment';
 
 export const HardCodedOrderDetails = {
   status: 'order-status',
@@ -28,6 +29,7 @@ export const buildOrderDetailsResponse = (props: {
   hasCryptoBTC?: boolean;
   hasCryptoUSDT?: boolean;
   markAsPaid?: boolean;
+  isExpired?: boolean;
 }): any => ({
   data: {
     type: 'orders',
@@ -37,6 +39,7 @@ export const buildOrderDetailsResponse = (props: {
       'phone-number': '1-924-340-4717',
       name: 'Peggy Nikolaus',
       status: props.status,
+      'expire-at': !props.isExpired && moment().add(30, 'minutes'),
       'marked-as-paid': props.markAsPaid,
       'marked-as-paid-at': props.markAsPaid && 1601607445,
     },

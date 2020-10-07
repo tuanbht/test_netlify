@@ -70,7 +70,8 @@ const Processing = (): React.ReactElement => {
                 }}
               >
                 {step.title}
-                {step.timer && <span className={styles.stepLabelTimer}>&nbsp;({step.timer})</span>}
+                &nbsp;
+                {step.timer && <span className={styles.stepLabelTimer}>({step.timer})</span>}
                 {step.hyperLink && (
                   <a
                     className={styles.stepLabelLink}

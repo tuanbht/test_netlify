@@ -19,6 +19,7 @@ describe('Processing', () => {
 
   beforeEach(() => {
     jest.spyOn(store, 'dispatch');
+    jest.spyOn(window.location, 'assign').mockImplementation(jest.fn());
     jest.useFakeTimers();
 
     container = mount(

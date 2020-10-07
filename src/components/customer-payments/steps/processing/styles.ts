@@ -30,6 +30,7 @@ const stepper = {
   },
   stepLabelTimer: {
     color: Color.carnation,
+    display: 'block',
   },
   stepLabelLink: {
     display: 'block',

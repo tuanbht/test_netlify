@@ -20,11 +20,10 @@ describe('CustomerPaymentsPage', () => {
   const orderId = faker.random.number();
   const token = faker.random.uuid();
   const orderDetailsPath = replace(ORDER_DETAILS_PATH, ':id', String(orderId));
-  const store = testStore({
-    Credential: { orderId, token },
-  });
+  const store = testStore({ Credential: { orderId, token } });
 
   const buildContainer = (response: any): void => {
+    jest.spyOn(window.location, 'assign').mockImplementation(jest.fn());
     mockAxios.onGet(orderDetailsPath).reply(200, response);
 
     container = mount(

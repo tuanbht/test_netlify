@@ -28,6 +28,7 @@ describe('CryptoWallet', () => {
 
   beforeEach(() => {
     jest.spyOn(global, 'setTimeout');
+    jest.spyOn(window.location, 'assign').mockImplementation(jest.fn());
     HTMLCanvasElement.prototype.getContext = jest.fn();
 
     container = mount(

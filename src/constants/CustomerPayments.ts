@@ -40,11 +40,7 @@ export const buildProcessingSteps = (
   },
   {
     title: 'Customer Payment Confirmed',
-    timer: markAsPaidTime
-      ? moment(markAsPaidTime * 1000)
-          .format('LT')
-          .toLocaleLowerCase()
-      : '',
+    timer: markAsPaidTime ? moment(markAsPaidTime * 1000).format('MMM Do YYYY, h:mm a') : '',
   },
   {
     title: 'Payment processing on blockchain',
