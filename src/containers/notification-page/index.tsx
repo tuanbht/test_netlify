@@ -1,6 +1,6 @@
 import React from 'react';
-import Styles from './/styles';
-import { Header } from '../../components/customer-payments';
+import Styles from './styles';
+import { Header } from 'components/customer-payments';
 
 const NotificationPage = (props: { content: { title: string; subtitle: string } }): React.ReactElement => {
   const styles = Styles();

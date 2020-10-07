@@ -1,5 +1,5 @@
 import { createReducer } from '@reduxjs/toolkit';
-import { SAVE_CREDENTIAL } from '../constants/ReduxActions';
+import { SAVE_CREDENTIAL } from 'constants/ReduxActions';
 
 const initialState: { orderId: number; token: string } = { orderId: 0, token: '' };
 

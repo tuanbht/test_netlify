@@ -1,6 +1,6 @@
 import React from 'react';
 import HeaderStyle from './styles';
-import { ReactComponent as PalomaLogo } from '../../../assets/images/icons/paloma-logo.svg';
+import { ReactComponent as PalomaLogo } from 'assets/images/icons/paloma-logo.svg';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import { Container } from '@material-ui/core';
 

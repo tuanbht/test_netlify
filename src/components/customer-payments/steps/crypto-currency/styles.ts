@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/styles';
-import { RobotoMediumFont } from '../../../../styles/FontFamily';
-import { Color } from '../../../../styles/Varriables';
+import { RobotoMediumFont } from 'styles/FontFamily';
+import { Color } from 'styles/Varriables';
 
 export default makeStyles({
   merchantName: {

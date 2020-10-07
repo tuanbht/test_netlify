@@ -1,5 +1,4 @@
-import { ORDER_STATUS, OrderDetails } from '../constants/CustomerPayments';
-import faker from 'faker';
+import { OrderDetails } from 'constants/CustomerPayments';
 import moment from 'moment';
 
 export const HardCodedOrderDetails = {
@@ -10,16 +9,6 @@ export const HardCodedOrderDetails = {
   storePhoneNumber: 'store-phone-number',
   markAsPaid: true,
   markAsPaidTime: 1601607445,
-} as OrderDetails;
-
-export const OrderDetailsEntity = {
-  status: ORDER_STATUS.initialized,
-  orderNumber: faker.random.number(),
-  price: faker.random.number(),
-  storeName: faker.company.companyName(),
-  storePhoneNumber: faker.phone.phoneNumber(),
-  markAsPaid: true,
-  markAsPaidTime: new Date().getTime() / 1000,
 } as OrderDetails;
 
 export const buildOrderDetailsResponse = (props: {

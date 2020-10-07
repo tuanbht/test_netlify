@@ -1,8 +1,8 @@
 import React from 'react';
 import { mount, ReactWrapper } from 'enzyme';
 import CryptoCurrency from '../index';
-import { CRYPTO_CURRENCIES, OrderDetails } from '../../../../../constants/CustomerPayments';
-import { testStore } from '../../../../../configurations/ConfigureTestStore';
+import { CRYPTO_CURRENCIES, OrderDetails } from 'constants/CustomerPayments';
+import { testStore } from 'configurations/ConfigureTestStore';
 import { Provider } from 'react-redux';
 import faker from 'faker';
 

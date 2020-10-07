@@ -3,12 +3,10 @@ import { mount, ReactWrapper } from 'enzyme';
 import React from 'react';
 import CancelOrder from '../index';
 import { MemoryRouter } from 'react-router-dom';
-import { testStore } from '../../../configurations/ConfigureTestStore';
+import { testStore } from 'configurations/ConfigureTestStore';
 import { Provider } from 'react-redux';
-import OrderActions from '../../../actions/OrderActions';
+import OrderActions from 'actions/OrderActions';
 import faker from 'faker';
-import { store as reduxStore } from '../../../configurations/ReduxStore';
-import { RootStateReducer } from '../../../reducers';
 
 describe('CancelOrder', () => {
   const orderId = faker.random.number();
