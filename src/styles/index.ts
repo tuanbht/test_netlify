@@ -16,6 +16,14 @@ export default createMuiTheme({
           color: Color.tarawera,
           backgroundColor: Color.wildSand,
         },
+        '@keyframes rotating': {
+          from: {
+            transform: 'rotate(0deg)',
+          },
+          to: {
+            transform: 'rotate(360deg)',
+          },
+        },
       },
     },
   },

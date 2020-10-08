@@ -59,6 +59,14 @@ exports[`App renders template correctly 1`] = `
                 "src": "url(Roboto-Bold.ttf)",
               },
             ],
+            "@keyframes rotating": Object {
+              "from": Object {
+                "transform": "rotate(0deg)",
+              },
+              "to": Object {
+                "transform": "rotate(360deg)",
+              },
+            },
             "body": Object {
               "backgroundColor": "#F4F4F4",
               "color": "#094067",

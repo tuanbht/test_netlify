@@ -668,8 +668,8 @@ exports[`Processing renders template correctly 1`] = `
                                   alternativeLabel={false}
                                   classes={
                                     Object {
-                                      "line": "WithStyles(ForwardRef(StepConnector))-line-10",
-                                      "vertical": "WithStyles(ForwardRef(StepConnector))-vertical-11",
+                                      "line": "WithStyles(ForwardRef(StepConnector))-line-11",
+                                      "vertical": "WithStyles(ForwardRef(StepConnector))-vertical-12",
                                     }
                                   }
                                   completed={true}
@@ -687,11 +687,11 @@ exports[`Processing renders template correctly 1`] = `
                                         "completed": "MuiStepConnector-completed",
                                         "disabled": "Mui-disabled",
                                         "horizontal": "MuiStepConnector-horizontal",
-                                        "line": "MuiStepConnector-line WithStyles(ForwardRef(StepConnector))-line-10",
+                                        "line": "MuiStepConnector-line WithStyles(ForwardRef(StepConnector))-line-11",
                                         "lineHorizontal": "MuiStepConnector-lineHorizontal",
                                         "lineVertical": "MuiStepConnector-lineVertical",
                                         "root": "MuiStepConnector-root",
-                                        "vertical": "MuiStepConnector-vertical WithStyles(ForwardRef(StepConnector))-vertical-11",
+                                        "vertical": "MuiStepConnector-vertical WithStyles(ForwardRef(StepConnector))-vertical-12",
                                       }
                                     }
                                     completed={true}
@@ -700,10 +700,10 @@ exports[`Processing renders template correctly 1`] = `
                                     orientation="vertical"
                                   >
                                     <div
-                                      className="MuiStepConnector-root MuiStepConnector-vertical WithStyles(ForwardRef(StepConnector))-vertical-11 MuiStepConnector-completed"
+                                      className="MuiStepConnector-root MuiStepConnector-vertical WithStyles(ForwardRef(StepConnector))-vertical-12 MuiStepConnector-completed"
                                     >
                                       <span
-                                        className="MuiStepConnector-line WithStyles(ForwardRef(StepConnector))-line-10 MuiStepConnector-lineVertical"
+                                        className="MuiStepConnector-line WithStyles(ForwardRef(StepConnector))-line-11 MuiStepConnector-lineVertical"
                                       />
                                     </div>
                                   </ForwardRef(StepConnector)>
@@ -893,8 +893,8 @@ exports[`Processing renders template correctly 1`] = `
                                   alternativeLabel={false}
                                   classes={
                                     Object {
-                                      "line": "WithStyles(ForwardRef(StepConnector))-line-10",
-                                      "vertical": "WithStyles(ForwardRef(StepConnector))-vertical-11",
+                                      "line": "WithStyles(ForwardRef(StepConnector))-line-11",
+                                      "vertical": "WithStyles(ForwardRef(StepConnector))-vertical-12",
                                     }
                                   }
                                   completed={true}
@@ -912,11 +912,11 @@ exports[`Processing renders template correctly 1`] = `
                                         "completed": "MuiStepConnector-completed",
                                         "disabled": "Mui-disabled",
                                         "horizontal": "MuiStepConnector-horizontal",
-                                        "line": "MuiStepConnector-line WithStyles(ForwardRef(StepConnector))-line-10",
+                                        "line": "MuiStepConnector-line WithStyles(ForwardRef(StepConnector))-line-11",
                                         "lineHorizontal": "MuiStepConnector-lineHorizontal",
                                         "lineVertical": "MuiStepConnector-lineVertical",
                                         "root": "MuiStepConnector-root",
-                                        "vertical": "MuiStepConnector-vertical WithStyles(ForwardRef(StepConnector))-vertical-11",
+                                        "vertical": "MuiStepConnector-vertical WithStyles(ForwardRef(StepConnector))-vertical-12",
                                       }
                                     }
                                     completed={true}
@@ -925,10 +925,10 @@ exports[`Processing renders template correctly 1`] = `
                                     orientation="vertical"
                                   >
                                     <div
-                                      className="MuiStepConnector-root MuiStepConnector-vertical WithStyles(ForwardRef(StepConnector))-vertical-11 MuiStepConnector-completed"
+                                      className="MuiStepConnector-root MuiStepConnector-vertical WithStyles(ForwardRef(StepConnector))-vertical-12 MuiStepConnector-completed"
                                     >
                                       <span
-                                        className="MuiStepConnector-line WithStyles(ForwardRef(StepConnector))-line-10 MuiStepConnector-lineVertical"
+                                        className="MuiStepConnector-line WithStyles(ForwardRef(StepConnector))-line-11 MuiStepConnector-lineVertical"
                                       />
                                     </div>
                                   </ForwardRef(StepConnector)>
@@ -1125,8 +1125,8 @@ exports[`Processing renders template correctly 1`] = `
                                   alternativeLabel={false}
                                   classes={
                                     Object {
-                                      "line": "WithStyles(ForwardRef(StepConnector))-line-10",
-                                      "vertical": "WithStyles(ForwardRef(StepConnector))-vertical-11",
+                                      "line": "WithStyles(ForwardRef(StepConnector))-line-11",
+                                      "vertical": "WithStyles(ForwardRef(StepConnector))-vertical-12",
                                     }
                                   }
                                   completed={false}
@@ -1144,11 +1144,11 @@ exports[`Processing renders template correctly 1`] = `
                                         "completed": "MuiStepConnector-completed",
                                         "disabled": "Mui-disabled",
                                         "horizontal": "MuiStepConnector-horizontal",
-                                        "line": "MuiStepConnector-line WithStyles(ForwardRef(StepConnector))-line-10",
+                                        "line": "MuiStepConnector-line WithStyles(ForwardRef(StepConnector))-line-11",
                                         "lineHorizontal": "MuiStepConnector-lineHorizontal",
                                         "lineVertical": "MuiStepConnector-lineVertical",
                                         "root": "MuiStepConnector-root",
-                                        "vertical": "MuiStepConnector-vertical WithStyles(ForwardRef(StepConnector))-vertical-11",
+                                        "vertical": "MuiStepConnector-vertical WithStyles(ForwardRef(StepConnector))-vertical-12",
                                       }
                                     }
                                     completed={false}
@@ -1157,10 +1157,10 @@ exports[`Processing renders template correctly 1`] = `
                                     orientation="vertical"
                                   >
                                     <div
-                                      className="MuiStepConnector-root MuiStepConnector-vertical WithStyles(ForwardRef(StepConnector))-vertical-11 MuiStepConnector-active"
+                                      className="MuiStepConnector-root MuiStepConnector-vertical WithStyles(ForwardRef(StepConnector))-vertical-12 MuiStepConnector-active"
                                     >
                                       <span
-                                        className="MuiStepConnector-line WithStyles(ForwardRef(StepConnector))-line-10 MuiStepConnector-lineVertical"
+                                        className="MuiStepConnector-line WithStyles(ForwardRef(StepConnector))-line-11 MuiStepConnector-lineVertical"
                                       />
                                     </div>
                                   </ForwardRef(StepConnector)>
@@ -1225,8 +1225,12 @@ exports[`Processing renders template correctly 1`] = `
                                           icon={4}
                                         >
                                           <div>
-                                            <ForwardRef(SvgIconLoading)>
-                                              <svg>
+                                            <ForwardRef(SvgIconLoading)
+                                              className="makeStyles-activeStep-10"
+                                            >
+                                              <svg
+                                                className="makeStyles-activeStep-10"
+                                              >
                                                 icon-loading.svg
                                               </svg>
                                             </ForwardRef(SvgIconLoading)>
@@ -1358,8 +1362,8 @@ exports[`Processing renders template correctly 1`] = `
                                   alternativeLabel={false}
                                   classes={
                                     Object {
-                                      "line": "WithStyles(ForwardRef(StepConnector))-line-10",
-                                      "vertical": "WithStyles(ForwardRef(StepConnector))-vertical-11",
+                                      "line": "WithStyles(ForwardRef(StepConnector))-line-11",
+                                      "vertical": "WithStyles(ForwardRef(StepConnector))-vertical-12",
                                     }
                                   }
                                   completed={false}
@@ -1377,11 +1381,11 @@ exports[`Processing renders template correctly 1`] = `
                                         "completed": "MuiStepConnector-completed",
                                         "disabled": "Mui-disabled",
                                         "horizontal": "MuiStepConnector-horizontal",
-                                        "line": "MuiStepConnector-line WithStyles(ForwardRef(StepConnector))-line-10",
+                                        "line": "MuiStepConnector-line WithStyles(ForwardRef(StepConnector))-line-11",
                                         "lineHorizontal": "MuiStepConnector-lineHorizontal",
                                         "lineVertical": "MuiStepConnector-lineVertical",
                                         "root": "MuiStepConnector-root",
-                                        "vertical": "MuiStepConnector-vertical WithStyles(ForwardRef(StepConnector))-vertical-11",
+                                        "vertical": "MuiStepConnector-vertical WithStyles(ForwardRef(StepConnector))-vertical-12",
                                       }
                                     }
                                     completed={false}
@@ -1390,10 +1394,10 @@ exports[`Processing renders template correctly 1`] = `
                                     orientation="vertical"
                                   >
                                     <div
-                                      className="MuiStepConnector-root MuiStepConnector-vertical WithStyles(ForwardRef(StepConnector))-vertical-11 Mui-disabled"
+                                      className="MuiStepConnector-root MuiStepConnector-vertical WithStyles(ForwardRef(StepConnector))-vertical-12 Mui-disabled"
                                     >
                                       <span
-                                        className="MuiStepConnector-line WithStyles(ForwardRef(StepConnector))-line-10 MuiStepConnector-lineVertical"
+                                        className="MuiStepConnector-line WithStyles(ForwardRef(StepConnector))-line-11 MuiStepConnector-lineVertical"
                                       />
                                     </div>
                                   </ForwardRef(StepConnector)>
@@ -1583,8 +1587,8 @@ exports[`Processing renders template correctly 1`] = `
                                   alternativeLabel={false}
                                   classes={
                                     Object {
-                                      "line": "WithStyles(ForwardRef(StepConnector))-line-10",
-                                      "vertical": "WithStyles(ForwardRef(StepConnector))-vertical-11",
+                                      "line": "WithStyles(ForwardRef(StepConnector))-line-11",
+                                      "vertical": "WithStyles(ForwardRef(StepConnector))-vertical-12",
                                     }
                                   }
                                   completed={false}
@@ -1602,11 +1606,11 @@ exports[`Processing renders template correctly 1`] = `
                                         "completed": "MuiStepConnector-completed",
                                         "disabled": "Mui-disabled",
                                         "horizontal": "MuiStepConnector-horizontal",
-                                        "line": "MuiStepConnector-line WithStyles(ForwardRef(StepConnector))-line-10",
+                                        "line": "MuiStepConnector-line WithStyles(ForwardRef(StepConnector))-line-11",
                                         "lineHorizontal": "MuiStepConnector-lineHorizontal",
                                         "lineVertical": "MuiStepConnector-lineVertical",
                                         "root": "MuiStepConnector-root",
-                                        "vertical": "MuiStepConnector-vertical WithStyles(ForwardRef(StepConnector))-vertical-11",
+                                        "vertical": "MuiStepConnector-vertical WithStyles(ForwardRef(StepConnector))-vertical-12",
                                       }
                                     }
                                     completed={false}
@@ -1615,10 +1619,10 @@ exports[`Processing renders template correctly 1`] = `
                                     orientation="vertical"
                                   >
                                     <div
-                                      className="MuiStepConnector-root MuiStepConnector-vertical WithStyles(ForwardRef(StepConnector))-vertical-11 Mui-disabled"
+                                      className="MuiStepConnector-root MuiStepConnector-vertical WithStyles(ForwardRef(StepConnector))-vertical-12 Mui-disabled"
                                     >
                                       <span
-                                        className="MuiStepConnector-line WithStyles(ForwardRef(StepConnector))-line-10 MuiStepConnector-lineVertical"
+                                        className="MuiStepConnector-line WithStyles(ForwardRef(StepConnector))-line-11 MuiStepConnector-lineVertical"
                                       />
                                     </div>
                                   </ForwardRef(StepConnector)>
