@@ -6,7 +6,7 @@ import { find, get } from 'lodash';
 import moment from 'moment';
 
 const OrderDetails = createReducer(new OrderDetailsModel(), {
-  [ActionSuccessfully(GET_ORDER_DETAILS)]: (state, action) => {
+  [ActionSuccessfully(GET_ORDER_DETAILS)]: (state: OrderDetailsModel, action) => {
     const { data } = action.payload;
     const orderDetails: OrderDetailsModel = new OrderDetailsModel();
 
@@ -68,7 +68,7 @@ const OrderDetails = createReducer(new OrderDetailsModel(), {
       CRYPTO_CURRENCIES.USDT.setWalletAddress(get(cryptoUSDT.attributes, 'destination-wallet', ''));
     }
 
-    return orderDetails;
+    return state.equal(orderDetails) ? state : orderDetails;
   },
   [ActionFailure(GET_ORDER_DETAILS)]: (state) => {
     window.location.assign(NOT_FOUND_PATH);

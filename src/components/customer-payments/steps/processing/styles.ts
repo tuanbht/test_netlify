@@ -80,4 +80,7 @@ export default makeStyles({
   processingContainer: {
     marginBottom: 55,
   },
+  activeStep: {
+    animation: 'rotating 2.5s linear infinite',
+  },
 });

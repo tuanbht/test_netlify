@@ -2,6 +2,7 @@
 
 exports[`OrderDetails GET_ORDER_DETAILS_SUCCESS does not have store details and crypto payment details returns orderDetails without store details and crypto payment details 1`] = `
 OrderDetails {
+  "equal": [Function],
   "isEmpty": [Function],
   "markAsPaid": false,
   "markAsPaidTime": "",
@@ -167,6 +168,7 @@ Object {
 
 exports[`OrderDetails GET_ORDER_DETAILS_SUCCESS has store details returns orderDetails with store details 1`] = `
 OrderDetails {
+  "equal": [Function],
   "isEmpty": [Function],
   "markAsPaid": false,
   "markAsPaidTime": "",

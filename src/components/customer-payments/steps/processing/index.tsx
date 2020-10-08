@@ -19,8 +19,9 @@ const Processing = (): React.ReactElement => {
 
   const renderStepIcon = (props: StepIconProps): React.ReactElement => {
     const { active, completed } = props;
-
-    return <div>{active ? <IconActive /> : completed ? <IconChecked /> : <IconDefault />}</div>;
+    return (
+      <div>{active ? <IconActive className={styles.activeStep} /> : completed ? <IconChecked /> : <IconDefault />}</div>
+    );
   };
 
   useEffect(() => {

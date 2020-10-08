@@ -67,6 +67,7 @@ export interface OrderDetails {
   markAsPaid: boolean;
   markAsPaidTime: number;
   isEmpty: () => boolean;
+  equal: (orderDetails: OrderDetails) => boolean;
 }
 
 export class OrderDetails {
@@ -80,6 +81,16 @@ export class OrderDetails {
   }
 
   isEmpty = (): boolean => this.orderNumber === 0 && this.status === ORDER_STATUS.undefined;
+  equal = (orderDetails: OrderDetails): boolean => {
+    return (
+      this.status === orderDetails.status &&
+      this.storePhoneNumber === orderDetails.storePhoneNumber &&
+      this.storeName === orderDetails.storeName &&
+      this.orderNumber === orderDetails.orderNumber &&
+      this.markAsPaid === orderDetails.markAsPaid &&
+      this.markAsPaidTime === orderDetails.markAsPaidTime
+    );
+  };
 }
 
 export interface CryptoCurrencies {
