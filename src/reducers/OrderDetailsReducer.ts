@@ -58,14 +58,21 @@ const OrderDetails = createReducer(new OrderDetailsModel(), {
     if (cryptoETH) {
       CRYPTO_CURRENCIES.ETHEREUM.setAmount(get(cryptoETH.attributes, 'amount', 0));
       CRYPTO_CURRENCIES.ETHEREUM.setWalletAddress(get(cryptoETH.attributes, 'destination-wallet', ''));
+      orderDetails.txHash = get(cryptoETH.attributes, 'tx-hash', '');
     }
     if (cryptoBTC) {
       CRYPTO_CURRENCIES.BITCOIN.setAmount(get(cryptoBTC.attributes, 'amount', 0));
       CRYPTO_CURRENCIES.BITCOIN.setWalletAddress(get(cryptoBTC.attributes, 'destination-wallet', ''));
+      if (!orderDetails.txHash) {
+        orderDetails.txHash = get(cryptoBTC.attributes, 'tx-hash', '');
+      }
     }
     if (cryptoUSDT) {
       CRYPTO_CURRENCIES.USDT.setAmount(get(cryptoUSDT.attributes, 'amount', 0));
       CRYPTO_CURRENCIES.USDT.setWalletAddress(get(cryptoUSDT.attributes, 'destination-wallet', ''));
+      if (!orderDetails.txHash) {
+        orderDetails.txHash = get(cryptoUSDT.attributes, 'tx-hash', '');
+      }
     }
 
     return state.equal(orderDetails) ? state : orderDetails;

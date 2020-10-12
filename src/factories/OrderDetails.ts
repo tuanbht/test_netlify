@@ -9,6 +9,7 @@ export const HardCodedOrderDetails = {
   storePhoneNumber: 'store-phone-number',
   markAsPaid: true,
   markAsPaidTime: 1601607445,
+  txHash: 'transaction-hash',
 } as OrderDetails;
 
 export const buildOrderDetailsResponse = (props: {
@@ -19,6 +20,9 @@ export const buildOrderDetailsResponse = (props: {
   hasCryptoUSDT?: boolean;
   markAsPaid?: boolean;
   isExpired?: boolean;
+  hasHashETH?: boolean;
+  hasHashBTC?: boolean;
+  hasHashUSDT?: boolean;
 }): any => ({
   data: {
     type: 'orders',
@@ -93,6 +97,7 @@ export const buildOrderDetailsResponse = (props: {
         amount: '0.47646764203043',
         'destination-wallet': '0x3f5CE5FBFe3E9af3971dD833D26bA9b5C936f0bE',
         'payment-type': 'ETH',
+        'tx-hash': props.hasHashETH && 'transaction-hash-eth',
       },
     },
     props.hasCryptoBTC && {
@@ -102,6 +107,7 @@ export const buildOrderDetailsResponse = (props: {
         amount: '0.755828606587089',
         'destination-wallet': '1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa',
         'payment-type': 'BTC',
+        'tx-hash': props.hasHashBTC && 'transaction-hash-btc',
       },
     },
     props.hasCryptoUSDT && {
@@ -111,6 +117,7 @@ export const buildOrderDetailsResponse = (props: {
         amount: '0.755828606587089',
         'destination-wallet': '1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa',
         'payment-type': 'USDT',
+        'tx-hash': props.hasHashUSDT && 'transaction-hash-usdt',
       },
     },
   ],
