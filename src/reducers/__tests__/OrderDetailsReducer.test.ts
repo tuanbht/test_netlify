@@ -146,5 +146,95 @@ describe('OrderDetails', () => {
         expect(CRYPTO_CURRENCIES).toMatchSnapshot();
       });
     });
+
+    describe('transaction hash', () => {
+      describe('has none', () => {
+        beforeEach(() => {
+          action = {
+            type: ActionSuccessfully(GET_ORDER_DETAILS),
+            payload: {
+              data: buildOrderDetailsResponse({
+                hasCryptoETH: true,
+                hasCryptoUSDT: true,
+                hasCryptoBTC: true,
+              }),
+            },
+          };
+        });
+
+        it('returns order details with empty transaction hash', () => {
+          expect(OrderDetailsReducer(new OrderDetails(), action)).toMatchSnapshot();
+        });
+      });
+
+      describe('has one', () => {
+        describe('transaction hash ETH', () => {
+          beforeEach(() => {
+            action = {
+              type: ActionSuccessfully(GET_ORDER_DETAILS),
+              payload: {
+                data: buildOrderDetailsResponse({ hasCryptoETH: true, hasHashETH: true }),
+              },
+            };
+          });
+
+          it('returns order details with transaction hash ETH', () => {
+            expect(OrderDetailsReducer(new OrderDetails(), action)).toMatchSnapshot();
+          });
+        });
+
+        describe('transaction hash BTC', () => {
+          beforeEach(() => {
+            action = {
+              type: ActionSuccessfully(GET_ORDER_DETAILS),
+              payload: {
+                data: buildOrderDetailsResponse({ hasCryptoBTC: true, hasHashBTC: true }),
+              },
+            };
+          });
+
+          it('returns order details with transaction hash BTC', () => {
+            expect(OrderDetailsReducer(new OrderDetails(), action)).toMatchSnapshot();
+          });
+        });
+
+        describe('transaction hash USDT', () => {
+          beforeEach(() => {
+            action = {
+              type: ActionSuccessfully(GET_ORDER_DETAILS),
+              payload: {
+                data: buildOrderDetailsResponse({ hasCryptoUSDT: true, hasHashUSDT: true }),
+              },
+            };
+          });
+
+          it('returns order details with transaction hash USDT', () => {
+            expect(OrderDetailsReducer(new OrderDetails(), action)).toMatchSnapshot();
+          });
+        });
+      });
+
+      describe('has many', () => {
+        beforeEach(() => {
+          action = {
+            type: ActionSuccessfully(GET_ORDER_DETAILS),
+            payload: {
+              data: buildOrderDetailsResponse({
+                hasCryptoETH: true,
+                hasHashETH: true,
+                hasCryptoUSDT: true,
+                hasHashUSDT: true,
+                hasCryptoBTC: true,
+                hasHashBTC: true,
+              }),
+            },
+          };
+        });
+
+        it('returns order details with the first transaction hash', () => {
+          expect(OrderDetailsReducer(new OrderDetails(), action)).toMatchSnapshot();
+        });
+      });
+    });
   });
 });

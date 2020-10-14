@@ -58,30 +58,32 @@ const Processing = (): React.ReactElement => {
           className={styles.stepperContainer}
           connector={<CustomStepConnector />}
         >
-          {buildProcessingSteps(orderDetails.storeName, orderDetails.markAsPaidTime).map((step) => (
-            <Step key={step.title} className={styles.stepContainer}>
-              <StepLabel
-                StepIconComponent={renderStepIcon}
-                classes={{
-                  label: styles.stepLabel,
-                }}
-              >
-                {step.title}
-                &nbsp;
-                {step.timer && <span className={styles.stepLabelTimer}>({step.timer})</span>}
-                {step.hyperLink && (
-                  <a
-                    className={styles.stepLabelLink}
-                    href={step.hyperLink.link}
-                    target='_blank'
-                    rel='noopener noreferrer'
-                  >
-                    {step.hyperLink.label}
-                  </a>
-                )}
-              </StepLabel>
-            </Step>
-          ))}
+          {buildProcessingSteps(orderDetails.storeName, orderDetails.markAsPaidTime, orderDetails.txHash).map(
+            (step) => (
+              <Step key={step.title} className={styles.stepContainer}>
+                <StepLabel
+                  StepIconComponent={renderStepIcon}
+                  classes={{
+                    label: styles.stepLabel,
+                  }}
+                >
+                  {step.title}
+                  &nbsp;
+                  {step.timer && <span className={styles.stepLabelTimer}>({step.timer})</span>}
+                  {step.hyperLink && (
+                    <a
+                      className={styles.stepLabelLink}
+                      href={step.hyperLink.link}
+                      target='_blank'
+                      rel='noopener noreferrer'
+                    >
+                      {step.hyperLink.label}
+                    </a>
+                  )}
+                </StepLabel>
+              </Step>
+            ),
+          )}
         </Stepper>
       </Grid>
     </Grid>

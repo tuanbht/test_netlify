@@ -3,6 +3,7 @@ import { ReactComponent as IconBTC } from 'assets/images/icons/icon-btc.svg';
 import { ReactComponent as IconETH } from 'assets/images/icons/icon-eth.svg';
 import { ReactComponent as IconUSDT } from 'assets/images/icons/icon-usdt.svg';
 import moment from 'moment';
+import { VIEW_CRYPTO_TRANSACTION } from './Common';
 
 export const RETRIEVE_ORDER_DETAILS_INTERVAL = 5000; //ms
 
@@ -27,10 +28,11 @@ export const ORDER_STATUS = {
 export const buildProcessingSteps = (
   storeName: string,
   markAsPaidTime: number,
+  txHash: string,
 ): Array<{
   title: string;
   timer?: string;
-  hyperLink?: { label: string; link: string };
+  hyperLink?: { label: string; link: string } | null;
 }> => [
   {
     title: 'Crypto Request received by ' + storeName,
@@ -44,11 +46,12 @@ export const buildProcessingSteps = (
   },
   {
     title: 'Payment processing on blockchain',
-    hyperLink: {
-      label: '(view on Block Explorer)',
-      // TODO: This link will be replaced with real data from api when it's available
-      link: 'https://etherscan.io/',
-    },
+    hyperLink: txHash
+      ? {
+          label: '(view on Block Explorer)',
+          link: VIEW_CRYPTO_TRANSACTION + txHash,
+        }
+      : null,
   },
   {
     title: 'Payment Confirmed!',
@@ -66,6 +69,8 @@ export interface OrderDetails {
   storePhoneNumber: string;
   markAsPaid: boolean;
   markAsPaidTime: number;
+  txHash: string;
+
   isEmpty: () => boolean;
   equal: (orderDetails: OrderDetails) => boolean;
 }
@@ -78,9 +83,11 @@ export class OrderDetails {
     this.orderNumber = 0;
     this.markAsPaid = false;
     this.markAsPaidTime = 0;
+    this.txHash = '';
   }
 
   isEmpty = (): boolean => this.orderNumber === 0 && this.status === ORDER_STATUS.undefined;
+
   equal = (orderDetails: OrderDetails): boolean => {
     return (
       this.status === orderDetails.status &&
@@ -88,7 +95,8 @@ export class OrderDetails {
       this.storeName === orderDetails.storeName &&
       this.orderNumber === orderDetails.orderNumber &&
       this.markAsPaid === orderDetails.markAsPaid &&
-      this.markAsPaidTime === orderDetails.markAsPaidTime
+      this.markAsPaidTime === orderDetails.markAsPaidTime &&
+      this.txHash === orderDetails.txHash
     );
   };
 }
@@ -100,6 +108,7 @@ export interface CryptoCurrencies {
   logo: React.FC<React.SVGProps<SVGSVGElement>>;
   walletAddress: string;
   amount: number;
+  txHash: string;
 
   setWalletAddress(walletAddress: string): void;
   setAmount(amount: number): void;

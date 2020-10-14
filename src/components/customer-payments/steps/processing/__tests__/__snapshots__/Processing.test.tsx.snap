@@ -1293,7 +1293,7 @@ exports[`Processing renders template correctly 1`] = `
                                                
                                               <a
                                                 className="makeStyles-stepLabelLink-5"
-                                                href="https://etherscan.io/"
+                                                href="https://viewcyptotransaction.com/transaction-hash"
                                                 rel="noopener noreferrer"
                                                 target="_blank"
                                               >
