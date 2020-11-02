@@ -2,6 +2,7 @@
 
 exports[`OrderDetails GET_ORDER_DETAILS_SUCCESS does not have store details and crypto payment details returns orderDetails without store details and crypto payment details 1`] = `
 OrderDetails {
+  "crypto": "ETHEREUM",
   "equal": [Function],
   "isEmpty": [Function],
   "markAsPaid": false,
@@ -11,7 +12,6 @@ OrderDetails {
   "status": "initialized",
   "storeName": "",
   "storePhoneNumber": "",
-  "txHash": "",
 }
 `;
 
@@ -24,8 +24,10 @@ Object {
       "$$typeof": Symbol(react.forward_ref),
       "render": [Function],
     },
+    "paidAmount": 0,
     "prefix": "bitcoin",
     "shortName": "BTC",
+    "txHash": "",
     "walletAddress": "",
   },
   "ETHEREUM": CryptoCurrencies {
@@ -35,8 +37,10 @@ Object {
       "$$typeof": Symbol(react.forward_ref),
       "render": [Function],
     },
+    "paidAmount": 0,
     "prefix": "ethereum",
     "shortName": "ETH",
+    "txHash": "",
     "walletAddress": "",
   },
   "USDT": CryptoCurrencies {
@@ -46,8 +50,10 @@ Object {
       "$$typeof": Symbol(react.forward_ref),
       "render": [Function],
     },
+    "paidAmount": 0,
     "prefix": "usdt",
     "shortName": "USDT",
+    "txHash": "",
     "walletAddress": "",
   },
 }
@@ -56,25 +62,29 @@ Object {
 exports[`OrderDetails GET_ORDER_DETAILS_SUCCESS has crypto BTC details returns crypto BTC details 1`] = `
 Object {
   "BITCOIN": CryptoCurrencies {
-    "amount": "0.755828606587089",
+    "amount": 0.755828606587089,
     "fullName": "Bitcoin",
     "logo": Object {
       "$$typeof": Symbol(react.forward_ref),
       "render": [Function],
     },
+    "paidAmount": 0.655828606587089,
     "prefix": "bitcoin",
     "shortName": "BTC",
+    "txHash": "",
     "walletAddress": "1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa",
   },
   "ETHEREUM": CryptoCurrencies {
-    "amount": "0.47646764203043",
+    "amount": 0.47646764203043,
     "fullName": "Ethereum",
     "logo": Object {
       "$$typeof": Symbol(react.forward_ref),
       "render": [Function],
     },
+    "paidAmount": NaN,
     "prefix": "ethereum",
     "shortName": "ETH",
+    "txHash": "",
     "walletAddress": "0x3f5CE5FBFe3E9af3971dD833D26bA9b5C936f0bE",
   },
   "USDT": CryptoCurrencies {
@@ -84,8 +94,10 @@ Object {
       "$$typeof": Symbol(react.forward_ref),
       "render": [Function],
     },
+    "paidAmount": 0,
     "prefix": "usdt",
     "shortName": "USDT",
+    "txHash": "",
     "walletAddress": "",
   },
 }
@@ -100,19 +112,23 @@ Object {
       "$$typeof": Symbol(react.forward_ref),
       "render": [Function],
     },
+    "paidAmount": 0,
     "prefix": "bitcoin",
     "shortName": "BTC",
+    "txHash": "",
     "walletAddress": "",
   },
   "ETHEREUM": CryptoCurrencies {
-    "amount": "0.47646764203043",
+    "amount": 0.47646764203043,
     "fullName": "Ethereum",
     "logo": Object {
       "$$typeof": Symbol(react.forward_ref),
       "render": [Function],
     },
+    "paidAmount": NaN,
     "prefix": "ethereum",
     "shortName": "ETH",
+    "txHash": "",
     "walletAddress": "0x3f5CE5FBFe3E9af3971dD833D26bA9b5C936f0bE",
   },
   "USDT": CryptoCurrencies {
@@ -122,8 +138,10 @@ Object {
       "$$typeof": Symbol(react.forward_ref),
       "render": [Function],
     },
+    "paidAmount": 0,
     "prefix": "usdt",
     "shortName": "USDT",
+    "txHash": "",
     "walletAddress": "",
   },
 }
@@ -132,36 +150,42 @@ Object {
 exports[`OrderDetails GET_ORDER_DETAILS_SUCCESS has crypto USDT details returns crypto USDT details 1`] = `
 Object {
   "BITCOIN": CryptoCurrencies {
-    "amount": "0.755828606587089",
+    "amount": 0.755828606587089,
     "fullName": "Bitcoin",
     "logo": Object {
       "$$typeof": Symbol(react.forward_ref),
       "render": [Function],
     },
+    "paidAmount": 0.655828606587089,
     "prefix": "bitcoin",
     "shortName": "BTC",
+    "txHash": "",
     "walletAddress": "1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa",
   },
   "ETHEREUM": CryptoCurrencies {
-    "amount": "0.47646764203043",
+    "amount": 0.47646764203043,
     "fullName": "Ethereum",
     "logo": Object {
       "$$typeof": Symbol(react.forward_ref),
       "render": [Function],
     },
+    "paidAmount": NaN,
     "prefix": "ethereum",
     "shortName": "ETH",
+    "txHash": "",
     "walletAddress": "0x3f5CE5FBFe3E9af3971dD833D26bA9b5C936f0bE",
   },
   "USDT": CryptoCurrencies {
-    "amount": "0.755828606587089",
+    "amount": 0.755828606587089,
     "fullName": "USD Tether",
     "logo": Object {
       "$$typeof": Symbol(react.forward_ref),
       "render": [Function],
     },
+    "paidAmount": 0.755828606587089,
     "prefix": "usdt",
     "shortName": "USDT",
+    "txHash": "",
     "walletAddress": "1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa",
   },
 }
@@ -169,6 +193,7 @@ Object {
 
 exports[`OrderDetails GET_ORDER_DETAILS_SUCCESS has store details returns orderDetails with store details 1`] = `
 OrderDetails {
+  "crypto": "ETHEREUM",
   "equal": [Function],
   "isEmpty": [Function],
   "markAsPaid": false,
@@ -178,12 +203,12 @@ OrderDetails {
   "status": "undefined",
   "storeName": "Marilu Harvey MD",
   "storePhoneNumber": "993.885.9672",
-  "txHash": "",
 }
 `;
 
 exports[`OrderDetails GET_ORDER_DETAILS_SUCCESS transaction hash has many returns order details with the first transaction hash 1`] = `
 OrderDetails {
+  "crypto": "USDT",
   "equal": [Function],
   "isEmpty": [Function],
   "markAsPaid": false,
@@ -193,12 +218,12 @@ OrderDetails {
   "status": "undefined",
   "storeName": "",
   "storePhoneNumber": "",
-  "txHash": "transaction-hash-eth",
 }
 `;
 
 exports[`OrderDetails GET_ORDER_DETAILS_SUCCESS transaction hash has none returns order details with empty transaction hash 1`] = `
 OrderDetails {
+  "crypto": "ETHEREUM",
   "equal": [Function],
   "isEmpty": [Function],
   "markAsPaid": false,
@@ -208,12 +233,12 @@ OrderDetails {
   "status": "undefined",
   "storeName": "",
   "storePhoneNumber": "",
-  "txHash": "",
 }
 `;
 
 exports[`OrderDetails GET_ORDER_DETAILS_SUCCESS transaction hash has one transaction hash BTC returns order details with transaction hash BTC 1`] = `
 OrderDetails {
+  "crypto": "BITCOIN",
   "equal": [Function],
   "isEmpty": [Function],
   "markAsPaid": false,
@@ -223,12 +248,12 @@ OrderDetails {
   "status": "undefined",
   "storeName": "",
   "storePhoneNumber": "",
-  "txHash": "transaction-hash-btc",
 }
 `;
 
 exports[`OrderDetails GET_ORDER_DETAILS_SUCCESS transaction hash has one transaction hash ETH returns order details with transaction hash ETH 1`] = `
 OrderDetails {
+  "crypto": "ETHEREUM",
   "equal": [Function],
   "isEmpty": [Function],
   "markAsPaid": false,
@@ -238,12 +263,12 @@ OrderDetails {
   "status": "undefined",
   "storeName": "",
   "storePhoneNumber": "",
-  "txHash": "transaction-hash-eth",
 }
 `;
 
 exports[`OrderDetails GET_ORDER_DETAILS_SUCCESS transaction hash has one transaction hash USDT returns order details with transaction hash USDT 1`] = `
 OrderDetails {
+  "crypto": "USDT",
   "equal": [Function],
   "isEmpty": [Function],
   "markAsPaid": false,
@@ -253,6 +278,5 @@ OrderDetails {
   "status": "undefined",
   "storeName": "",
   "storePhoneNumber": "",
-  "txHash": "transaction-hash-usdt",
 }
 `;

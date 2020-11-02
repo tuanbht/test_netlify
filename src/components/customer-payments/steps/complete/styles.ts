@@ -18,21 +18,42 @@ export default makeStyles({
     fontSize: 20,
     lineHeight: '26px',
     textTransform: 'uppercase',
+    marginBottom: 6,
   },
   orderName: {
     fontSize: 20,
-    lineHeight: '24px',
+    lineHeight: '26px',
+  },
+  price: {
+    fontSize: 20,
+    lineHeight: '26px',
+    opacity: 0.37,
+    float: 'right',
+    marginBottom: 6,
   },
   amount: {
-    ...RobotoMediumFont,
-    fontSize: 24,
-    lineHeight: '32px',
+    fontSize: 20,
+    lineHeight: '26px',
     textTransform: 'uppercase',
-    flexGrow: 1,
-    textAlign: 'end',
+    float: 'right',
+
+    '&.paid': {
+      color: Color.jungleGreen,
+    },
+    '&.underpaid': {
+      color: Color.red,
+    },
+    '&.overpaid': {
+      color: Color.supperNova,
+    },
+  },
+  line: {
+    marginTop: 13,
+    marginBottom: 0,
+    border: `3px solid ${Color.wildSand}`,
   },
   messageLayout: {
-    padding: '0px 28px',
+    padding: '0px 2px',
   },
   titleMessage: {
     ...RobotoMediumFont,
@@ -43,10 +64,15 @@ export default makeStyles({
     display: 'flex',
     alignItems: 'center',
   },
+  iconLayout: {
+    display: 'flex',
+    marginTop: 60,
+    marginBottom: 44,
+    justifyContent: 'center',
+  },
   iconChecked: {
-    width: 27,
-    height: 27,
-    marginRight: 11,
+    width: 50,
+    height: 50,
 
     '& .icon-checked-a': {
       fill: Color.lochinvar,
@@ -61,7 +87,7 @@ export default makeStyles({
   subMessage2: {
     fontSize: 18,
     lineHeight: '22px',
-    marginTop: 43,
+    marginTop: 16,
     marginBottom: 173,
   },
 });

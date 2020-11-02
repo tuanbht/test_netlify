@@ -18,8 +18,10 @@ exports[`CryptoWallet display on mobile renders template correctly 1`] = `
         "amount": 0,
         "fullName": "crypto-full-name",
         "logo": [Function],
+        "paidAmount": 0,
         "prefix": "crypto-prefix",
         "shortName": "crypto-short-name",
+        "txHash": "",
         "walletAddress": "wallet-address",
       }
     }
@@ -1382,8 +1384,10 @@ exports[`CryptoWallet renders template correctly 1`] = `
         "amount": 0,
         "fullName": "crypto-full-name",
         "logo": [Function],
+        "paidAmount": 0,
         "prefix": "crypto-prefix",
         "shortName": "crypto-short-name",
+        "txHash": "",
         "walletAddress": "wallet-address",
       }
     }

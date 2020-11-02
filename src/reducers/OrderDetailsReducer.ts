@@ -56,22 +56,28 @@ const OrderDetails = createReducer(new OrderDetailsModel(), {
     });
 
     if (cryptoETH) {
-      CRYPTO_CURRENCIES.ETHEREUM.setAmount(get(cryptoETH.attributes, 'amount', 0));
+      CRYPTO_CURRENCIES.ETHEREUM.setAmount(parseFloat(get(cryptoETH.attributes, 'amount', 0)));
+      CRYPTO_CURRENCIES.ETHEREUM.setPaidAmount(parseFloat(get(cryptoETH.attributes, 'paid-amount', 0)));
       CRYPTO_CURRENCIES.ETHEREUM.setWalletAddress(get(cryptoETH.attributes, 'destination-wallet', ''));
-      orderDetails.txHash = get(cryptoETH.attributes, 'tx-hash', '');
+      CRYPTO_CURRENCIES.ETHEREUM.setTxHash(get(cryptoETH.attributes, 'tx-hash', ''));
+      orderDetails.setCrypto('ETHEREUM');
     }
     if (cryptoBTC) {
-      CRYPTO_CURRENCIES.BITCOIN.setAmount(get(cryptoBTC.attributes, 'amount', 0));
+      CRYPTO_CURRENCIES.BITCOIN.setAmount(parseFloat(get(cryptoBTC.attributes, 'amount', 0)));
+      CRYPTO_CURRENCIES.BITCOIN.setPaidAmount(parseFloat(get(cryptoBTC.attributes, 'paid-amount', 0)));
       CRYPTO_CURRENCIES.BITCOIN.setWalletAddress(get(cryptoBTC.attributes, 'destination-wallet', ''));
-      if (!orderDetails.txHash) {
-        orderDetails.txHash = get(cryptoBTC.attributes, 'tx-hash', '');
+      CRYPTO_CURRENCIES.BITCOIN.setTxHash(get(cryptoBTC.attributes, 'tx-hash', ''));
+      if (CRYPTO_CURRENCIES.BITCOIN.txHash) {
+        orderDetails.setCrypto('BITCOIN');
       }
     }
     if (cryptoUSDT) {
-      CRYPTO_CURRENCIES.USDT.setAmount(get(cryptoUSDT.attributes, 'amount', 0));
+      CRYPTO_CURRENCIES.USDT.setAmount(parseFloat(get(cryptoUSDT.attributes, 'amount', 0)));
+      CRYPTO_CURRENCIES.USDT.setPaidAmount(parseFloat(get(cryptoUSDT.attributes, 'paid-amount', 0)));
       CRYPTO_CURRENCIES.USDT.setWalletAddress(get(cryptoUSDT.attributes, 'destination-wallet', ''));
-      if (!orderDetails.txHash) {
-        orderDetails.txHash = get(cryptoUSDT.attributes, 'tx-hash', '');
+      CRYPTO_CURRENCIES.USDT.setTxHash(get(cryptoUSDT.attributes, 'tx-hash', ''));
+      if (CRYPTO_CURRENCIES.USDT.txHash) {
+        orderDetails.setCrypto('USDT');
       }
     }
 

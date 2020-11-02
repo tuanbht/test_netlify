@@ -15,6 +15,12 @@ export const STEPS = {
   COMPLETE: 3,
 };
 
+export const COMPLETED_STATUS = {
+  PAID: 'paid',
+  UNDERPAID: 'underpaid',
+  OVERPAID: 'overpaid',
+};
+
 export const ORDER_STATUS = {
   undefined: 'undefined',
   initialized: 'initialized',
@@ -69,8 +75,9 @@ export interface OrderDetails {
   storePhoneNumber: string;
   markAsPaid: boolean;
   markAsPaidTime: number;
-  txHash: string;
+  crypto: string;
 
+  setCrypto(crypto: string): void;
   isEmpty: () => boolean;
   equal: (orderDetails: OrderDetails) => boolean;
 }
@@ -83,7 +90,11 @@ export class OrderDetails {
     this.orderNumber = 0;
     this.markAsPaid = false;
     this.markAsPaidTime = 0;
-    this.txHash = '';
+    this.crypto = 'ETHEREUM';
+  }
+
+  setCrypto(crypto: string): void {
+    this.crypto = crypto;
   }
 
   isEmpty = (): boolean => this.orderNumber === 0 && this.status === ORDER_STATUS.undefined;
@@ -95,8 +106,7 @@ export class OrderDetails {
       this.storeName === orderDetails.storeName &&
       this.orderNumber === orderDetails.orderNumber &&
       this.markAsPaid === orderDetails.markAsPaid &&
-      this.markAsPaidTime === orderDetails.markAsPaidTime &&
-      this.txHash === orderDetails.txHash
+      this.markAsPaidTime === orderDetails.markAsPaidTime
     );
   };
 }
@@ -108,10 +118,13 @@ export interface CryptoCurrencies {
   logo: React.FC<React.SVGProps<SVGSVGElement>>;
   walletAddress: string;
   amount: number;
+  paidAmount: number;
   txHash: string;
 
   setWalletAddress(walletAddress: string): void;
   setAmount(amount: number): void;
+  setPaidAmount(paidAmount: number): void;
+  setTxHash(txHash: string): void;
 }
 
 export class CryptoCurrencies implements CryptoCurrencies {
@@ -127,7 +140,9 @@ export class CryptoCurrencies implements CryptoCurrencies {
     crypto.fullName = fullName;
     crypto.logo = logo;
     crypto.amount = 0;
+    crypto.paidAmount = 0;
     crypto.walletAddress = '';
+    crypto.txHash = '';
     return crypto;
   }
   setWalletAddress(walletAddress: string): void {
@@ -135,6 +150,12 @@ export class CryptoCurrencies implements CryptoCurrencies {
   }
   setAmount(amount: number): void {
     this.amount = amount;
+  }
+  setPaidAmount(paidAmount: number): void {
+    this.paidAmount = paidAmount;
+  }
+  setTxHash(txHash: string): void {
+    this.txHash = txHash;
   }
 }
 
