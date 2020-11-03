@@ -4,10 +4,16 @@ import { Grid, Step, StepConnector, StepIconProps, StepLabel, Stepper } from '@m
 import { ReactComponent as IconChecked } from 'assets/images/icons/icon-checked.svg';
 import { ReactComponent as IconDefault } from 'assets/images/icons/icon-default.svg';
 import { ReactComponent as IconActive } from 'assets/images/icons/icon-loading.svg';
-import { buildProcessingSteps, ORDER_STATUS, RETRIEVE_ORDER_DETAILS_INTERVAL } from 'constants/CustomerPayments';
+import {
+  buildProcessingSteps,
+  ORDER_STATUS,
+  RETRIEVE_ORDER_DETAILS_INTERVAL,
+  CRYPTO_CURRENCIES,
+} from 'constants/CustomerPayments';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootStateReducer } from 'reducers';
 import OrderActions from 'actions/OrderActions';
+import { get } from 'lodash';
 
 const Processing = (): React.ReactElement => {
   const styles = ProcessingStyles();
@@ -16,6 +22,8 @@ const Processing = (): React.ReactElement => {
 
   const orderDetails = useSelector((state: RootStateReducer) => state.OrderDetails);
   const { orderId } = useSelector((state: RootStateReducer) => state.Credential);
+
+  const crypto = get(CRYPTO_CURRENCIES, orderDetails.crypto, CRYPTO_CURRENCIES.ETHEREUM);
 
   const renderStepIcon = (props: StepIconProps): React.ReactElement => {
     const { active, completed } = props;
@@ -58,32 +66,30 @@ const Processing = (): React.ReactElement => {
           className={styles.stepperContainer}
           connector={<CustomStepConnector />}
         >
-          {buildProcessingSteps(orderDetails.storeName, orderDetails.markAsPaidTime, orderDetails.txHash).map(
-            (step) => (
-              <Step key={step.title} className={styles.stepContainer}>
-                <StepLabel
-                  StepIconComponent={renderStepIcon}
-                  classes={{
-                    label: styles.stepLabel,
-                  }}
-                >
-                  {step.title}
-                  &nbsp;
-                  {step.timer && <span className={styles.stepLabelTimer}>({step.timer})</span>}
-                  {step.hyperLink && (
-                    <a
-                      className={styles.stepLabelLink}
-                      href={step.hyperLink.link}
-                      target='_blank'
-                      rel='noopener noreferrer'
-                    >
-                      {step.hyperLink.label}
-                    </a>
-                  )}
-                </StepLabel>
-              </Step>
-            ),
-          )}
+          {buildProcessingSteps(orderDetails.storeName, orderDetails.markAsPaidTime, crypto.txHash).map((step) => (
+            <Step key={step.title} className={styles.stepContainer}>
+              <StepLabel
+                StepIconComponent={renderStepIcon}
+                classes={{
+                  label: styles.stepLabel,
+                }}
+              >
+                {step.title}
+                &nbsp;
+                {step.timer && <span className={styles.stepLabelTimer}>({step.timer})</span>}
+                {step.hyperLink && (
+                  <a
+                    className={styles.stepLabelLink}
+                    href={step.hyperLink.link}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                  >
+                    {step.hyperLink.label}
+                  </a>
+                )}
+              </StepLabel>
+            </Step>
+          ))}
         </Stepper>
       </Grid>
     </Grid>

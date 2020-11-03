@@ -6,6 +6,7 @@ import { HardCodedOrderDetails } from 'factories/OrderDetails';
 import { Provider } from 'react-redux';
 import OrderActions from 'actions/OrderActions';
 import faker from 'faker';
+import { CRYPTO_CURRENCIES } from 'constants/CustomerPayments';
 
 describe('Processing', () => {
   const orderId = faker.random.number();
@@ -18,6 +19,10 @@ describe('Processing', () => {
   let container: ReactWrapper;
 
   beforeEach(() => {
+    CRYPTO_CURRENCIES.ETHEREUM.amount = faker.random.number();
+    CRYPTO_CURRENCIES.ETHEREUM.paidAmount = faker.random.number();
+    CRYPTO_CURRENCIES.ETHEREUM.txHash = 'transaction-hash';
+
     jest.spyOn(store, 'dispatch');
     jest.spyOn(window.location, 'assign').mockImplementation(jest.fn());
     jest.useFakeTimers();
