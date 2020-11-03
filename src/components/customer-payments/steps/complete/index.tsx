@@ -26,11 +26,19 @@ const Complete = (): React.ReactElement => {
 
   const renderMessage = () => {
     let confirmMessage = 'Order payment has been confirmed.';
+    let statusBadge = <Checked className={styles.iconChecked} />;
 
-    if (status === UNDERPAID) confirmMessage = 'Order payment has been confirmed as underpaid.';
-    else if (status === OVERPAID) confirmMessage = 'Order payment has been confirmed as overpaid.';
+    if (status === UNDERPAID) {
+      confirmMessage = 'Order payment has been confirmed as underpaid.';
+      statusBadge = <Error />;
+    } else if (status === OVERPAID) {
+      confirmMessage = 'Order payment has been confirmed as overpaid.';
+      statusBadge = <Warning />;
+    }
+
     return (
       <>
+        <div className={styles.iconLayout}>{statusBadge}</div>
         <div className={styles.subMessage1}>
           {confirmMessage}
           You should receive an update from {orderDetails.storeName} about your order shortly.
@@ -61,18 +69,7 @@ const Complete = (): React.ReactElement => {
         </Grid>
       </Grid>
       <Divider className={styles.line} />
-      <div className={styles.messageLayout}>
-        <div className={styles.iconLayout}>
-          {status === PAID ? (
-            <Checked className={styles.iconChecked} />
-          ) : status === UNDERPAID ? (
-            <Error />
-          ) : (
-            <Warning />
-          )}
-        </div>
-        {renderMessage()}
-      </div>
+      <div className={styles.messageLayout}>{renderMessage()}</div>
     </div>
   );
 };

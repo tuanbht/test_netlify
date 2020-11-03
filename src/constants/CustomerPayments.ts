@@ -121,10 +121,12 @@ export interface CryptoCurrencies {
   paidAmount: number;
   txHash: string;
 
-  setWalletAddress(walletAddress: string): void;
-  setAmount(amount: number): void;
-  setPaidAmount(paidAmount: number): void;
-  setTxHash(txHash: string): void;
+  setCryptoInformation(information: {
+    amount: number;
+    walletAddress: string;
+    paidAmount: number;
+    txHash: string;
+  }): void;
 }
 
 export class CryptoCurrencies implements CryptoCurrencies {
@@ -145,17 +147,18 @@ export class CryptoCurrencies implements CryptoCurrencies {
     crypto.txHash = '';
     return crypto;
   }
-  setWalletAddress(walletAddress: string): void {
-    this.walletAddress = walletAddress;
-  }
-  setAmount(amount: number): void {
-    this.amount = amount;
-  }
-  setPaidAmount(paidAmount: number): void {
-    this.paidAmount = paidAmount;
-  }
-  setTxHash(txHash: string): void {
-    this.txHash = txHash;
+
+  setCryptoInformation(information: {
+    amount: number;
+    walletAddress: string;
+    paidAmount: number;
+    txHash: string;
+  }): void {
+    const { amount, paidAmount, walletAddress, txHash } = information;
+    if (walletAddress) this.walletAddress = walletAddress;
+    if (amount) this.amount = amount;
+    if (paidAmount) this.paidAmount = paidAmount;
+    if (txHash) this.txHash = txHash;
   }
 }
 

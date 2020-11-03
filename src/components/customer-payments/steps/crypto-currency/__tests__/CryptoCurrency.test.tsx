@@ -15,12 +15,16 @@ describe('CryptoCurrency', () => {
   let container: ReactWrapper;
 
   beforeEach(() => {
-    BITCOIN.setAmount(faker.random.number());
-    BITCOIN.setWalletAddress(faker.random.uuid());
-    ETHEREUM.setAmount(faker.random.number());
-    ETHEREUM.setWalletAddress(faker.random.uuid());
-    USDT.setAmount(faker.random.number());
-    USDT.setWalletAddress(faker.random.uuid());
+    const cryptoInformation = () => ({
+      amount: faker.random.number(),
+      paidAmount: faker.random.number(),
+      walletAddress: faker.random.uuid(),
+      txHash: faker.random.uuid(),
+    });
+
+    BITCOIN.setCryptoInformation(cryptoInformation());
+    ETHEREUM.setCryptoInformation(cryptoInformation());
+    USDT.setCryptoInformation(cryptoInformation());
 
     container = mount(
       <Provider store={store}>

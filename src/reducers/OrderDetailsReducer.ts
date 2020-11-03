@@ -56,26 +56,17 @@ const OrderDetails = createReducer(new OrderDetailsModel(), {
     });
 
     if (cryptoETH) {
-      CRYPTO_CURRENCIES.ETHEREUM.setAmount(parseFloat(get(cryptoETH.attributes, 'amount', 0)));
-      CRYPTO_CURRENCIES.ETHEREUM.setPaidAmount(parseFloat(get(cryptoETH.attributes, 'paid-amount', 0)));
-      CRYPTO_CURRENCIES.ETHEREUM.setWalletAddress(get(cryptoETH.attributes, 'destination-wallet', ''));
-      CRYPTO_CURRENCIES.ETHEREUM.setTxHash(get(cryptoETH.attributes, 'tx-hash', ''));
+      CRYPTO_CURRENCIES.ETHEREUM.setCryptoInformation(getCryptoInformation(cryptoETH));
       orderDetails.setCrypto('ETHEREUM');
     }
     if (cryptoBTC) {
-      CRYPTO_CURRENCIES.BITCOIN.setAmount(parseFloat(get(cryptoBTC.attributes, 'amount', 0)));
-      CRYPTO_CURRENCIES.BITCOIN.setPaidAmount(parseFloat(get(cryptoBTC.attributes, 'paid-amount', 0)));
-      CRYPTO_CURRENCIES.BITCOIN.setWalletAddress(get(cryptoBTC.attributes, 'destination-wallet', ''));
-      CRYPTO_CURRENCIES.BITCOIN.setTxHash(get(cryptoBTC.attributes, 'tx-hash', ''));
+      CRYPTO_CURRENCIES.BITCOIN.setCryptoInformation(getCryptoInformation(cryptoBTC));
       if (CRYPTO_CURRENCIES.BITCOIN.txHash) {
         orderDetails.setCrypto('BITCOIN');
       }
     }
     if (cryptoUSDT) {
-      CRYPTO_CURRENCIES.USDT.setAmount(parseFloat(get(cryptoUSDT.attributes, 'amount', 0)));
-      CRYPTO_CURRENCIES.USDT.setPaidAmount(parseFloat(get(cryptoUSDT.attributes, 'paid-amount', 0)));
-      CRYPTO_CURRENCIES.USDT.setWalletAddress(get(cryptoUSDT.attributes, 'destination-wallet', ''));
-      CRYPTO_CURRENCIES.USDT.setTxHash(get(cryptoUSDT.attributes, 'tx-hash', ''));
+      CRYPTO_CURRENCIES.USDT.setCryptoInformation(getCryptoInformation(cryptoUSDT));
       if (CRYPTO_CURRENCIES.USDT.txHash) {
         orderDetails.setCrypto('USDT');
       }
@@ -88,5 +79,13 @@ const OrderDetails = createReducer(new OrderDetailsModel(), {
     return state;
   },
 });
+
+const getCryptoInformation = (crypto: { attributes: any }) => {
+  const amount = parseFloat(get(crypto.attributes, 'amount', 0) || 0);
+  const paidAmount = parseFloat(get(crypto.attributes, 'paid-amount', 0) || 0);
+  const walletAddress = get(crypto.attributes, 'destination-wallet', '');
+  const txHash = get(crypto.attributes, 'tx-hash', '');
+  return { amount, paidAmount, walletAddress, txHash };
+};
 
 export default OrderDetails;

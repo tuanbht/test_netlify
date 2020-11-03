@@ -21,8 +21,12 @@ const createMatchMedia = (width: number) => {
 describe('CryptoWallet', () => {
   const CryptoLogo = () => React.createElement('svg');
   const crypto = CryptoCurrencies.initWithData('crypto-prefix', 'crypto-short-name', 'crypto-full-name', CryptoLogo);
-  crypto.setWalletAddress('wallet-address');
-  crypto.setAmount(0);
+  const cryptoInformation = {
+    amount: 0,
+    walletAddress: 'wallet-address',
+  };
+
+  crypto.setCryptoInformation(cryptoInformation);
   const nextStep = jest.fn();
   let container: ReactWrapper;
 

@@ -105,9 +105,9 @@ export const buildOrderDetailsResponse = (props: {
       id: '4',
       type: 'payments',
       attributes: {
-        amount: '0.755828606587089',
+        amount: null,
         'paid-amount': '0.655828606587089',
-        'destination-wallet': '1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa',
+        'destination-wallet': null,
         'payment-type': 'BTC',
         'tx-hash': props.hasHashBTC && 'transaction-hash-btc',
       },

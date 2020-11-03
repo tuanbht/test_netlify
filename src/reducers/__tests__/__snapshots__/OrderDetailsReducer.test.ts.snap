@@ -62,7 +62,7 @@ Object {
 exports[`OrderDetails GET_ORDER_DETAILS_SUCCESS has crypto BTC details returns crypto BTC details 1`] = `
 Object {
   "BITCOIN": CryptoCurrencies {
-    "amount": 0.755828606587089,
+    "amount": 0,
     "fullName": "Bitcoin",
     "logo": Object {
       "$$typeof": Symbol(react.forward_ref),
@@ -72,7 +72,7 @@ Object {
     "prefix": "bitcoin",
     "shortName": "BTC",
     "txHash": "",
-    "walletAddress": "1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa",
+    "walletAddress": "",
   },
   "ETHEREUM": CryptoCurrencies {
     "amount": 0.47646764203043,
@@ -81,7 +81,7 @@ Object {
       "$$typeof": Symbol(react.forward_ref),
       "render": [Function],
     },
-    "paidAmount": NaN,
+    "paidAmount": 0,
     "prefix": "ethereum",
     "shortName": "ETH",
     "txHash": "",
@@ -125,7 +125,7 @@ Object {
       "$$typeof": Symbol(react.forward_ref),
       "render": [Function],
     },
-    "paidAmount": NaN,
+    "paidAmount": 0,
     "prefix": "ethereum",
     "shortName": "ETH",
     "txHash": "",
@@ -150,7 +150,7 @@ Object {
 exports[`OrderDetails GET_ORDER_DETAILS_SUCCESS has crypto USDT details returns crypto USDT details 1`] = `
 Object {
   "BITCOIN": CryptoCurrencies {
-    "amount": 0.755828606587089,
+    "amount": 0,
     "fullName": "Bitcoin",
     "logo": Object {
       "$$typeof": Symbol(react.forward_ref),
@@ -160,7 +160,7 @@ Object {
     "prefix": "bitcoin",
     "shortName": "BTC",
     "txHash": "",
-    "walletAddress": "1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa",
+    "walletAddress": "",
   },
   "ETHEREUM": CryptoCurrencies {
     "amount": 0.47646764203043,
@@ -169,7 +169,7 @@ Object {
       "$$typeof": Symbol(react.forward_ref),
       "render": [Function],
     },
-    "paidAmount": NaN,
+    "paidAmount": 0,
     "prefix": "ethereum",
     "shortName": "ETH",
     "txHash": "",
