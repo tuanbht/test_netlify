@@ -96,7 +96,7 @@ export const buildOrderDetailsResponse = (props: {
       attributes: {
         amount: '0.47646764203043',
         'paid-amount': null,
-        'destination-wallet': '0x3f5CE5FBFe3E9af3971dD833D26bA9b5C936f0bE',
+        'destination-address': '0x3f5CE5FBFe3E9af3971dD833D26bA9b5C936f0bE',
         'payment-type': 'ETH',
         'tx-hash': props.hasHashETH && 'transaction-hash-eth',
       },
@@ -107,7 +107,7 @@ export const buildOrderDetailsResponse = (props: {
       attributes: {
         amount: null,
         'paid-amount': '0.655828606587089',
-        'destination-wallet': null,
+        'destination-address': null,
         'payment-type': 'BTC',
         'tx-hash': props.hasHashBTC && 'transaction-hash-btc',
       },
@@ -118,7 +118,7 @@ export const buildOrderDetailsResponse = (props: {
       attributes: {
         amount: '0.755828606587089',
         'paid-amount': '0.755828606587089',
-        'destination-wallet': '1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa',
+        'destination-address': '1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa',
         'payment-type': 'USDT',
         'tx-hash': props.hasHashUSDT && 'transaction-hash-usdt',
       },
