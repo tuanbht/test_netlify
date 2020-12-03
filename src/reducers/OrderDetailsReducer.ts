@@ -83,7 +83,7 @@ const OrderDetails = createReducer(new OrderDetailsModel(), {
 const getCryptoInformation = (crypto: { attributes: any }) => {
   const amount = parseFloat(get(crypto.attributes, 'amount', 0) || 0);
   const paidAmount = parseFloat(get(crypto.attributes, 'paid-amount', 0) || 0);
-  const walletAddress = get(crypto.attributes, 'destination-wallet', '');
+  const walletAddress = get(crypto.attributes, 'destination-address', '');
   const txHash = get(crypto.attributes, 'tx-hash', '');
   return { amount, paidAmount, walletAddress, txHash };
 };
