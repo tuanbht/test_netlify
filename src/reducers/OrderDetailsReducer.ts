@@ -46,10 +46,6 @@ const OrderDetails = createReducer(new OrderDetailsModel(), {
       type: 'payments',
       attributes: { 'payment-type': CRYPTO_CURRENCIES.ETHEREUM.shortName },
     });
-    const cryptoBTC = find(data.included, {
-      type: 'payments',
-      attributes: { 'payment-type': CRYPTO_CURRENCIES.BITCOIN.shortName },
-    });
     const cryptoUSDT = find(data.included, {
       type: 'payments',
       attributes: { 'payment-type': CRYPTO_CURRENCIES.USDT.shortName },
@@ -58,12 +54,6 @@ const OrderDetails = createReducer(new OrderDetailsModel(), {
     if (cryptoETH) {
       CRYPTO_CURRENCIES.ETHEREUM.setCryptoInformation(getCryptoInformation(cryptoETH));
       orderDetails.setCrypto('ETHEREUM');
-    }
-    if (cryptoBTC) {
-      CRYPTO_CURRENCIES.BITCOIN.setCryptoInformation(getCryptoInformation(cryptoBTC));
-      if (CRYPTO_CURRENCIES.BITCOIN.txHash) {
-        orderDetails.setCrypto('BITCOIN');
-      }
     }
     if (cryptoUSDT) {
       CRYPTO_CURRENCIES.USDT.setCryptoInformation(getCryptoInformation(cryptoUSDT));

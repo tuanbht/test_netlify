@@ -110,7 +110,6 @@ describe('CustomerPaymentsPage', () => {
         status: ORDER_STATUS.initialized,
         hasStoreDetails: true,
         hasCryptoUSDT: true,
-        hasCryptoBTC: true,
         hasCryptoETH: true,
       };
       buildContainer(buildOrderDetailsResponse(props));

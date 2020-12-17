@@ -10,9 +10,8 @@ import { RootStateReducer } from 'reducers';
 
 const CryptoCurrency = (props: { selectedCrypto: (crypto: CryptoCurrencies) => void }): React.ReactElement => {
   const { selectedCrypto } = props;
-  const { BITCOIN, ETHEREUM, USDT } = CRYPTO_CURRENCIES;
+  const { ETHEREUM, USDT } = CRYPTO_CURRENCIES;
   const styles = CryptoCurrencyStyle();
-  const IconBTC = BITCOIN.logo;
   const IconETH = ETHEREUM.logo;
   const IconUSDT = USDT.logo;
 
@@ -32,14 +31,6 @@ const CryptoCurrency = (props: { selectedCrypto: (crypto: CryptoCurrencies) => v
       <Divider className={styles.divider} />
       <div className={styles.selectCrypto}>
         <div className={styles.selectTitle}>Select a Cryptocurrency</div>
-        <Button
-          classes={ButtonStyle({ color: Color.treePoppy, isUppercase: true })}
-          onClick={() => selectedCrypto(BITCOIN)}
-          disabled={BITCOIN.amount === 0}
-        >
-          <IconBTC className={styles.iconCrypto} />
-          {BITCOIN.fullName}
-        </Button>
         <Button
           classes={ButtonStyle({ color: Color.cornflowerBlue, isUppercase: true })}
           onClick={() => selectedCrypto(ETHEREUM)}

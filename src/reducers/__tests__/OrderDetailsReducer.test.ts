@@ -115,22 +115,6 @@ describe('OrderDetails', () => {
       });
     });
 
-    describe('has crypto BTC details', () => {
-      beforeEach(() => {
-        action = {
-          type: ActionSuccessfully(GET_ORDER_DETAILS),
-          payload: {
-            data: buildOrderDetailsResponse({ hasCryptoBTC: true }),
-          },
-        };
-        OrderDetailsReducer(new OrderDetails(), action);
-      });
-
-      it('returns crypto BTC details', () => {
-        expect(CRYPTO_CURRENCIES).toMatchSnapshot();
-      });
-    });
-
     describe('has crypto USDT details', () => {
       beforeEach(() => {
         action = {
@@ -156,7 +140,6 @@ describe('OrderDetails', () => {
               data: buildOrderDetailsResponse({
                 hasCryptoETH: true,
                 hasCryptoUSDT: true,
-                hasCryptoBTC: true,
               }),
             },
           };
@@ -179,21 +162,6 @@ describe('OrderDetails', () => {
           });
 
           it('returns order details with transaction hash ETH', () => {
-            expect(OrderDetailsReducer(new OrderDetails(), action)).toMatchSnapshot();
-          });
-        });
-
-        describe('transaction hash BTC', () => {
-          beforeEach(() => {
-            action = {
-              type: ActionSuccessfully(GET_ORDER_DETAILS),
-              payload: {
-                data: buildOrderDetailsResponse({ hasCryptoBTC: true, hasHashBTC: true }),
-              },
-            };
-          });
-
-          it('returns order details with transaction hash BTC', () => {
             expect(OrderDetailsReducer(new OrderDetails(), action)).toMatchSnapshot();
           });
         });
@@ -224,8 +192,6 @@ describe('OrderDetails', () => {
                 hasHashETH: true,
                 hasCryptoUSDT: true,
                 hasHashUSDT: true,
-                hasCryptoBTC: true,
-                hasHashBTC: true,
               }),
             },
           };
