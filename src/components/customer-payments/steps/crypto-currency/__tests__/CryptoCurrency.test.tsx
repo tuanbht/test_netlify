@@ -11,7 +11,7 @@ describe('CryptoCurrency', () => {
   const store = testStore({
     OrderDetails: new OrderDetails(),
   });
-  const { BITCOIN, ETHEREUM, USDT } = CRYPTO_CURRENCIES;
+  const { ETHEREUM, USDT } = CRYPTO_CURRENCIES;
   let container: ReactWrapper;
 
   beforeEach(() => {
@@ -22,7 +22,6 @@ describe('CryptoCurrency', () => {
       txHash: faker.random.uuid(),
     });
 
-    BITCOIN.setCryptoInformation(cryptoInformation());
     ETHEREUM.setCryptoInformation(cryptoInformation());
     USDT.setCryptoInformation(cryptoInformation());
 
@@ -34,17 +33,6 @@ describe('CryptoCurrency', () => {
   });
 
   describe('select a crypto currency', () => {
-    describe('select BITCOIN crypto', () => {
-      beforeEach(() => {
-        const button = container.find({ children: [container.find(BITCOIN.logo), BITCOIN.fullName] }).first();
-        button.simulate('click');
-      });
-
-      it('should be called with crypto BITCOIN', () => {
-        expect(selectedCrypto).toBeCalledWith(CRYPTO_CURRENCIES.BITCOIN);
-      });
-    });
-
     describe('select ETHEREUM crypto', () => {
       beforeEach(() => {
         const button = container.find({ children: [container.find(ETHEREUM.logo), ETHEREUM.fullName] }).first();

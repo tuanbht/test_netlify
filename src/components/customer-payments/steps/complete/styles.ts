@@ -21,8 +21,8 @@ export default makeStyles({
     marginBottom: 6,
   },
   orderName: {
-    fontSize: 20,
-    lineHeight: '26px',
+    fontSize: 18,
+    lineHeight: '24px',
   },
   price: {
     fontSize: 20,
@@ -32,8 +32,8 @@ export default makeStyles({
     marginBottom: 6,
   },
   amount: {
-    fontSize: 20,
-    lineHeight: '26px',
+    fontSize: 18,
+    lineHeight: '24px',
     textTransform: 'uppercase',
     float: 'right',
 
