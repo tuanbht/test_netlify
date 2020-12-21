@@ -17,10 +17,12 @@ export const buildOrderDetailsResponse = (props: {
   hasStoreDetails?: boolean;
   hasCryptoETH?: boolean;
   hasCryptoUSDT?: boolean;
+  hasCryptoUSDC?: boolean;
   markAsPaid?: boolean;
   isExpired?: boolean;
   hasHashETH?: boolean;
   hasHashUSDT?: boolean;
+  hasHashUSDC?: boolean;
 }): any => ({
   data: {
     type: 'orders',
@@ -108,6 +110,17 @@ export const buildOrderDetailsResponse = (props: {
         'destination-address': null,
         'payment-type': 'USDT',
         'tx-hash': props.hasHashUSDT && 'transaction-hash-usdt',
+      },
+    },
+    props.hasCryptoUSDC && {
+      id: '6',
+      type: 'payments',
+      attributes: {
+        amount: '0.47646764203043',
+        'paid-amount': '0.755828606587089',
+        'destination-address': '0x3f5CE5FBFe3E9af3971dD833D26bA9b5C936f0b1',
+        'payment-type': 'USDC',
+        'tx-hash': props.hasHashUSDC && 'transaction-hash-usdc',
       },
     },
   ],

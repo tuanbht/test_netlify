@@ -17,4 +17,5 @@ export const Color = {
   carnation: '#EF4565',
   red: '#FF0000',
   supperNova: '#FFCC00',
+  mariner: '#2775CA',
 };

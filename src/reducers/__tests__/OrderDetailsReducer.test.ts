@@ -45,29 +45,6 @@ describe('OrderDetails', () => {
       });
     });
 
-    describe('order has expired time', () => {
-      beforeEach(() => {
-        jest.useFakeTimers();
-      });
-
-      describe('expired time is valid', () => {
-        beforeEach(() => {
-          action = {
-            type: ActionSuccessfully(GET_ORDER_DETAILS),
-            payload: {
-              data: buildOrderDetailsResponse({ isExpired: false }),
-            },
-          };
-          OrderDetailsReducer(new OrderDetails(), action);
-        });
-
-        it('redirects to expired page when expired time come', () => {
-          jest.runAllTimers();
-          expect(window.location.assign).toBeCalledWith(ORDER_EXPIRED_PATH);
-        });
-      });
-    });
-
     describe('does not have store details and crypto payment details', () => {
       beforeEach(() => {
         action = {
@@ -131,6 +108,22 @@ describe('OrderDetails', () => {
       });
     });
 
+    describe('has crypto USDC details', () => {
+      beforeEach(() => {
+        action = {
+          type: ActionSuccessfully(GET_ORDER_DETAILS),
+          payload: {
+            data: buildOrderDetailsResponse({ hasCryptoUSDC: true }),
+          },
+        };
+        OrderDetailsReducer(new OrderDetails(), action);
+      });
+
+      it('returns crypto USDT details', () => {
+        expect(CRYPTO_CURRENCIES).toMatchSnapshot();
+      });
+    });
+
     describe('transaction hash', () => {
       describe('has none', () => {
         beforeEach(() => {
@@ -140,13 +133,15 @@ describe('OrderDetails', () => {
               data: buildOrderDetailsResponse({
                 hasCryptoETH: true,
                 hasCryptoUSDT: true,
+                hasCryptoUSDC: true,
               }),
             },
           };
+          OrderDetailsReducer(new OrderDetails(), action);
         });
 
         it('returns order details with empty transaction hash', () => {
-          expect(OrderDetailsReducer(new OrderDetails(), action)).toMatchSnapshot();
+          expect(CRYPTO_CURRENCIES).toMatchSnapshot();
         });
       });
 
@@ -159,10 +154,11 @@ describe('OrderDetails', () => {
                 data: buildOrderDetailsResponse({ hasCryptoETH: true, hasHashETH: true }),
               },
             };
+            OrderDetailsReducer(new OrderDetails(), action);
           });
 
           it('returns order details with transaction hash ETH', () => {
-            expect(OrderDetailsReducer(new OrderDetails(), action)).toMatchSnapshot();
+            expect(CRYPTO_CURRENCIES).toMatchSnapshot();
           });
         });
 
@@ -174,10 +170,27 @@ describe('OrderDetails', () => {
                 data: buildOrderDetailsResponse({ hasCryptoUSDT: true, hasHashUSDT: true }),
               },
             };
+            OrderDetailsReducer(new OrderDetails(), action);
           });
 
           it('returns order details with transaction hash USDT', () => {
-            expect(OrderDetailsReducer(new OrderDetails(), action)).toMatchSnapshot();
+            expect(CRYPTO_CURRENCIES).toMatchSnapshot();
+          });
+        });
+
+        describe('transaction hash USDC', () => {
+          beforeEach(() => {
+            action = {
+              type: ActionSuccessfully(GET_ORDER_DETAILS),
+              payload: {
+                data: buildOrderDetailsResponse({ hasCryptoUSDC: true, hasHashUSDC: true }),
+              },
+            };
+            OrderDetailsReducer(new OrderDetails(), action);
+          });
+
+          it('returns order details with transaction hash USDC', () => {
+            expect(CRYPTO_CURRENCIES).toMatchSnapshot();
           });
         });
       });
@@ -192,13 +205,16 @@ describe('OrderDetails', () => {
                 hasHashETH: true,
                 hasCryptoUSDT: true,
                 hasHashUSDT: true,
+                hasCryptoUSDC: true,
+                hasHashUSDC: true,
               }),
             },
           };
         });
 
-        it('returns order details with the first transaction hash', () => {
-          expect(OrderDetailsReducer(new OrderDetails(), action)).toMatchSnapshot();
+        it('returns order details with the last transaction hash', () => {
+          expect(OrderDetailsReducer(new OrderDetails(), action).crypto).toEqual(CRYPTO_CURRENCIES.USDC.shortName);
+          expect(CRYPTO_CURRENCIES).toMatchSnapshot();
         });
       });
     });
