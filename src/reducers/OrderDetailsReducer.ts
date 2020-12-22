@@ -31,22 +31,28 @@ const OrderDetails = createReducer(new OrderDetailsModel(), {
       orderDetails.storePhoneNumber = get(storeDetails.attributes, 'phone-number', '');
     }
 
+    const { ETHEREUM, USDT, USDC } = CRYPTO_CURRENCIES;
+
     data.included.forEach((coin: any) => {
-      if (coin) {
+      if (coin && coin.type === 'payments') {
         switch (coin.attributes['payment-type']) {
-          case CRYPTO_CURRENCIES.ETHEREUM.shortName: {
-            CRYPTO_CURRENCIES.ETHEREUM.setCryptoInformation(getCryptoInformation(coin));
+          case ETHEREUM.shortName: {
+            ETHEREUM.setCryptoInformation(getCryptoInformation(coin));
             orderDetails.setCrypto(coin.attributes['payment-type']);
             break;
           }
-          case CRYPTO_CURRENCIES.USDT.shortName: {
-            CRYPTO_CURRENCIES.USDT.setCryptoInformation(getCryptoInformation(coin));
-            orderDetails.setCrypto(coin.attributes['payment-type']);
+          case USDT.shortName: {
+            USDT.setCryptoInformation(getCryptoInformation(coin));
+            if (USDT.txHash) {
+              orderDetails.setCrypto(coin.attributes['payment-type']);
+            }
             break;
           }
-          case CRYPTO_CURRENCIES.USDC.shortName: {
-            CRYPTO_CURRENCIES.USDC.setCryptoInformation(getCryptoInformation(coin));
-            orderDetails.setCrypto(coin.attributes['payment-type']);
+          case USDC.shortName: {
+            USDC.setCryptoInformation(getCryptoInformation(coin));
+            if (USDC.txHash) {
+              orderDetails.setCrypto(coin.attributes['payment-type']);
+            }
             break;
           }
         }
@@ -55,7 +61,7 @@ const OrderDetails = createReducer(new OrderDetailsModel(), {
 
     return state.equal(orderDetails) ? state : orderDetails;
   },
-  [ActionFailure(GET_ORDER_DETAILS)]: (state) => {
+  [ActionFailure(GET_ORDER_DETAILS)]: (state, action) => {
     window.location.assign(NOT_FOUND_PATH);
     return state;
   },
