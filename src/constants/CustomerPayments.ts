@@ -1,6 +1,7 @@
 import React from 'react';
 import { ReactComponent as IconETH } from 'assets/images/icons/icon-eth.svg';
 import { ReactComponent as IconUSDT } from 'assets/images/icons/icon-usdt.svg';
+import { ReactComponent as IconUSDC } from 'assets/images/icons/icon-usdc.svg';
 import moment from 'moment';
 import { VIEW_CRYPTO_TRANSACTION } from './Common';
 
@@ -164,4 +165,5 @@ export class CryptoCurrencies implements CryptoCurrencies {
 export const CRYPTO_CURRENCIES = {
   ETHEREUM: CryptoCurrencies.initWithData('ethereum', 'ETH', 'Ethereum', IconETH),
   USDT: CryptoCurrencies.initWithData('usdt', 'USDT', 'USD Tether', IconUSDT),
+  USDC: CryptoCurrencies.initWithData('usdc', 'USDC', 'USD Coin', IconUSDC),
 };

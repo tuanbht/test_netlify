@@ -11,7 +11,7 @@ describe('CryptoCurrency', () => {
   const store = testStore({
     OrderDetails: new OrderDetails(),
   });
-  const { ETHEREUM, USDT } = CRYPTO_CURRENCIES;
+  const { ETHEREUM, USDT, USDC } = CRYPTO_CURRENCIES;
   let container: ReactWrapper;
 
   beforeEach(() => {
@@ -24,6 +24,7 @@ describe('CryptoCurrency', () => {
 
     ETHEREUM.setCryptoInformation(cryptoInformation());
     USDT.setCryptoInformation(cryptoInformation());
+    USDC.setCryptoInformation(cryptoInformation());
 
     container = mount(
       <Provider store={store}>
@@ -52,6 +53,17 @@ describe('CryptoCurrency', () => {
 
       it('should be called with crypto USD TETHER', () => {
         expect(selectedCrypto).toBeCalledWith(CRYPTO_CURRENCIES.USDT);
+      });
+    });
+
+    describe('select USD COIN crypto', () => {
+      beforeEach(() => {
+        const button = container.find({ children: [container.find(USDC.logo), USDC.fullName] }).first();
+        button.simulate('click');
+      });
+
+      it('should be called with crypto USD COIN', () => {
+        expect(selectedCrypto).toBeCalledWith(CRYPTO_CURRENCIES.USDC);
       });
     });
   });

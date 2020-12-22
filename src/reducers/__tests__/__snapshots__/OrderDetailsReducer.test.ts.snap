@@ -30,6 +30,19 @@ Object {
     "txHash": "",
     "walletAddress": "",
   },
+  "USDC": CryptoCurrencies {
+    "amount": 0,
+    "fullName": "USD Coin",
+    "logo": Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "render": [Function],
+    },
+    "paidAmount": 0,
+    "prefix": "usdc",
+    "shortName": "USDC",
+    "txHash": "",
+    "walletAddress": "",
+  },
   "USDT": CryptoCurrencies {
     "amount": 0,
     "fullName": "USD Tether",
@@ -61,6 +74,19 @@ Object {
     "txHash": "",
     "walletAddress": "0x3f5CE5FBFe3E9af3971dD833D26bA9b5C936f0bE",
   },
+  "USDC": CryptoCurrencies {
+    "amount": 0,
+    "fullName": "USD Coin",
+    "logo": Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "render": [Function],
+    },
+    "paidAmount": 0,
+    "prefix": "usdc",
+    "shortName": "USDC",
+    "txHash": "",
+    "walletAddress": "",
+  },
   "USDT": CryptoCurrencies {
     "amount": 0,
     "fullName": "USD Tether",
@@ -69,6 +95,50 @@ Object {
       "render": [Function],
     },
     "paidAmount": 0,
+    "prefix": "usdt",
+    "shortName": "USDT",
+    "txHash": "",
+    "walletAddress": "",
+  },
+}
+`;
+
+exports[`OrderDetails GET_ORDER_DETAILS_SUCCESS has crypto USDC details returns crypto USDT details 1`] = `
+Object {
+  "ETHEREUM": CryptoCurrencies {
+    "amount": 0.47646764203043,
+    "fullName": "Ethereum",
+    "logo": Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "render": [Function],
+    },
+    "paidAmount": 0,
+    "prefix": "ethereum",
+    "shortName": "ETH",
+    "txHash": "",
+    "walletAddress": "0x3f5CE5FBFe3E9af3971dD833D26bA9b5C936f0bE",
+  },
+  "USDC": CryptoCurrencies {
+    "amount": 0.47646764203043,
+    "fullName": "USD Coin",
+    "logo": Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "render": [Function],
+    },
+    "paidAmount": 0.755828606587089,
+    "prefix": "usdc",
+    "shortName": "USDC",
+    "txHash": "",
+    "walletAddress": "0x3f5CE5FBFe3E9af3971dD833D26bA9b5C936f0b1",
+  },
+  "USDT": CryptoCurrencies {
+    "amount": 0,
+    "fullName": "USD Tether",
+    "logo": Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "render": [Function],
+    },
+    "paidAmount": 0.755828606587089,
     "prefix": "usdt",
     "shortName": "USDT",
     "txHash": "",
@@ -91,6 +161,19 @@ Object {
     "shortName": "ETH",
     "txHash": "",
     "walletAddress": "0x3f5CE5FBFe3E9af3971dD833D26bA9b5C936f0bE",
+  },
+  "USDC": CryptoCurrencies {
+    "amount": 0,
+    "fullName": "USD Coin",
+    "logo": Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "render": [Function],
+    },
+    "paidAmount": 0,
+    "prefix": "usdc",
+    "shortName": "USDC",
+    "txHash": "",
+    "walletAddress": "",
   },
   "USDT": CryptoCurrencies {
     "amount": 0,
@@ -123,62 +206,222 @@ OrderDetails {
 }
 `;
 
-exports[`OrderDetails GET_ORDER_DETAILS_SUCCESS transaction hash has many returns order details with the first transaction hash 1`] = `
-OrderDetails {
-  "crypto": "USDT",
-  "equal": [Function],
-  "isEmpty": [Function],
-  "markAsPaid": false,
-  "markAsPaidTime": "",
-  "orderNumber": "NjKvLP1o",
-  "price": "67.77",
-  "status": "undefined",
-  "storeName": "",
-  "storePhoneNumber": "",
+exports[`OrderDetails GET_ORDER_DETAILS_SUCCESS transaction hash has many returns order details with the last transaction hash 1`] = `
+Object {
+  "ETHEREUM": CryptoCurrencies {
+    "amount": 0.47646764203043,
+    "fullName": "Ethereum",
+    "logo": Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "render": [Function],
+    },
+    "paidAmount": 0,
+    "prefix": "ethereum",
+    "shortName": "ETH",
+    "txHash": "transaction-hash-eth",
+    "walletAddress": "0x3f5CE5FBFe3E9af3971dD833D26bA9b5C936f0bE",
+  },
+  "USDC": CryptoCurrencies {
+    "amount": 0.47646764203043,
+    "fullName": "USD Coin",
+    "logo": Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "render": [Function],
+    },
+    "paidAmount": 0.755828606587089,
+    "prefix": "usdc",
+    "shortName": "USDC",
+    "txHash": "transaction-hash-usdc",
+    "walletAddress": "0x3f5CE5FBFe3E9af3971dD833D26bA9b5C936f0b1",
+  },
+  "USDT": CryptoCurrencies {
+    "amount": 0,
+    "fullName": "USD Tether",
+    "logo": Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "render": [Function],
+    },
+    "paidAmount": 0.755828606587089,
+    "prefix": "usdt",
+    "shortName": "USDT",
+    "txHash": "transaction-hash-usdt",
+    "walletAddress": "",
+  },
 }
 `;
 
 exports[`OrderDetails GET_ORDER_DETAILS_SUCCESS transaction hash has none returns order details with empty transaction hash 1`] = `
-OrderDetails {
-  "crypto": "ETHEREUM",
-  "equal": [Function],
-  "isEmpty": [Function],
-  "markAsPaid": false,
-  "markAsPaidTime": "",
-  "orderNumber": "NjKvLP1o",
-  "price": "67.77",
-  "status": "undefined",
-  "storeName": "",
-  "storePhoneNumber": "",
+Object {
+  "ETHEREUM": CryptoCurrencies {
+    "amount": 0.47646764203043,
+    "fullName": "Ethereum",
+    "logo": Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "render": [Function],
+    },
+    "paidAmount": 0,
+    "prefix": "ethereum",
+    "shortName": "ETH",
+    "txHash": "",
+    "walletAddress": "0x3f5CE5FBFe3E9af3971dD833D26bA9b5C936f0bE",
+  },
+  "USDC": CryptoCurrencies {
+    "amount": 0.47646764203043,
+    "fullName": "USD Coin",
+    "logo": Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "render": [Function],
+    },
+    "paidAmount": 0.755828606587089,
+    "prefix": "usdc",
+    "shortName": "USDC",
+    "txHash": "",
+    "walletAddress": "0x3f5CE5FBFe3E9af3971dD833D26bA9b5C936f0b1",
+  },
+  "USDT": CryptoCurrencies {
+    "amount": 0,
+    "fullName": "USD Tether",
+    "logo": Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "render": [Function],
+    },
+    "paidAmount": 0.755828606587089,
+    "prefix": "usdt",
+    "shortName": "USDT",
+    "txHash": "",
+    "walletAddress": "",
+  },
 }
 `;
 
 exports[`OrderDetails GET_ORDER_DETAILS_SUCCESS transaction hash has one transaction hash ETH returns order details with transaction hash ETH 1`] = `
-OrderDetails {
-  "crypto": "ETHEREUM",
-  "equal": [Function],
-  "isEmpty": [Function],
-  "markAsPaid": false,
-  "markAsPaidTime": "",
-  "orderNumber": "NjKvLP1o",
-  "price": "67.77",
-  "status": "undefined",
-  "storeName": "",
-  "storePhoneNumber": "",
+Object {
+  "ETHEREUM": CryptoCurrencies {
+    "amount": 0.47646764203043,
+    "fullName": "Ethereum",
+    "logo": Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "render": [Function],
+    },
+    "paidAmount": 0,
+    "prefix": "ethereum",
+    "shortName": "ETH",
+    "txHash": "transaction-hash-eth",
+    "walletAddress": "0x3f5CE5FBFe3E9af3971dD833D26bA9b5C936f0bE",
+  },
+  "USDC": CryptoCurrencies {
+    "amount": 0.47646764203043,
+    "fullName": "USD Coin",
+    "logo": Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "render": [Function],
+    },
+    "paidAmount": 0.755828606587089,
+    "prefix": "usdc",
+    "shortName": "USDC",
+    "txHash": "",
+    "walletAddress": "0x3f5CE5FBFe3E9af3971dD833D26bA9b5C936f0b1",
+  },
+  "USDT": CryptoCurrencies {
+    "amount": 0,
+    "fullName": "USD Tether",
+    "logo": Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "render": [Function],
+    },
+    "paidAmount": 0.755828606587089,
+    "prefix": "usdt",
+    "shortName": "USDT",
+    "txHash": "",
+    "walletAddress": "",
+  },
+}
+`;
+
+exports[`OrderDetails GET_ORDER_DETAILS_SUCCESS transaction hash has one transaction hash USDC returns order details with transaction hash USDC 1`] = `
+Object {
+  "ETHEREUM": CryptoCurrencies {
+    "amount": 0.47646764203043,
+    "fullName": "Ethereum",
+    "logo": Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "render": [Function],
+    },
+    "paidAmount": 0,
+    "prefix": "ethereum",
+    "shortName": "ETH",
+    "txHash": "transaction-hash-eth",
+    "walletAddress": "0x3f5CE5FBFe3E9af3971dD833D26bA9b5C936f0bE",
+  },
+  "USDC": CryptoCurrencies {
+    "amount": 0.47646764203043,
+    "fullName": "USD Coin",
+    "logo": Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "render": [Function],
+    },
+    "paidAmount": 0.755828606587089,
+    "prefix": "usdc",
+    "shortName": "USDC",
+    "txHash": "transaction-hash-usdc",
+    "walletAddress": "0x3f5CE5FBFe3E9af3971dD833D26bA9b5C936f0b1",
+  },
+  "USDT": CryptoCurrencies {
+    "amount": 0,
+    "fullName": "USD Tether",
+    "logo": Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "render": [Function],
+    },
+    "paidAmount": 0.755828606587089,
+    "prefix": "usdt",
+    "shortName": "USDT",
+    "txHash": "transaction-hash-usdt",
+    "walletAddress": "",
+  },
 }
 `;
 
 exports[`OrderDetails GET_ORDER_DETAILS_SUCCESS transaction hash has one transaction hash USDT returns order details with transaction hash USDT 1`] = `
-OrderDetails {
-  "crypto": "USDT",
-  "equal": [Function],
-  "isEmpty": [Function],
-  "markAsPaid": false,
-  "markAsPaidTime": "",
-  "orderNumber": "NjKvLP1o",
-  "price": "67.77",
-  "status": "undefined",
-  "storeName": "",
-  "storePhoneNumber": "",
+Object {
+  "ETHEREUM": CryptoCurrencies {
+    "amount": 0.47646764203043,
+    "fullName": "Ethereum",
+    "logo": Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "render": [Function],
+    },
+    "paidAmount": 0,
+    "prefix": "ethereum",
+    "shortName": "ETH",
+    "txHash": "transaction-hash-eth",
+    "walletAddress": "0x3f5CE5FBFe3E9af3971dD833D26bA9b5C936f0bE",
+  },
+  "USDC": CryptoCurrencies {
+    "amount": 0.47646764203043,
+    "fullName": "USD Coin",
+    "logo": Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "render": [Function],
+    },
+    "paidAmount": 0.755828606587089,
+    "prefix": "usdc",
+    "shortName": "USDC",
+    "txHash": "",
+    "walletAddress": "0x3f5CE5FBFe3E9af3971dD833D26bA9b5C936f0b1",
+  },
+  "USDT": CryptoCurrencies {
+    "amount": 0,
+    "fullName": "USD Tether",
+    "logo": Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "render": [Function],
+    },
+    "paidAmount": 0.755828606587089,
+    "prefix": "usdt",
+    "shortName": "USDT",
+    "txHash": "transaction-hash-usdt",
+    "walletAddress": "",
+  },
 }
 `;

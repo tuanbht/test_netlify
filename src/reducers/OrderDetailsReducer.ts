@@ -3,7 +3,6 @@ import { CRYPTO_CURRENCIES, ORDER_STATUS, OrderDetails as OrderDetailsModel } fr
 import { ActionFailure, ActionSuccessfully, GET_ORDER_DETAILS } from 'constants/ReduxActions';
 import { NOT_FOUND_PATH, ORDER_CANCELLED_PATH, ORDER_EXPIRED_PATH } from 'constants/RouterPaths';
 import { find, get } from 'lodash';
-import moment from 'moment';
 
 const OrderDetails = createReducer(new OrderDetailsModel(), {
   [ActionSuccessfully(GET_ORDER_DETAILS)]: (state: OrderDetailsModel, action) => {
@@ -21,16 +20,6 @@ const OrderDetails = createReducer(new OrderDetailsModel(), {
       return state;
     }
 
-    const expiredTime = data.data.attributes['expire-at'] * 1000;
-    const remainTime = moment(expiredTime).diff(moment.now());
-
-    if (remainTime > 0) {
-      setTimeout(() => {
-        window.location.assign(ORDER_EXPIRED_PATH);
-        return state;
-      }, remainTime);
-    }
-
     orderDetails.orderNumber = get(data.data.attributes, 'external-order-id', 0);
     orderDetails.markAsPaid = get(data.data.attributes, 'marked-as-paid', false);
     orderDetails.markAsPaidTime = get(data.data.attributes, 'marked-as-paid-at', '');
@@ -42,25 +31,27 @@ const OrderDetails = createReducer(new OrderDetailsModel(), {
       orderDetails.storePhoneNumber = get(storeDetails.attributes, 'phone-number', '');
     }
 
-    const cryptoETH = find(data.included, {
-      type: 'payments',
-      attributes: { 'payment-type': CRYPTO_CURRENCIES.ETHEREUM.shortName },
-    });
-    const cryptoUSDT = find(data.included, {
-      type: 'payments',
-      attributes: { 'payment-type': CRYPTO_CURRENCIES.USDT.shortName },
-    });
-
-    if (cryptoETH) {
-      CRYPTO_CURRENCIES.ETHEREUM.setCryptoInformation(getCryptoInformation(cryptoETH));
-      orderDetails.setCrypto('ETHEREUM');
-    }
-    if (cryptoUSDT) {
-      CRYPTO_CURRENCIES.USDT.setCryptoInformation(getCryptoInformation(cryptoUSDT));
-      if (CRYPTO_CURRENCIES.USDT.txHash) {
-        orderDetails.setCrypto('USDT');
+    data.included.forEach((coin: any) => {
+      if (coin) {
+        switch (coin.attributes['payment-type']) {
+          case CRYPTO_CURRENCIES.ETHEREUM.shortName: {
+            CRYPTO_CURRENCIES.ETHEREUM.setCryptoInformation(getCryptoInformation(coin));
+            orderDetails.setCrypto(coin.attributes['payment-type']);
+            break;
+          }
+          case CRYPTO_CURRENCIES.USDT.shortName: {
+            CRYPTO_CURRENCIES.USDT.setCryptoInformation(getCryptoInformation(coin));
+            orderDetails.setCrypto(coin.attributes['payment-type']);
+            break;
+          }
+          case CRYPTO_CURRENCIES.USDC.shortName: {
+            CRYPTO_CURRENCIES.USDC.setCryptoInformation(getCryptoInformation(coin));
+            orderDetails.setCrypto(coin.attributes['payment-type']);
+            break;
+          }
+        }
       }
-    }
+    });
 
     return state.equal(orderDetails) ? state : orderDetails;
   },
