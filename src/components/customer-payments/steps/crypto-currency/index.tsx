@@ -32,8 +32,11 @@ const CryptoCurrency = (props: { selectedCrypto: (crypto: CryptoCurrencies) => v
       <Divider className={styles.divider} />
       <div className={styles.selectCrypto}>
         <div className={styles.selectTitle}>Select a Cryptocurrency</div>
+        {ETHEREUM.amount === 0 && (
+          <div className={styles.disableMessage}>(Market Volatility - Ethereum unavailable)</div>
+        )}
         <Button
-          classes={ButtonStyle({ color: Color.cornflowerBlue, isUppercase: true })}
+          classes={ButtonStyle({ color: Color.cornflowerBlue, isUppercase: true, marginTop: 8 })}
           onClick={() => selectedCrypto(ETHEREUM)}
           disabled={ETHEREUM.amount === 0}
         >

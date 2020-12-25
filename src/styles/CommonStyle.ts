@@ -5,6 +5,7 @@ interface ButtonProps {
   color: string;
   isMobile?: boolean;
   isUppercase?: boolean;
+  marginTop?: number;
 }
 export const ButtonStyle = makeStyles({
   root: {
@@ -15,7 +16,7 @@ export const ButtonStyle = makeStyles({
     lineHeight: '24px',
     width: '100%',
     borderRadius: 10,
-    marginTop: 30,
+    marginTop: (props: ButtonProps) => (props.marginTop ? props.marginTop : 30),
     border: (props: ButtonProps) => `2px solid ${props.color}`,
     backgroundColor: (props: ButtonProps) => props.color,
 

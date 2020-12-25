@@ -1,5 +1,5 @@
 import { makeStyles } from '@material-ui/styles';
-import { RobotoMediumFont } from 'styles/FontFamily';
+import { RobotoMediumFont, RobotoBoldFont } from 'styles/FontFamily';
 import { Color } from 'styles/Varriables';
 
 export default makeStyles({
@@ -35,10 +35,18 @@ export default makeStyles({
     textAlign: 'center',
     fontSize: 20,
     lineHeight: '26px',
-    marginBottom: 13,
+    marginBottom: 36,
   },
   iconCrypto: {
     position: 'absolute',
     left: '25px',
+  },
+  disableMessage: {
+    ...RobotoBoldFont,
+    color: Color.froly,
+    fontSize: 14,
+    letterSpacing: 0.16,
+    lineHeight: '18px',
+    textAlign: 'center',
   },
 });
