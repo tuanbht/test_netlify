@@ -11,59 +11,74 @@ describe('CryptoCurrency', () => {
   const store = testStore({
     OrderDetails: new OrderDetails(),
   });
-  const { ETHEREUM, USDT, USDC } = CRYPTO_CURRENCIES;
   let container: ReactWrapper;
 
-  beforeEach(() => {
-    const cryptoInformation = () => ({
-      amount: faker.random.number(),
-      paidAmount: faker.random.number(),
-      walletAddress: faker.random.uuid(),
-      txHash: faker.random.uuid(),
+  describe('crypto currencies are unavailable', () => {
+    it('should be disabled', () => {
+      container = mount(
+        <Provider store={store}>
+          <CryptoCurrency selectedCrypto={selectedCrypto} />
+        </Provider>,
+      );
+
+      expect(container).toMatchSnapshot();
     });
-
-    ETHEREUM.setCryptoInformation(cryptoInformation());
-    USDT.setCryptoInformation(cryptoInformation());
-    USDC.setCryptoInformation(cryptoInformation());
-
-    container = mount(
-      <Provider store={store}>
-        <CryptoCurrency selectedCrypto={selectedCrypto} />
-      </Provider>,
-    );
   });
 
-  describe('select a crypto currency', () => {
-    describe('select ETHEREUM crypto', () => {
-      beforeEach(() => {
-        const button = container.find({ children: [container.find(ETHEREUM.logo), ETHEREUM.fullName] }).first();
-        button.simulate('click');
+  describe('crypto currencies are available', () => {
+    const { ETHEREUM, USDT, USDC } = CRYPTO_CURRENCIES;
+
+    beforeEach(() => {
+      const cryptoInformation = () => ({
+        amount: faker.random.number(),
+        paidAmount: faker.random.number(),
+        walletAddress: faker.random.uuid(),
+        txHash: faker.random.uuid(),
       });
 
-      it('should be called with crypto ETHEREUM', () => {
-        expect(selectedCrypto).toBeCalledWith(CRYPTO_CURRENCIES.ETHEREUM);
-      });
+      ETHEREUM.setCryptoInformation(cryptoInformation());
+      USDT.setCryptoInformation(cryptoInformation());
+      USDC.setCryptoInformation(cryptoInformation());
+
+      container = mount(
+        <Provider store={store}>
+          <CryptoCurrency selectedCrypto={selectedCrypto} />
+        </Provider>,
+      );
     });
 
-    describe('select USD TETHER crypto', () => {
-      beforeEach(() => {
-        const button = container.find({ children: [container.find(USDT.logo), USDT.fullName] }).first();
-        button.simulate('click');
+    describe('select a crypto currency', () => {
+      describe('select ETHEREUM crypto', () => {
+        beforeEach(() => {
+          const button = container.find({ children: [container.find(ETHEREUM.logo), ETHEREUM.fullName] }).first();
+          button.simulate('click');
+        });
+
+        it('should be called with crypto ETHEREUM', () => {
+          expect(selectedCrypto).toBeCalledWith(CRYPTO_CURRENCIES.ETHEREUM);
+        });
       });
 
-      it('should be called with crypto USD TETHER', () => {
-        expect(selectedCrypto).toBeCalledWith(CRYPTO_CURRENCIES.USDT);
-      });
-    });
+      describe('select USD TETHER crypto', () => {
+        beforeEach(() => {
+          const button = container.find({ children: [container.find(USDT.logo), USDT.fullName] }).first();
+          button.simulate('click');
+        });
 
-    describe('select USD COIN crypto', () => {
-      beforeEach(() => {
-        const button = container.find({ children: [container.find(USDC.logo), USDC.fullName] }).first();
-        button.simulate('click');
+        it('should be called with crypto USD TETHER', () => {
+          expect(selectedCrypto).toBeCalledWith(CRYPTO_CURRENCIES.USDT);
+        });
       });
 
-      it('should be called with crypto USD COIN', () => {
-        expect(selectedCrypto).toBeCalledWith(CRYPTO_CURRENCIES.USDC);
+      describe('select USD COIN crypto', () => {
+        beforeEach(() => {
+          const button = container.find({ children: [container.find(USDC.logo), USDC.fullName] }).first();
+          button.simulate('click');
+        });
+
+        it('should be called with crypto USD COIN', () => {
+          expect(selectedCrypto).toBeCalledWith(CRYPTO_CURRENCIES.USDC);
+        });
       });
     });
   });
