@@ -33,7 +33,7 @@
   "scripts": {
     "start": "serve build -l $PORT",
     "start:dev": "react-scripts start",
-    "build": "GENERATE_SOURCEMAP=true react-scripts build",
+    "build": "GENERATE_SOURCEMAP=false react-scripts build",
     "test": " TZ=UTC react-scripts test",
     "test:ci": "CI=true yarn test --coverage",
     "coveralls": "node node_modules/.bin/coveralls < coverage/lcov.info",
