@@ -41,6 +41,10 @@ exports[`App renders template correctly 1`] = `
       "overrides": Object {
         "MuiCssBaseline": Object {
           "@global": Object {
+            "#mobile-screen": Object {
+              "margin": "auto",
+              "maxWidth": 380,
+            },
             "@font-face": Array [
               Object {
                 "fontFamily": "Roboto",
@@ -70,8 +74,6 @@ exports[`App renders template correctly 1`] = `
             "body": Object {
               "backgroundColor": "#F4F4F4",
               "color": "#094067",
-              "margin": "auto",
-              "maxWidth": 380,
             },
           },
         },

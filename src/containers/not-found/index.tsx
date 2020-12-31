@@ -1,7 +1,11 @@
 import React from 'react';
 
 const NotFound = (): React.ReactElement => {
-  return <h1 style={{ textAlign: 'center' }}>404 Not Found!</h1>;
+  return (
+    <div id='mobile-screen'>
+      <h1 style={{ textAlign: 'center' }}>404 Not Found!</h1>
+    </div>
+  );
 };
 
 export default NotFound;

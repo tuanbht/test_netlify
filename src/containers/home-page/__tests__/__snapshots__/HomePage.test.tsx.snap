@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HomePage renders template exactly 1`] = `
+<div
+  className="makeStyles-root-1"
+>
+  <div
+    className="makeStyles-content-2"
+  >
+    <span
+      className="makeStyles-title-3"
+    >
+      Coming soon...
+    </span>
+    <ForwardRef(SvgPalomaLogo)
+      className="makeStyles-logo-4"
+    />
+  </div>
+</div>
+`;

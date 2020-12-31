@@ -7,7 +7,7 @@ const NotificationPage = (props: { content: { title: string; subtitle: string } 
   const { content } = props;
 
   return (
-    <div className={styles.root}>
+    <div id='mobile-screen' className={styles.root}>
       <Header showBack={false} />
       <div className={styles.content}>
         <div className={styles.title}>{content.title}</div>

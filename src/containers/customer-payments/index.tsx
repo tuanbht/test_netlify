@@ -65,7 +65,7 @@ const CustomerPayments = (props: { match: { params: { orderId: number; token: st
   return orderDetails.isEmpty() ? (
     <></>
   ) : (
-    <div className={styles.root}>
+    <div id='mobile-screen' className={styles.root}>
       <Header goBack={() => setStep(STEPS.CRYPTO)} showBack={!isCancelled && step === STEPS.WALLET} />
       {isCancelled ? (
         <>
