@@ -3,6 +3,7 @@
 exports[`InvalidOrder renders template correctly 1`] = `
 <div
   className="makeStyles-root-1"
+  id="mobile-screen"
 >
   <Header
     showBack={false}

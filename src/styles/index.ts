@@ -11,10 +11,12 @@ export default createMuiTheme({
       '@global': {
         '@font-face': FontFaceList,
         body: {
-          margin: 'auto',
-          maxWidth: 380,
           color: Color.tarawera,
           backgroundColor: Color.wildSand,
+        },
+        '#mobile-screen': {
+          margin: 'auto',
+          maxWidth: 380,
         },
         '@keyframes rotating': {
           from: {

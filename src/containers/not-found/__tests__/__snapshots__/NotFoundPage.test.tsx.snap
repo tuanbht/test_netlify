@@ -1,13 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`NotFoundPage renders template exactly 1`] = `
-<h1
-  style={
-    Object {
-      "textAlign": "center",
-    }
-  }
+<div
+  id="mobile-screen"
 >
-  404 Not Found!
-</h1>
+  <h1
+    style={
+      Object {
+        "textAlign": "center",
+      }
+    }
+  >
+    404 Not Found!
+  </h1>
+</div>
 `;

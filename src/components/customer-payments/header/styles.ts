@@ -24,4 +24,7 @@ export default makeStyles({
     marginLeft: 20,
     cursor: 'pointer',
   },
+  logo: {
+    width: 23,
+  },
 });
