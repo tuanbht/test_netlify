@@ -45,9 +45,39 @@ describe('HttpsRedirect', () => {
         process.env.NODE_ENV = 'test';
       });
 
-      it('does not redicrect to https', () => {
-        HttpsRedirect({});
-        expect(window.location.assign).toBeCalledWith('https://localhost/');
+      describe('protocol already secured', () => {
+        beforeEach(() => {
+          Object.defineProperty(window, 'location', {
+            writable: true,
+            value: {
+              protocol: 'https:',
+              assign: jest.fn(),
+              href: 'https://palomapay.com/',
+            },
+          });
+        });
+
+        afterEach(() => {
+          Object.defineProperty(window, 'location', {
+            value: {
+              protocol: 'http:',
+              assign: jest.fn(),
+              href: 'http://palomapay.com/',
+            },
+          });
+        });
+
+        it('does not redicrect to https', () => {
+          HttpsRedirect({});
+          expect(window.location.assign).not.toBeCalled();
+        });
+      });
+
+      describe('protocol is not secured', () => {
+        it('redicrects to https', () => {
+          HttpsRedirect({});
+          expect(window.location.assign).toBeCalledWith('https://palomapay.com/');
+        });
       });
     });
 
