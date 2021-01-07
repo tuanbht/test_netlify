@@ -13,7 +13,7 @@ const Header = (props: { goBack?: () => void; showBack: boolean }): React.ReactE
       {showBack && <ArrowBackIcon className={headerStyle.goBack} onClick={goBack} />}
       <div className={headerStyle.title}>
         <PalomaLogo className={headerStyle.logo} />
-        <span>Paloma Payments</span>
+        <span>Paloma Pay</span>
       </div>
     </Container>
   );
