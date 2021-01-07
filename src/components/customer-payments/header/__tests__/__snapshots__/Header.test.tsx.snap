@@ -11,7 +11,7 @@ exports[`Header can back is false renders template without arrow back button 1`]
       className="makeStyles-logo-4"
     />
     <span>
-      Paloma Payments
+      Paloma Pay
     </span>
   </div>
 </WithStyles(ForwardRef(Container))>
@@ -32,7 +32,7 @@ exports[`Header can back is true renders template with arrow back button 1`] = `
       className="makeStyles-logo-4"
     />
     <span>
-      Paloma Payments
+      Paloma Pay
     </span>
   </div>
 </WithStyles(ForwardRef(Container))>
